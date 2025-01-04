@@ -1,0 +1,3137 @@
+@import url(' https://fonts.cdnfonts.com/css/badoga ');
+/* familia de fuentes: 'Badoga', sans-serif; */
+@import url('https://fonts.googleapis.com/css2? family= Montserrat:ital,wght@0,100;0,200;1,200 & family= Roboto:ital,wght@0,100;0,300;0,400;0,500; 1,100;1,500;1,900 & familia= Sofia+Sans+Condensado:ital@1 & display=swap');
+/* familia de fuentes: 'Sofia Sans Condensed', sans-serif; */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+}
+
+
+/*-----------------------------------------------*/
+/*-----------------------------------------------*/
+/* Comienza formato general para booton whatsapp */
+/*-----------------------------------------------*/
+/*-----------------------------------------------*/
+
+.container_botton {
+    width: 40px;
+    height: 40px;
+    background-color: #25D366;
+    border: solid 1px #25D366;
+    position: fixed;
+    z-index: 999;
+    border-radius: 100%;
+    bottom: 15px;
+    right: 10px;
+    padding: 5px;
+    transform: scale(1);
+    animation: whatsapp 1s infinite;
+}
+
+.container_botton:hover {
+    transform: scale(1.05);
+    transition: 0.3s;
+}
+
+.icon_wa {
+    width: min-content;
+}
+
+@keyframes whatsapp {
+    0% {
+        box-shadow: 0 0 0 0 #52a6b2;
+    }
+
+    100% {
+        box-shadow: 0 0 0 8px rgba(0, 0, 0, 0);
+    }
+}
+
+/*---------------------------------------*/
+/*---------------------------------------*/
+/* Comienza formato general para el menu */
+/*---------------------------------------*/
+/*---------------------------------------*/
+
+.dropdown__icon_house {
+    height: 30px;
+}
+
+.dropdown__icon_elitianw {
+    margin: -13px;
+    height: 50px;
+}
+
+.dropdown__icon_product {
+    height: 30px;
+}
+
+.dropdown__icon_recicla {
+    height: 30px;
+}
+
+.dropdown__icon_blog {
+    height: 30px;
+}
+
+.dropdown__icon_email {
+    height: 27px;
+}
+
+.logo {
+    height: 55px;
+    padding-left: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.nav-corto {
+    background-color: #a1dcdc;
+    --img1: scale(1);
+    --img2: scale(0);
+}
+
+.nav-corto:has(.menu__links:target) {
+    --img1: scale(0);
+    --img2: scale(1);
+    --clip: inset(0 0 0 0);
+}
+
+.menu__container {
+    width: 100%;
+    margin: 0 auto;
+    height: 70px;
+    display: grid;
+    grid-template-columns: max-content max-content;
+    grid-template-areas: "title img";
+    justify-content: space-between;
+    align-items: center;
+    overflow: hidden;
+}
+
+.enlace {
+    margin: 8px;
+    grid-area: title;
+}
+
+.nav__menu {
+    grid-area: img;
+    position: relative;
+    z-index: 500;
+    transform: var(--img1);
+}
+
+.nav__menu--second {
+    transform: var(--img2);
+}
+
+.nav__icon {
+    width: 30px;
+    display: block;
+    margin-right: 20px;
+}
+
+.menu__links {
+    font-family: 'Badoga', sans-serif;
+    position: absolute;
+    background-color: #a1dcdc;
+    width: auto;
+    height: auto;
+    right: 0;
+    top: 0;
+    bottom: auto;
+    display: grid;
+    align-content: center;
+    overflow-y: auto;
+    clip-path: var(--clip, inset(0 0 100% 100%));
+    transition: clip-path .5s;
+    z-index: 400;
+}
+
+.menu__item {
+    list-style: none;
+}
+
+.menu__link {
+    color: #444444;
+    padding: .3em .7em;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 1.3rem;
+    position: relative;
+    background-color: var(--bg, transparent);
+}
+
+.menu__item--show:has(:checked) {
+    --rows: 1fr;
+    --rotate: rotate(180deg);
+    --bg: #e9d8c0;
+}
+
+.checkbox {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.dropdown__span:hover {
+    color: #52a6b2;
+}
+
+.menu__arrow {
+    height: 12px;
+    margin-left: auto;
+    transform: var(--rotate, 0);
+    transition: .2s transform;
+}
+
+.list_categorias {
+    display: grid;
+    grid-template-rows: var(--rows, 0fr);
+    transition: .3s grid-template-rows;
+    
+    z-index: 900px;
+}
+
+.menu__nesting {
+    overflow: hidden;
+}
+
+.menu__inside {
+    
+    list-style: none;
+    margin-left: auto;
+}
+
+.menu__link--inside:hover {
+    color: #52a6b2;
+}
+
+/*------------------------------------------------*/
+/*----------------------------------------------- */
+/* Comienza los estilos del carrusel para general */
+/*------------------------------------------------*/
+/*------------------------------------------------*/
+
+.carrusel-contenedor {
+    max-width: 100%;
+    max-height: 100vh;
+    position: relative;
+    overflow: hidden;
+    margin: 0;
+    z-index: 100;
+}
+
+.miCarrusel {
+    display: none;
+    transition: opacity 2s;
+    max-height: 100vh;
+    z-index: 200;
+}
+
+/*
+.miCarrusel img {
+    width: 100%;
+    max-height: 100vh;
+    height: inherit;
+    object-fit: cover;
+    vertical-align: top;
+    transition: 2s;
+    opacity: 90%;
+}*/
+
+.img-carrusel-movil {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    transition: 2s;
+}
+
+.img-carrusel-pc {
+    display: none;
+}
+
+.banner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 300;
+}
+
+.banner-contenido {
+    text-align: center;
+    color: #000000;
+}
+
+.banner-contenido p {
+    font-size: 1em;
+    /* margin: 1rem; */
+    font-weight: 500;
+}
+
+.banner-contenido a {
+    margin-top: 0.5rem;
+    text-decoration: none;
+    color: #000000;
+    background-color: #e9d8c0;
+    opacity: 80%;
+    display: inline-block;
+    padding: 0.2rem 0.3rem;
+    text-transform: uppercase;
+    border: 1px solid #52a6b2;
+    border-radius: 100px;
+}
+
+.direcciones {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 20px;
+    z-index: 300;
+}
+
+.direcciones a {
+    color: #52a6b2;
+    display: inline-block;
+    padding: 20px;
+    text-decoration: none;
+}
+
+.direcciones a:hover {
+    background: #e9d8c0;
+    transition: .5s;
+}
+
+.barras {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 15px;
+    z-index: 300;
+}
+
+.barra {
+    cursor: pointer;
+    height: 2px;
+    width: 25px;
+    margin: 0 2px;
+    background: #e9d8c0;
+    display: inline-block;
+    margin-left: 3px;
+}
+
+.active {
+    background-color: #52a6b2;
+}
+
+.fade {
+    animation-name: fade;
+    animation-duration: 1s;
+}
+
+@keyframes fade {
+    from {
+        opacity: .4;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/*-----------------------------------------------------------------------------*/
+/*-----------------------------------------------------------------------------*/
+/* Comienzan los estilos de la galeria de imagenes por categorias para general */
+/*-----------------------------------------------------------------------------*/
+/*-----------------------------------------------------------------------------*/
+
+
+.galeria {
+    display: grid;
+    margin: 10px;
+    gap: 10px;
+    grid-template-columns: 1fr 1fr;
+    grid-auto-rows: 200px;
+    grid-template-areas:
+        "img1 img2"
+        "img1 img4"
+        "img3 img3"
+        "img7 img6"
+        "img8 img6"
+        "img5 img5"
+}
+
+.galeria-imagen {
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+    text-align: center;
+}
+
+.galeria-imagen::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-color: #e9d8c0;
+    transform: scale(0);
+    transition: background-color 0.3, opacity 0.3;
+    color: #e9d8c0;
+    align-items: center;
+    justify-content: center;
+    font-size: 1em;
+}
+
+.galeria-imagen:hover::after {
+    transform: scale(1);
+    background-color: #e9d8c0;
+    opacity: 50%;
+}
+
+.ver-mas-btn {
+    font-family: 'Monserrat', sans-serif;
+    width: 7rem;
+    padding: 2px;
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    border: 1px solid #52a6b2;
+    border-radius: 100px;
+    transform: translate(-50%, -50%);
+    letter-spacing: 2px;
+    font-weight: lighter;
+}
+
+.ver-mas-btn:hover {
+    background-color: #e9d8c0;
+    opacity: 70%;
+    transition: 0.5s;
+}
+
+.categoria {
+    font-family: 'Monserrat', sans-serif;
+    font-size: 1em;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    letter-spacing: 1px;
+    font-weight: bolder;
+}
+
+.galeria-imagen--g1 {
+    grid-area: img1;
+}
+
+.galeria-imagen--g2 {
+    grid-area: img2;
+}
+
+.galeria-imagen--g3 {
+    grid-area: img3;
+}
+
+.galeria-imagen--g4 {
+    grid-area: img4;
+}
+
+.galeria-imagen--g5 {
+    grid-area: img5;
+}
+
+.galeria-imagen--g6 {
+    grid-area: img6;
+}
+
+.galeria-imagen--g7 {
+    grid-area: img7;
+}
+
+.galeria-imagen--g8 {
+    grid-area: img8;
+}
+
+.galeria-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 80%;
+    transform: transition(-50%, -50%);
+}
+
+.galeria-img:hover {
+    background-color: #e9d8c0;
+    opacity: 30%;
+    transition: 0.1s;
+}
+
+/*-------------------------------------------------------------------*/
+/*-------------------------------------------------------------------*/
+/* Comienzan los estilos general para las caracteristicas de ofertas */
+/*-------------------------------------------------------------------*/
+/*-------------------------------------------------------------------*/
+
+.main-caracteristicas {
+    object-fit: cover;
+    margin: 20px 0 20px;
+}
+
+.caracteristicas-contenido {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr 1fr));
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    gap: 10px;
+}
+
+.tarjeta-contenido {
+    margin: 0px;
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #e9d8c0;
+    border-radius: 10px;
+    transition: transform 0.1s ease;
+    overflow: hidden;
+}
+
+.tarjeta-contenido:hover {
+    transform: scale(1.05);
+}
+
+.tarjeta-contenido img {
+    height: 30px;
+    width: 30px;
+    margin-bottom: 10px;
+}
+
+.contenido-destacado {
+    height: 4px;
+    width: 80px;
+    background-color: #52a6b2;
+    margin: 0 auto 1rem auto;
+    font-family: 'Monserrat', sans-serif;
+    font-weight: bolder;
+}
+
+.tarjeta-contenido span {
+    font-size: 1.1em;
+    font-weight: bold;
+    color: #333;
+    text-transform: uppercase;
+}
+
+.tarjeta-contenido p {
+    font-size: 1em;
+    color: #444444;
+    font-family: 'Monserrat', sans-serif;
+    font-weight: normal;
+}
+
+/*---------------------------------------------------------------*/
+/*---------------------------------------------------------------*/
+/* Comienzan los estilos para la sección de ofertas para general */
+/*---------------------------------------------------------------*/
+/*---------------------------------------------------------------*/
+
+
+.seccion-ofertas {
+    position: relative;
+    align-items: center;
+    display: grid;
+    margin-bottom: 50px;
+  }
+  
+.titulo-ofertas {
+    background-color: #e9d8c0;
+    font-family: 'Badoga', sans-serif;
+    text-align: center;
+    font-size: 1.3em;
+    line-height: 2.5;
+}
+  
+.contenedor-ofertas {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 25px;
+    justify-content: center;
+    align-items: center;
+}
+
+.caja-ofertas {
+    box-shadow: 1rem 1rem 1rem #e9d8c0;
+    border-radius: .7rem;
+    border: .1rem solid #e9d8c0;
+    height: 400px;
+    overflow: hidden;
+    margin: 20px 0;
+    text-align: center;
+}
+
+.oferta-porcentaje {
+    position: absolute;
+    margin-top: 10px;
+    margin-left: 10px;
+    padding: 10px;
+    font-size: 1.5em;
+    color: #e9d8c0;
+    background-color: #52a6b2;
+    z-index: 100;
+    border-radius: 10em;
+    border-style: dotted;
+    border-width: .1em;
+}
+
+.oferta-imagen-1 {
+    content: "";
+    background-image: url('/static/images/tienda/cuidado-capilar/302.jpg');
+    background-position: center;
+    background-size: cover;
+    width: 100%;
+    height: 330px;
+    transition: .6s ease;
+}
+
+.oferta-imagen-2 {
+    content: "";
+    background-image: url('/static/images/tienda/protectores-y-repelentes/601.jpg');
+    background-position: center;
+    background-size: cover;
+    width: 100%;
+    height: 330px;
+    transition: .6s ease;
+}
+
+.oferta-imagen-3 {
+    background-image: url('/static/images/tienda/aceites-y-serums/121.jpg');
+    background-position: bottom;
+    background-size: cover;
+    width: 100%;
+    height: 330px;
+    transition: .6s ease;
+}
+
+.oferta-imagen-4 {
+    background-image: url('/static/images/tienda/balsamos-y-cremas/202.jpg');
+    background-position: bottom;
+    background-size: cover;
+    width: 100%;
+    height: 330px;
+    transition: .6s ease;
+}
+
+.ofimg-1,
+.ofimg-2,
+.ofimg-3,
+.ofimg-4 {
+    object-fit: cover;
+    width: 100%;
+    height: 330px;
+}
+
+.ofimg-1:hover,
+.ofimg-2:hover,
+.ofimg-3:hover,
+.ofimg-4:hover {
+    opacity: 0;
+    transition: .6s ease;
+}
+
+.oferta-iconos {
+    background-color: #52a6b2;
+    height: 50px;
+    padding: 5px;
+    display: flex;
+    justify-content: space-around;
+    transform: translateY(0);
+    margin-top: -53px;
+    opacity: 1;
+    transition: .5s;
+}
+
+.oferta-iconos img {
+    width: 22px;
+    height: 22px;
+}
+
+.oferta-enlace {
+    text-decoration: none;
+    color: #444444;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.oferta-contenido {
+    text-align: center;
+}
+
+.oferta-contenido h1 {
+    font-family: 'Badoga', sans-serif;
+    font-size: 1.2rem;
+    color: #52a6b2;
+    margin-top: 10px;
+}
+
+.oferta-precio {
+    font-family: 'Monserrat', sans-serif;
+    font-size: 1.1em;
+    color: #000000;
+    font-weight: bold;
+}
+
+.oferta-contenido span {
+    font-family: 'Monserrat', sans-serif;
+    font-size: 1rem;
+    color: #918e8d;
+    font-weight: bold;
+    text-decoration: line-through;
+}
+
+    /*---------------------------------------------------*/
+    /*---------------------------------------------------*/
+    /* Comienzan los estilos para el footer para general */
+    /*---------------------------------------------------*/
+    /*---------------------------------------------------*/
+
+.footer {
+    background-color: #52a6b2;
+    color: #fff;
+}
+
+.contenedor-footer {
+    font-family: 'Monserrat', sans-serif;
+    max-width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.social-icons,
+.contacto-info,
+.informacion,
+.copyright {
+    flex: 0 0 100%;
+    margin-top: 10px;
+    text-align: center;
+}
+
+.social-icons a:hover {
+    color: #e9d8c0;
+}
+
+.informacion a:hover {
+    color: #e9d8c0;
+}
+
+.social-icons img {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+    background-color: #52a6b2;
+}
+
+.social-icons a {
+    text-decoration: none;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.titulo-footer {
+    font-family: 'Badoga', sans-serif;
+    font-size: 1rem;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.contacto-info ul,
+.informacion ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.contacto-info li,
+.informacion li {
+    margin-bottom: 2px;
+}
+
+.contacto-info img {
+    width: 13px;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.informacion a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.copyright {
+    background-color: #e9d8c0;
+    color: #52a6b2;
+    padding-top: 3px;
+    padding-bottom: 3px;
+}
+
+    /*----------------------------------------------------*/
+    /*----------------------------------------------------*/
+    /*----------------------------------------------------*/
+    /*                  HTML CONOCENOS                    */
+    /*----------------------------------------------------*/
+    /*----------------------------------------------------*/
+    /*----------------------------------------------------*/
+
+.contenedor-conocenos {
+    color: #444444;
+    align-items: center;
+    position: relative;
+}
+
+.contenedor-conocenos--p {
+    padding: 30px;
+    
+}
+
+.contenedor-conocenos h1,
+section h2 {
+    font-family: 'Badoga', sans-serif;
+    text-align: center;
+    line-height: 2;
+    color: #52a6b2;
+}
+
+.contenedor-conocenos p {
+    font-family: 'Monserrat', sans-serif;
+    margin-bottom: 30px;
+    text-align: justify;
+}
+
+.contenedor-conocenos span {
+    font-weight: bold;
+}
+
+.logo-elitian {
+    display: flex;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin-top: auto;
+    justify-content: center;
+    align-items: center;
+    
+  }
+
+  .logo-elitian img {
+    height: 150px;
+}
+
+
+    /*----------------------------------------------------*/
+    /*----------------------------------------------------*/
+    /*----------------------------------------------------*/
+    /*                  HTML RECICLA                      */
+    /*----------------------------------------------------*/
+    /*----------------------------------------------------*/
+    /*----------------------------------------------------*/
+
+
+.container_recicla {
+    position: relative;
+    overflow: hidden;
+    align-items: center;
+    justify-content: center;
+    color: #444444;
+}
+
+.title_seccion_recicla {
+    text-align: center;
+    margin-top: 30px;
+    color: #52a6b2;
+    font-family: 'Badoga', sans-serif;
+    font-size: 1.5em;
+    line-height: 3;
+}
+
+.title_seccion_recicla span {
+    color: #e9d8c0;
+}
+
+.description_seccion_recicla--one {
+    width: 70vw;
+    text-align: center;
+    font-family: 'Monserrat', sans-serif;
+    color: #52a6b2;
+    margin: 20px auto;
+    font-size: 1.2em;
+    text-transform: uppercase;
+    box-shadow: 0 .5rem 1.5rem #e7d9c6;
+    border-radius: .5rem;
+    border: .1rem solid #e9d8c0;
+    padding: 8px;
+}
+
+.description_seccion_recicla--two {
+    font-family: 'Monserrat', sans-serif;
+    margin: 30px 50px 10px;
+    text-align: justify;
+    font-size: 1rem;
+}
+
+.description_seccion_recicla--three {
+    font-family: 'Monserrat', sans-serif;
+    text-align: justify;
+    margin: 10px 50px 10px;
+    font-size: 1rem;
+}
+
+.description_three--span {
+    font-family: 'Monserrat', sans-serif;
+    font-size: 1em;
+    text-align: center;
+    font-weight: bold;
+}
+
+.description_seccion_recicla--four {
+    text-align: center;
+    font-family: 'Badoga', sans-serif;
+    margin: 30px;
+    font-size: 1.1rem;
+}
+
+.secciondos_img {
+    width: 15px;
+    height: 15px;
+}
+
+.description_seccion_recicla--tips {
+    font-family: 'Monserrat', sans-serif;
+    margin: 10px 50px 10px;
+    font-size: 1rem;
+    text-align: justify;
+}
+
+.description_seccion_recicla--reflexion {
+    width: 70vw;
+    text-align: center;
+    font-family: 'Badoga', sans-serif;
+    color: #444444;
+    box-shadow: 0 .5rem 1.5rem #e7d9c6;
+    border-radius: .5rem;
+    border: .1rem solid #e9d8c0;
+    margin: 30px auto;
+    font-size: 1.1rem;
+    padding: 15px;
+}
+
+.span_medioambiente {
+    font-weight: bold;
+    color: #52a6b2;
+}
+
+.description_seccion2--final {
+    text-align: center;
+    font-family: 'Badoga', sans-serif;
+    text-decoration: solid;
+    margin-top: 40px;
+    font-size: 1.2rem;
+}
+
+.recicla-img {
+    text-align: center;
+    align-items: center;
+}
+
+.manos {
+    height: 50px;
+}
+
+.container_ecoideas {
+    font-family: 'Monserrat', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 30px;
+}
+
+.tarjeta-ecoidea {
+    width: 350px;
+    margin: 0;
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #e9d8c0;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+    overflow: hidden;
+}
+
+.tarjeta-ecoidea:hover {
+    transform: translateY(-5px); /* Eleva el contenedor 5px cuando se pasa el cursor sobre él */
+  }
+
+.ecoidea_img {
+    height: 30px;
+    width: 30px;
+    margin-bottom: 10px;
+}
+
+.ecoideas {
+    height: 4px;
+    width: 75px;
+    background-color: #52a6b2;
+    margin: 0 auto 1rem auto;
+}
+
+.ecoidea_title {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #333;
+    text-transform: uppercase;
+}
+
+.ecoidea_desc {
+    font-size: 1rem;
+    color: #444444;
+    font-family: 'Monserrat', sans-serif;
+    font-weight: normal;
+}
+
+    /*----------------------------------------------------*/
+    /*----------------------------------------------------*/
+    /*----------------------------------------------------*/
+    /*                  HTML CONTACTO                     */
+    /*----------------------------------------------------*/
+    /*----------------------------------------------------*/
+    /*----------------------------------------------------*/
+
+.contenedor-contacto {
+    color: #444444;
+    position: relative;
+    overflow: hidden;
+    align-items: center;
+}
+
+.contenedor-contacto--p {
+    padding: 30px;
+    text-align: center;
+    position: relative;
+}
+
+.titulo-contacto {
+    padding-bottom: 10px;
+    font-family: 'Badoga', sans-serif;
+    color: #52a6b2;
+    font-size: 1.3em;
+    text-align: center;
+    line-height: 3;
+}
+
+.subtitulo-contacto {
+    font-size: 1.2em;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.contenedor-contacto--p p {
+    text-align: justify;
+    font-family: 'Monserrat', sans-serif;
+    font-size: 1rem;
+}
+
+.img-redes {
+    align-items: center;
+}
+
+.img-redes a {
+    color: #444444;
+    text-align: center;
+    text-decoration: none;
+    margin-right: 20px;
+}
+
+.img-redes a:hover {
+    color: #52a6b2;
+}
+
+.img-redes img {
+    align-items: center;
+    max-width: 210px;
+    max-height: 1px;
+}
+
+.img-redes span {
+    font-size: 1.1em;
+}
+
+    /*----------------------------------------------------*/
+    /*----------------------------------------------------*/
+    /*----------------------------------------------------*/
+    /*----------------------------------------------------*/
+    /*----------------------------------------------------*/
+    /*                  HTML BLOG                         */
+    /*----------------------------------------------------*/
+    /*----------------------------------------------------*/
+    /*----------------------------------------------------*/
+    /*----------------------------------------------------*/
+    /*----------------------------------------------------*/
+
+.main-blog {
+    width: 100%;
+    height: 100%;
+}
+
+.main-blog p {
+    color: #000000;
+}
+
+.seccion-blog {
+    position: relative;
+    display: grid;
+    margin: 10px 0 20px 0;
+    place-items: center;
+}
+
+.contenedor-blog {
+    padding: 10px 30px;
+}
+
+.contenedor-cat {
+    padding: 10px 30px;
+}
+
+.seccion-categoria {
+    position: relative;
+    display: grid;
+    margin: 10px 0 20px 0;
+    place-items: center;
+}
+
+.titulo-blog {
+    width: 100%;
+    background-color: #e9d8c0;
+    font-family: 'Badoga', sans-serif;
+    padding-right: 50px;
+    text-align: right;
+    font-size: 1.2rem;
+    line-height: 2;
+}
+
+.titulo-cat {
+    padding: 10px 20px 0;
+    font-family: 'Monserrat', sans-serif;
+    text-align: left;
+    color: #52a6b2;
+    font-size: 1.2rem;
+}
+
+.post-individual {
+    margin: 0 auto 20px; /* Esto centrará cada post en el ancho de la página */
+    max-width: 800px; /* Establece el ancho máximo de cada post si lo deseas */
+    border: 1px solid #e9d8c0; /* Añade un borde alrededor de cada post si lo deseas */
+    border-radius: 40px; /* Añade esquinas redondeadas a cada post si lo deseas */
+    box-sizing: border-box; /* Incluye el padding en el ancho total del post */
+    box-shadow: 0 20px 20px -20px #e9d8c0, 0 0 0 0 #e9d8c0;
+}
+
+.categoria-individual {
+    margin: 30px auto; /* Esto centrará cada categoría en el ancho de la página */
+    box-sizing: border-box; /* Incluye el padding en el ancho total de la categoría */
+    border: 1px solid #e9d8c0; /* Añade un borde alrededor de cada categoría si lo deseas */
+    border-radius: 0 0 40px 40px; /* Añade esquinas redondeadas a cada categoría si lo deseas */
+    box-shadow: 0 20px 20px -20px #e9d8c0, 0 0 0 0 #e9d8c0;
+}
+
+.post-individual-cat {
+    margin: 10px; /* Esto centrará cada categoría en el ancho de la página */
+    max-width: 800px; /* Establece el ancho máximo de cada post si lo deseas */
+    border: 1px solid #e9d8c0; /* Añade un borde alrededor de cada post si lo deseas */
+    border-radius: 40px; /* Añade esquinas redondeadas a cada categoría si lo deseas */
+    box-sizing: border-box; /* Incluye el padding en el ancho total del post */
+    box-shadow: 0 20px 20px -20px #e9d8c0, 0 0 0 0 #e9d8c0;
+}
+
+.contenedor-blog__img img {
+    object-fit: contain;
+}
+
+.contenedor-cat__categoria {
+    flex-wrap: wrap;
+}
+
+.contenedor-cat__categoria ul {
+    font-family: 'Monserrat', sans-serif;
+    margin: 15px 100px 30px;
+    font-size: 1em;
+    color: #52a6b2;
+}
+
+.contenedor-subpost {
+    padding: 20px 20px 20px 20px;
+    border: 0 1px 1px 1px solid #e9d8c0;
+}
+
+.post-contenido {
+    font-family: 'Monserrat', sans-serif;
+    font-size: 1em;
+    margin: 10px 30px;
+}
+
+.post-contenido p {
+    margin: 10px 20px 60px;
+}
+
+.post-contenido__detalles {
+    font-family: 'Monserrat', sans-serif;
+    font-size: 1em;
+    margin: 20px 50px 10px;
+    padding: 20px 0 0;
+    text-align: left;
+    color: #52a6b2;
+}
+
+.post-contenido__detalles p {
+    margin: 20px 0 30px;
+}
+
+.post-contenido__formato {
+    font-family: 'Monserrat', sans-serif;
+    margin: 20px 30px;
+    padding: 20px;
+    text-align: justify;
+}
+
+.post-contenido__hash {
+    text-align: left;
+}
+
+.post-contenido li {
+    color: #e9d8c0;
+}
+
+.blog-post-img {
+    width: 100%;
+    height: auto;
+}
+
+.blog-img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5% 5% 0 0;
+}
+
+.lista-redireccion {
+    font-family: 'Badoga', sans-serif;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.redireccion {
+    display: flex;
+    align-items: center;
+    font-size: 1.2em;
+    gap: 10px;
+}
+
+    /*----------------------------------------------------*/
+    /*----------------------------------------------------*/
+    /*----------------------------------------------------*/
+    /*----------------------------------------------------*/
+    /*----------------------------------------------------*/
+    /*                  HTML TIENDA                       */
+    /*----------------------------------------------------*/
+    /*----------------------------------------------------*/
+    /*----------------------------------------------------*/
+    /*----------------------------------------------------*/
+    /*----------------------------------------------------*/
+
+.main-tienda-cat {
+    margin: 0;
+}
+
+.titulo-tienda-cat {
+    width: 100%;
+    background-color: #e9d8c0;
+    font-family: 'Badoga', sans-serif;
+    margin: 0 0 30px;
+    text-align: center;
+    font-size: 1.3rem;
+    line-height: 2.5;
+}
+
+.lista-productos {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    place-content: center;
+}
+
+.producto-item-cat {
+    max-width: calc(50% - 100px); /* Aproximadamente 2 productos por fila */
+    margin-bottom: 50px;
+    margin-right: 30px;
+    box-sizing: border-box;
+    font-family: 'Monserrat', sans-serif;
+    border: 1px solid #e9d8c0;
+    border-radius: 10px;
+    box-sizing: border-box; /* Incluye el padding en el ancho total del post */
+    box-shadow: 0 20px 20px -20px #e9d8c0, 0 0 0 0 #e9d8c0;
+}
+
+.producto-imagen-cat {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px 10px 0 0;
+}
+
+.producto-titulo-cat {
+    margin: 10px 10px 5px;
+    padding: 5px 10px 0 10px;
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+.producto-precio-cat span {
+    font-family: 'Monserrat', sans-serif;
+    margin-top: 5px;
+    padding-bottom: 10px;
+    font-size: 0.8rem;
+    color: #918e8d;
+    text-decoration: line-through;
+}
+
+.producto-precio-cat {
+    font-family: 'Monserrat', sans-serif;
+    margin: 10px 10px 5px;
+    padding: 0 10px 10px 10px;
+    font-size: 1.1rem;
+    color: #000000;
+    font-weight: bold;
+}
+
+/*------------------------------------------*/
+/*------------------------------------------*/
+/* Comienzan los estilos para cada producto */
+/*------------------------------------------*/
+/*------------------------------------------*/
+
+.pagos-envios {
+    width: 100%;
+    background-color: #52a6b2;
+    color: #e9d8c0;
+    font-family: 'Monserrat', sans-serif;
+    margin: 0 0 20px;
+    text-align: center;
+    font-size: 1.2rem;
+    line-height: 2;
+}
+
+.contenedor-producto {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 20px auto;
+    border: 1px solid #e9d8c0;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.producto-imagen-carrusel {
+    width: 50%;
+    position: relative;
+    flex: 1 1 100%;
+    box-sizing: border-box;
+    flex-basis: 50%;
+    overflow: hidden;
+    object-fit: cover;
+    display: block;
+}
+
+.producto-imagen-carrusel img {
+    width: 100%;
+    height: 330px;
+    object-fit: cover;
+}
+
+.direcciones-producto {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 24px;
+    z-index: 300;
+}
+
+#btn-next,
+#btn-prev {
+    cursor: pointer;
+    padding: 10px;
+    margin-top: 10px;
+    font-size: 24px;
+}
+
+.direcciones-producto a {
+    color: #52a6b2;
+    display: inline-block;
+    padding: 20px;
+    text-decoration: none;
+}
+
+.direcciones-producto a:hover {
+    background: #e9d8c0;
+    transition: .5s;
+}
+
+.producto-detalles {
+    font-family: 'Monserrat', sans-serif;
+    flex: 1 1 100%;
+    box-sizing: border-box;
+    padding: 20px;
+    flex-basis: 50%;
+}
+
+.producto-codmar {
+    flex-flow: column;
+    padding-bottom: 10px;
+    font-size: 1rem;
+    color: #52a6b2;
+}
+
+.producto-codmar span {
+    font-size: 0.8rem;
+    color: #444444;
+}
+
+.producto-titulo {
+    font-family: 'Monserrat', sans-serif;
+    font-size: 1.1rem;
+    margin-top: 10px;
+    font-weight: bolder;
+}
+
+.producto-detalle-precio span {
+    margin-top: 5px;
+    padding-bottom: 10px;
+    font-size: 0.8rem;
+    color: #918e8d;
+    text-decoration: line-through;
+}
+
+.producto-detalle-precio {
+    margin: 10px 0 10px;
+    padding: 0 10px 10px 10px;
+    font-size: 1.4rem;
+    color: #000000;
+    font-weight: bolder;
+}
+
+.metodos-de-pagos {
+    margin-top: 10px;
+    font-family: 'Monserrat', sans-serif;
+    flex: 1 1 100%;
+    box-sizing: border-box;
+    border-top: 1px solid #e9d8c0;
+    font-size: 0.9rem;
+}
+
+.metodos-de-pagos p {
+    margin-top: 20px;
+}
+
+.metodos-de-pagos span {
+    font-weight: bolder;
+    color: #52a6b2;
+}
+
+.formas-de-envios {
+    margin: 15px 0;
+    font-family: 'Monserrat', sans-serif;
+    flex: 1 1 100%;
+    box-sizing: border-box;
+    font-size: 0.9rem;
+}
+
+.formas-de-envios span {
+    font-weight: bolder;
+    color: #52a6b2;
+}
+
+.producto-descripcion p {
+    font-family: 'Monserrat', sans-serif;
+    color: #52a6b2;
+    font-size: 1rem;
+    margin-top: 20px;
+    margin-bottom: 3px;
+}
+
+.producto-descripcion {
+    font-family: 'Monserrat', sans-serif;
+    margin-bottom: 5px;
+    font-size: 1rem;
+    text-align: justify;
+    flex: 1 1 100%;
+    box-sizing: border-box;
+    padding: 20px;
+}
+
+/*------------------------------------------------------------------------------------------------------------------------------------------------*/
+/* FIN GENERAL */
+/*------------------------------------------------------------------------------------------------------------------------------------------------*/
+/*------------------------------------------------------------------------------------------------------------------------------------------------*/
+/*------------------------------------------------------------------------------------------------------------------------------------------------*/
+/*------------------------------------------------------------------------------------------------------------------------------------------------*/
+/* INICIO ESTILOS PARA MOVILES */
+/*------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+@media only screen and (max-width: 767px) {
+
+    /*--------------------------------------------------*/
+    /*--------------------------------------------------*/
+    /*--------------------------------------------------*/
+    /*                       NAV                        */
+    /*--------------------------------------------------*/
+    /*--------------------------------------------------*/
+    /*--------------------------------------------------*/
+
+    .nav-largo {
+        display: none; /* Oculto el menú para dispositivos grandes */
+    }
+
+    /*-----------------------------------------------------------------*/
+    /*-----------------------------------------------------------------*/
+    /* Comienza los estilos para boton flotante de whatsapp para movil */
+    /*-----------------------------------------------------------------*/
+    /*-----------------------------------------------------------------*/
+
+
+    /*---------------------------------*/
+    /*---------------------------------*/
+    /* Comienza formato menu para celu */
+    /*---------------------------------*/
+    /*---------------------------------*/
+
+
+    .dropdown__icon_elitianw {
+        margin: 0;
+    /* Ajuste específico para pantallas pequeñas */
+        height: 40px;
+    /* Ajuste específico para pantallas pequeñas */
+    }
+
+    .menu__link {
+        padding: .5em .7em;
+        /* Ajuste específico para pantallas pequeñas */
+    }
+
+    /*---------------------------------------------*/
+    /*-------------------------------------------- */
+    /* Comienza los estilos del carrusel para celu */
+    /*---------------------------------------------*/
+    /*---------------------------------------------*/
+
+
+    /*--------------------------------------------------------------------------*/
+    /*--------------------------------------------------------------------------*/
+    /* Comienzan los estilos de la galeria de imagenes por categorias para celu */
+    /*--------------------------------------------------------------------------*/
+    /*--------------------------------------------------------------------------*/
+
+
+
+    /*-----------------------------------------------------------*/
+    /*-----------------------------------------------------------*/
+    /* Comienzan los estilos para las caracteristicas de ofertas */
+    /*-----------------------------------------------------------*/
+    /*-----------------------------------------------------------*/
+
+    .caracteristicas-contenido {
+        display: grid;
+        margin-bottom: 10px ;
+        padding: 0 100px;
+        grid-template-columns: repeat(auto-fit, minmax(1fr));
+        align-items: center;
+        font-size: 0.9em;
+        gap: 10px;
+    }
+
+    .tarjeta-contenido {
+        width: 400px;
+    }
+
+    /*------------------------------------------------------------*/
+    /*------------------------------------------------------------*/
+    /* Comienzan los estilos para la sección de ofertas para celu */
+    /*------------------------------------------------------------*/
+    /*------------------------------------------------------------*/
+ 
+    .seccion-ofertas {
+        margin-bottom: 30px; /* Reducir el margen inferior para pantallas pequeñas */
+    }
+
+    .titulo-ofertas {
+        font-size: 1.1rem; /* Reducir el tamaño de fuente para pantallas pequeñas */
+    }
+
+    .contenedor-ofertas {
+        margin: 0 15px; /* Reducir el margen lateral para pantallas pequeñas */
+    }
+
+    .caja-ofertas {
+        width: 400px;
+        height: 400px; /* Reducir la altura de la caja de ofertas para pantallas pequeñas */
+        margin: 10px 50px 30px; /* Reducir el margen entre cajas de ofertas para pantallas pequeñas */
+    }
+
+    .oferta-porcentaje {
+        margin: 15px; /* Ajustar el margen para pantallas pequeñas */
+        padding: 8px; /* Ajustar el relleno para pantallas pequeñas */
+        font-size: 1.5em; /* Ajustar el tamaño de fuente para pantallas pequeñas */
+    }
+
+    .oferta-contenido h1 {
+        font-size: 1em; /* Reducir el tamaño de fuente para pantallas pequeñas */
+    }
+
+    .oferta-precio {
+        font-size: 1em; /* Reducir el tamaño de fuente para pantallas pequeñas */
+    }
+
+    .oferta-contenido span {
+        font-size: 0.9rem; /* Reducir el tamaño de fuente para pantallas pequeñas */
+    }
+
+    /*------------------------------------------------*/
+    /*------------------------------------------------*/
+    /* Comienzan los estilos para el footer para celu */
+    /*------------------------------------------------*/
+    /*------------------------------------------------*/
+
+    .social-icons img {
+        width: 25px; /* Reducir el tamaño de los íconos de redes sociales */
+        height: 25px;
+    }
+
+    .titulo-footer {
+        font-size: 1.3rem; /* Reducir el tamaño del título del footer */
+    }
+
+    /*----------------------------------------------------*/
+    /*----------------------------------------------------*/
+    /*----------------------------------------------------*/
+    /*                  HTML CONOCENOS                    */
+    /*----------------------------------------------------*/
+    /*----------------------------------------------------*/
+    /*----------------------------------------------------*/
+
+    .contenedor-conocenos {
+        width: 100%;
+        height: 100%;
+    }
+
+    .contenedor-conocenos--p {
+        padding: 30px; /* Reducir el relleno para pantallas pequeñas */
+        padding-bottom: 50px;
+    }
+
+    .contenedor-conocenos::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-image: url("/static/images/conocenos/vertical.jpg");
+        background-size: cover;
+        background-position: center;
+        opacity: 0.3;
+        z-index: 10;
+    }
+
+    .contenedor-conocenos h1,
+    section h2 {
+        font-size: 1.5em; /* Reducir el tamaño de fuente para pantallas pequeñas */
+    }
+
+    .contenedor-conocenos p {
+        font-size: 1rem; /* Reducir el tamaño de fuente para pantallas pequeñas */
+    }
+
+    /*----------------------------------------------------*/
+    /*----------------------------------------------------*/
+    /*----------------------------------------------------*/
+    /*                  HTML RECICLA                      */
+    /*----------------------------------------------------*/
+    /*----------------------------------------------------*/
+    /*----------------------------------------------------*/
+
+    .container_recicla {
+        width: 100%;
+        height: 100%;
+    }
+    
+    .container_recicla::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-image: url("/static/images/logos/logo-linkc.png");
+        background-size: cover;
+        background-position: center;
+        opacity: 0.1;
+        z-index: 10;
+    }
+
+    .container_ecoideas {
+        margin: 15px;
+    }
+
+    .tarjeta-ecoidea {
+        width: 400px;
+        margin-bottom: 20px;
+    }
+
+    /*----------------------------------------------------*/
+    /*----------------------------------------------------*/
+    /*----------------------------------------------------*/
+    /*                  HTML CONTACTO                     */
+    /*----------------------------------------------------*/
+    /*----------------------------------------------------*/
+    /*----------------------------------------------------*/
+
+    .contenedor-contacto {
+        width: 100vw;
+        height: 100%;
+        padding: 10px 10px 10px;
+    }
+
+    .contenedor-contacto::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-image: url('/static/images/logos/logo-linkc.png');
+        background-size: contain;
+        background-position: center;
+        opacity: 0.1;
+        z-index: 10;
+    }
+
+    .titulo-contacto {
+        font-size: 1.3rem;
+        line-height: 2.5;
+    }
+
+    .subtitulo-contacto {
+        font-size: 1.2rem;
+        margin-top: 15px;
+    }
+
+    /*----------------------------------------------------*/
+    /*----------------------------------------------------*/
+    /*----------------------------------------------------*/
+    /*----------------------------------------------------*/
+    /*----------------------------------------------------*/
+    /*                  HTML BLOG                         */
+    /*----------------------------------------------------*/
+    /*----------------------------------------------------*/
+    /*----------------------------------------------------*/
+    /*----------------------------------------------------*/
+    /*----------------------------------------------------*/
+
+    .main-blog p {
+        color: #444444;
+    }
+
+    .seccion-blog,
+    .seccion-categoria {
+        margin: 0;
+    }
+
+    .contenedor-blog {
+        max-width: 600px;
+    }
+
+    .titulo-blog {
+        width: 100%;
+        padding-right: 25px;
+    }
+
+    .titulo-cat {
+        font-size: 1rem;
+        padding: 10px 20px 0;
+    }
+
+    .post-individual,
+    .categoria-individual {
+        margin: 10px;
+    }
+
+    .contenedor-cat__categoria ul {
+        margin: 10px;
+    }
+
+    .contenedor-subpost {
+        padding: 10px;
+        margin: 0;
+    }
+
+    .post-contenido,
+    .post-contenido__detalles {
+        margin: 10px;
+        padding: 5px;
+    }
+
+    .post-contenido__formato {
+        font-family: 'Monserrat', sans-serif;
+        font-size: 0.9rem;
+        margin: 0 40px;
+        padding: 10px;
+        text-align: left;
+    }
+
+    .post-contenido p {
+        margin: 10px 0 30px;
+    }
+
+    .blog-img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 5% 5% 0 0;
+    }
+
+    .redireccion {
+        padding: 5px;
+        font-size: 1em;
+    }
+
+    /*----------------------------------------------------*/
+    /*----------------------------------------------------*/
+    /*----------------------------------------------------*/
+    /*----------------------------------------------------*/
+    /*----------------------------------------------------*/
+    /*                  HTML TIENDA                       */
+    /*----------------------------------------------------*/
+    /*----------------------------------------------------*/
+    /*----------------------------------------------------*/
+    /*----------------------------------------------------*/
+    /*----------------------------------------------------*/
+
+    .main-tienda-cat {
+        width: 100%;
+        height: 100%;
+    }
+
+    .producto-item-cat {
+        max-width: calc(70% - 10px);
+        margin-bottom: 30px;
+    }
+
+    /*------------------------------------------*/
+    /*------------------------------------------*/
+    /* Comienzan los estilos para cada producto */
+    /*------------------------------------------*/
+    /*------------------------------------------*/
+
+    .pagos-envios {
+        font-size: 0.8rem;
+    }
+
+    .contenedor-producto {
+        max-width: calc(100% - 10px);
+        margin: 20px;
+    }
+
+    .formas-de-envios {
+        padding-bottom: 50px;
+        border-bottom: 1px solid #e9d8c0;
+    }
+
+    .producto-imagen-carrusel,
+    .producto-detalles {
+        flex-basis: 100%; /* En pantallas pequeñas, hacer que cada elemento ocupe el 100% del ancho */
+    }
+
+    .producto-detalles,
+    .producto-descripcion {
+        padding: 20px;
+    }
+
+}
+
+/*------------------------------------------------------------------------------------------------------------------------------------------------*/
+/* FIN MOVILES */
+/*------------------------------------------------------------------------------------------------------------------------------------------------*/
+/*------------------------------------------------------------------------------------------------------------------------------------------------*/
+/*------------------------------------------------------------------------------------------------------------------------------------------------*/
+/*------------------------------------------------------------------------------------------------------------------------------------------------*/
+/* INICIO ESTILOS PARA TABLETS */
+/*------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+@media only screen and (min-width: 768px) and (max-width: 1199px) {
+
+    body {
+        font-size: 18px;
+    }
+
+    .container {
+        width: 70%;
+        padding: 0 20px;
+    }
+
+    .imagen {
+        width: 70%;
+    }
+
+    /*----------------------*/
+    /* Menu nav para tablet */
+    /*----------------------*/
+
+    .nav-largo {
+        display: none; /* Oculto el menú para dispositivos pequeños */
+    }
+
+    .dropdown__icon_elitianw {
+        margin: 0;
+        /* Ajuste específico para pantallas pequeñas */
+        height: 40px;
+        /* Ajuste específico para pantallas pequeñas */
+    }
+
+    .menu__link {
+        padding: .5em .7em;
+        /* Ajuste específico para pantallas pequeñas */
+    }
+
+    /*------------------------------------*/
+    /* Seccion galeria imagen para tablet */
+    /*------------------------------------*/
+
+    .galeria {
+        display: grid;
+        margin: 20px;
+        gap: 20px;
+        grid-template-areas:
+            'img1 img4 img2'
+            'img1 img3 img3'
+            'img8 img7 img6'
+            'img5 img5 img6'
+    }
+
+    /*---------------------------------------------*/
+    /* Seccion caracteristicas ofertas para tablet */
+    /*---------------------------------------------*/
+
+    
+    .caracteristicas-contenido {
+        display: grid;
+        margin-bottom: 20px ;
+        padding: 0 100px;
+        grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+        justify-content: space-around;
+        font-size: 0.9rem;
+        gap: 20px;
+    }
+
+    .tarjeta-contenido {
+        margin: 0px;
+        padding: 10px;
+        text-align: center;
+        border: 1px solid #e9d8c0;
+        border-radius: 10px;
+        transition: transform 0.1s ease;
+        overflow: hidden;
+    }
+
+    /*-----------------------------*/
+    /* Seccion ofertas para tablet */
+    /*-----------------------------*/
+
+    .seccion-ofertas {
+        position: relative;
+        align-items: center;
+        margin-bottom: 30px;
+      }
+
+    .seccion-ofertas {
+        margin-bottom: 20px; /* Reducir el margen inferior para pantallas pequeñas */
+    }
+
+    .titulo-ofertas {
+        font-size: 1.1rem; /* Reducir el tamaño de fuente para pantallas pequeñas */
+    }
+
+    .caja-ofertas {
+        width: calc(33%);
+        margin: 20px 30px; /* Reducir el margen entre cajas de ofertas para pantallas pequeñas */
+    }
+
+    .oferta-porcentaje {
+        margin: 15px; /* Ajustar el margen para pantallas pequeñas */
+        padding: 8px; /* Ajustar el relleno para pantallas pequeñas */
+        font-size: 1.5rem; /* Ajustar el tamaño de fuente para pantallas pequeñas */
+    }
+
+    .oferta-enlace {
+        font-size: 1rem;
+    }
+
+    .oferta-contenido h1 {
+    font-size: 1rem; /* Reducir el tamaño de fuente para pantallas pequeñas */
+    }
+
+    .oferta-precio {
+        font-size: 1.1rem; /* Reducir el tamaño de fuente para pantallas pequeñas */
+    }
+
+    .oferta-contenido span {
+        font-size: 1rem; /* Reducir el tamaño de fuente para pantallas pequeñas */
+    }
+
+    
+    /* footer tablet */
+
+    .titulo-footer {
+        font-size: 1.3rem; /* Reducir el tamaño del título del footer */
+    }
+
+    .contenedor-footer {
+        width: 100%;
+        flex-direction: column; /* Cambiar la dirección de los elementos a columna */
+        font-size: 1rem;
+    }
+
+    .social-icons,
+    .contacto-info,
+    .informacion,
+    .copyright {
+        flex: 0 0 50%; /* Dividir el espacio en dos columnas */
+        width: 100%;
+    }
+
+
+    /* HTML CONOCENOS para tablet */
+
+    .contenedor-conocenos {
+        width: 100%;
+        height: 100%;
+    }
+
+    .contenedor-conocenos::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-image: url("/static/images/conocenos/horizontal.jpg");
+        background-size: cover;
+        background-position: center;
+        opacity: 0.3;
+        z-index: 10;
+    }
+
+    .contenedor-conocenos--p {
+        padding: 20px; /* Ajustar el relleno para pantallas medianas */
+    }
+
+    .contenedor-conocenos h1,
+    section h2 {
+        font-size: 1.5rem; /* Aumentar el tamaño de fuente para pantallas medianas */
+    }
+
+    .contenedor-conocenos p {
+        font-size: 1rem; /* Aumentar el tamaño de fuente para pantallas medianas */
+    }
+
+    /* HTML RECICLA para tablet */
+
+    .container_recicla {
+        width: 100%;
+        height: 100%;
+    }
+    
+    .container_recicla::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-image: url("/static/images/logos/logo-linkc.png");
+        background-size: cover;
+        background-position: center;
+        opacity: 0.1;
+        z-index: 10;
+    }
+
+    .description_seccion_recicla--one {
+        width: 80vw;
+    }
+
+    .description_seccion_recicla--two,
+    .description_seccion_recicla--three,
+    .description_seccion_recicla--tips {
+        margin: 30px 50px 10px;
+        font-size: 1rem;
+    }
+
+    .description_seccion_recicla--four {
+        font-size: 1rem;
+    }
+
+    .description_seccion2--final {
+        font-size: 1.1rem;
+    }
+
+    .tarjeta-ecoidea {
+        width: 500px;
+        margin: 10px;
+    }
+
+    /* HTML CONTACTO para tablet */
+
+    .contenedor-contacto {
+        width: 100%;
+        height: 100%;
+        padding: 20px 20px 10px;
+    }
+
+    .contenedor-contacto::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-image: url('/static/images/logos/logo-linkc.png');
+        background-size: contain;
+        background-position: center;
+        opacity: 0.1;
+        z-index: 10;
+    }
+
+    .titulo-contacto {
+        font-size: 1.3rem;
+        line-height: 2.8;
+    }
+
+    .subtitulo-contacto {
+        font-size: 1.2rem;
+        margin-top: 17px;
+    }
+
+    /* HTML BLOG para tablet */
+
+    .main-blog p {
+        color: #333333;
+    }
+
+    .seccion-blog,
+    .seccion-categoria {
+        margin: 0;
+    }
+
+    .contenedor-blog {
+        max-width: 700px;
+    }
+
+    .titulo-blog {
+        padding-right: 30px;
+        width: 100%;
+    }
+
+    .titulo-cat {
+        padding: 10px 30px 0;
+        font-size: 1.2rem;
+    }
+
+    .post-individual,
+    .categoria-individual {
+        margin: 20px;
+    }
+
+    .contenedor-cat__categoria ul {
+        margin: 20px;
+    }
+
+    .contenedor-subpost {
+        padding: 15px;
+        margin: 0;
+    }
+
+    .post-contenido,
+    .post-contenido__detalles {
+        margin: 20px;
+        padding: 10px;
+    }
+
+    .post-contenido__formato {
+        font-family: 'Monserrat', sans-serif;
+        font-size: 0.9rem;
+        margin: 0 50px;
+        padding: 20px;
+        text-align: left;
+    }
+
+    .post-contenido p {
+        margin: 20px 0 50px;
+    }
+
+    .redireccion {
+        padding: 7px;
+        font-size: 1rem;
+    }
+
+    /* HTML TIENDA para tablet */
+
+    .main-tienda-cat {
+        width: 100%;
+    }
+
+    .producto-item-cat {
+        margin-bottom: 30px;
+    }
+
+    .pagos-envios {
+        color: #e9d8c0;
+        font-family: 'Monserrat', sans-serif;
+        margin: 0 0 20px;
+        text-align: center;
+        font-size: 0.9rem;
+        line-height: 2;
+    }
+
+    /*------------------------------------------------------*/
+    /*------------------------------------------------------*/
+    /* Comienzan los estilos para cada producto para tablet */
+    /*------------------------------------------------------*/
+    /*------------------------------------------------------*/
+
+    .contenedor-producto {
+        max-width: calc(90% - 20px);
+    }
+
+}
+
+/*------------------------------------------------------------------------------------------------------------------------------------------------*/
+/* FIN TABLETS */
+/*------------------------------------------------------------------------------------------------------------------------------------------------*/
+/*------------------------------------------------------------------------------------------------------------------------------------------------*/
+/*------------------------------------------------------------------------------------------------------------------------------------------------*/
+/*------------------------------------------------------------------------------------------------------------------------------------------------*/
+/* INICIO ESTILOS PARA PC */
+/*------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+@media only screen and (min-width: 1200px) {
+
+    .container {
+        width: 90%;
+        padding: 0 40px;
+    }
+
+    .imagen {
+        width: 90%;
+    }
+
+    /*----------------------------------------------------*/
+    /*----------------------------------------------------*/
+    /*----------------------------------------------------*/
+    /*                       INDEX                        */
+    /*----------------------------------------------------*/
+    /*----------------------------------------------------*/
+    /*----------------------------------------------------*/
+
+    /*--------------------------------------------------------------*/
+    /*--------------------------------------------------------------*/
+    /* Comienza los estilos para boton flotante de whatsapp para pc */
+    /*--------------------------------------------------------------*/
+    /*--------------------------------------------------------------*/
+
+
+    /*-------------------------------*/
+    /*-------------------------------*/
+    /* Comienza formato menu para pc */
+    /*-------------------------------*/
+    /*-------------------------------*/
+
+    .nav-corto {
+        display: none; /* Oculto el menú para dispositivos pequeños */
+    }
+
+    .dropdown__icon_product {
+        height: 30px;
+        /* Ajuste específico para pantallas grandes */
+    }
+
+    .menu__link {
+        padding: .3em .7em;
+        /* Ajuste específico para pantallas grandes */
+    }
+
+    /*a partir de aca modifique los estilos adaptado a pc*/
+    .dropdown__icon_house {
+        height: 30px;
+    }
+    
+    .dropdown__icon_elitianw {
+        margin: -13px;
+        height: 50px;
+    }
+    
+    .dropdown__icon_product {
+        height: 30px;
+    }
+    
+    .dropdown__icon_recicla {
+        height: 35px;
+    }
+    
+    .dropdown__icon_blog {
+        height: 30px;
+    }
+    
+    .dropdown__icon_email {
+        height: 27px;
+    }
+    
+    .logo {
+        height: 55px;
+        padding-left: 10px;
+        display: flex;
+        align-items: center;
+    }
+    
+    .nav-largo {
+        background-color: #a1dcdc;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+    }
+    
+    .menu__container {
+        width: 100%;
+        margin: 0 auto;
+        height: 70px;
+        display: flex;
+        align-items: center;
+        overflow: hidden;
+        
+    }
+    
+    .menu__container a {
+        font-family: 'Badoga', sans-serif;
+        font-size: 1rem;
+        color: #444444;
+        padding: 5px 10px;
+    }
+
+    .menu__container-logo {
+        margin: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .menu__container-cat {
+        display: flex;
+        gap: 20px;
+        align-items: center;
+        padding-right: 10px;
+    }
+
+    .enlace {
+        margin: 8px;
+        grid-area: title;
+    }
+    
+    .nav__icon {
+        width: 30px;
+        display: block;
+        margin-right: 20px;
+    }
+
+    .menu__links {
+        position: absolute;
+        max-width: none;
+        width: 80%;
+        right: 0;
+        top: 0;
+        bottom: 10%;
+        padding: 0;
+        display: flex;
+        justify-content: flex-start;
+        clip-path: var(--clip, inset(0 0 100% 100%));
+        transition: clip-path .5s;
+        z-index: 400;
+      }
+
+    .menu__item {
+        margin: 0;
+        list-style: none;
+      }
+
+    .menu__link {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+    
+    .menu__item--show:has(:checked) {
+        --rows: 1fr;
+        --rotate: rotate(180deg);
+        --bg: #e9d8c0;
+    }
+    
+    .checkbox {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        cursor: pointer;   
+    }
+
+    .dropdown__span:hover {
+        color: #52a6b2;
+    }
+
+    .checkbox:checked ~ .list_categorias {
+        display: block;
+      }
+    
+    .dropdown__span:hover {
+        color: #e9d8c0;
+    }
+    
+    .menu__arrow {
+        height: 12px;
+        margin-left: auto;
+        transform: var(--rotate, 0);
+        transition: .2s transform;
+    }
+    
+    .list_categorias {
+        display: grid;
+        grid-template-columns: var(--rows, 1fr);
+        transition: .3s grid-template-columns;
+        position: absolute;
+        width: auto;
+        height: auto;
+        background-color: #e9d8c0;
+        z-index: 900;
+    }
+
+    .menu__nesting {
+        overflow: hidden;
+    }
+
+    .menu__inside {
+        font-size: 0.7rem;
+        list-style: none;
+        margin-left: auto;
+      }
+    
+    .menu__link--inside:hover {
+        color: #52a6b2;
+    }
+   
+
+    /*-------------------------------------------*/
+    /*------------------------------------------ */
+    /* Comienza los estilos del carrusel para pc */
+    /*-------------------------------------------*/
+    /*-------------------------------------------*/
+
+    .carrusel-contenedor {
+        width: 100%;
+        position: relative;
+        overflow: hidden;
+        z-index: 100;
+    }
+
+    .miCarrusel {
+        display: none;
+        transition: opacity 2s;
+        width: 100%;
+        z-index: 200;
+    }
+
+    .miCarrusel img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+        transition: 2s;
+    }
+
+    .img-carrusel-movil {
+        display: none;
+    }
+
+    .img-carrusel-pc {
+        display: block;
+    }
+
+    .banner {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 300;
+    }
+
+    .banner-contenido {
+        text-align: center;
+        color: #000000;
+    }
+
+    .banner-contenido p {
+        font-size: 1em;
+        font-weight: 500;
+    }
+
+    .banner-contenido a {
+        margin-top: 0.5rem;
+        text-decoration: none;
+        color: #000000;
+        background-color: #e9d8c0;
+        opacity: 80%;
+        display: inline-block;
+        padding: 0.2rem 0.3rem;
+        text-transform: uppercase;
+        border: 1px solid #52a6b2;
+        border-radius: 100px;
+    }
+
+    .direcciones {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 24px;
+        z-index: 300;
+    }
+
+    .direcciones a {
+        color: #52a6b2;
+        display: inline-block;
+        padding: 20px;
+        text-decoration: none;
+    }
+
+    .direcciones a:hover {
+        background: #e9d8c0;
+        transition: .5s;
+    }
+
+    .barras {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        margin-bottom: 15px;
+        z-index: 300;
+    }
+
+    .barra {
+        cursor: pointer;
+        height: 2px;
+        width: 25px;
+        margin: 0 2px;
+        background: #e9d8c0;
+        display: inline-block;
+        margin-left: 3px;
+    }
+
+    .active {
+        background-color: #52a6b2;
+    }
+
+    .fade {
+        animation-name: fade;
+        animation-duration: 1s;
+    }
+
+    /*------------------------------------------------------------------------*/
+    /*------------------------------------------------------------------------*/
+    /* Comienzan los estilos de la galeria de imagenes por categorias para pc */
+    /*------------------------------------------------------------------------*/
+    /*------------------------------------------------------------------------*/
+
+    .galeria {
+        display: grid;
+        margin: 30px;
+        gap: 30px;
+        grid-template-areas:
+            'img1 img4 img2'
+            'img1 img3 img3'
+            'img8 img7 img6'
+            'img5 img5 img6'
+    }
+
+    .galeria-imagen {
+        position: relative;
+        cursor: pointer;
+        overflow: hidden;
+        text-align: center;
+    }
+
+    .galeria-imagen::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-color: #e9d8c0;
+        transform: scale(0);
+        transition: background-color 0.3s, opacity 0.3s;
+        color: #e9d8c0;
+        align-items: center;
+        justify-content: center;
+        font-size: 1em;
+    }
+
+    .galeria-imagen:hover::after {
+        transform: scale(1);
+        background-color: #e9d8c0;
+        opacity: 50%;
+    }
+
+    .ver-mas-btn {
+        font-family: 'Monserrat', sans-serif;
+        width: 7rem;
+        padding: 2px;
+        position: absolute;
+        top: 60%;
+        left: 50%;
+        border: 1px solid #52a6b2;
+        border-radius: 100px;
+        transform: translate(-50%, -50%);
+        letter-spacing: 2px;
+        font-weight: lighter;
+    }
+
+    .ver-mas-btn:hover {
+        background-color: #e9d8c0;
+        opacity: 70%;
+        transition: 0.5s;
+    }
+
+    .categoria {
+        font-family: 'Monserrat', sans-serif;
+        font-size: 1em;
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        letter-spacing: 1px;
+        font-weight: bolder;
+    }
+
+    .galeria-imagen--g1 {
+        grid-area: img1;
+    }
+
+    .galeria-imagen--g2 {
+        grid-area: img2;
+    }
+
+    .galeria-imagen--g3 {
+        grid-area: img3;
+    }
+
+    .galeria-imagen--g4 {
+        grid-area: img4;
+    }
+
+    .galeria-imagen--g5 {
+        grid-area: img5;
+    }
+
+    .galeria-imagen--g6 {
+        grid-area: img6;
+    }
+
+    .galeria-imagen--g7 {
+        grid-area: img7;
+    }
+
+    .galeria-imagen--g8 {
+        grid-area: img8;
+    }
+
+    .galeria-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        opacity: 75%;
+        transform: transition(-50%, -50%);
+    }
+
+    .galeria-img:hover {
+        background-color: #e9d8c0;
+        opacity: 30%;
+        transition: 0.1s;
+    }
+
+
+
+    /*-------------------------------------------------------------------*/
+    /*-------------------------------------------------------------------*/
+    /* Comienzan los estilos para las caracteristicas de ofertas para pc */
+    /*-------------------------------------------------------------------*/
+    /*-------------------------------------------------------------------*/
+
+    .main-caracteristicas {
+        object-fit: cover;
+    }
+
+    .caracteristicas-contenido {
+        display: grid;
+        margin-bottom: 10px ;
+        padding: 0 100px;
+        grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+        align-items: center;
+        justify-content: space-around;
+        font-size: 1rem;
+        gap: 30px;
+    }
+
+    .tarjeta-contenido {
+        margin: 0px;
+        padding: 10px;
+        text-align: center;
+        border: 1px solid #e9d8c0;
+        border-radius: 10px;
+        transition: transform 0.1s ease;
+        overflow: hidden;
+    }
+
+    .tarjeta-contenido:hover {
+        transform: scale(1.05);
+    }
+
+    .tarjeta-contenido img {
+        height: 30px;
+        width: 30px;
+        margin-bottom: 10px;
+    }
+
+    .contenido-destacado {
+        height: 4px;
+        width: 80px;
+        background-color: #52a6b2;
+        margin: 0 auto 1rem auto;
+        font-family: 'Monserrat', sans-serif;
+        font-weight: bolder;
+    }
+
+    .tarjeta-contenido span {
+        font-size: 1.1em;
+        font-weight: bold;
+        color: #333;
+        text-transform: uppercase;
+    }
+
+    .tarjeta-contenido p {
+        font-size: 1rem;
+        color: #444444;
+        font-family: 'Monserrat', sans-serif;
+        font-weight: normal;
+    }
+
+    /*----------------------------------------------------------*/
+    /*----------------------------------------------------------*/
+    /* Comienzan los estilos para la sección de ofertas para pc */
+    /*----------------------------------------------------------*/
+    /*----------------------------------------------------------*/
+
+    .seccion-ofertas {
+        margin: 30px 0 50px;
+    }
+
+    .contenedor-ofertas {
+        display: flex;
+        justify-content: space-between;
+        padding: 5px 40px;
+    }
+
+    .caja-ofertas {
+        width: calc(23%);
+        margin: 20px;
+    }
+
+    .titulo-ofertas {
+        margin-bottom: 10px;
+        background-color: #e9d8c0;
+        font-family: 'Badoga', sans-serif;
+        text-align: center;
+        font-size: 1.3rem;
+        line-height: 2.5;
+    }
+
+    .contenedor-ofertas {
+        flex-wrap: wrap;
+        margin: 0 25px;
+    }
+
+    .caja-ofertas {
+        box-shadow: 1rem 1rem 1rem #e9d8c0;
+        border-radius: .7rem;
+        border: .1rem solid #e9d8c0;
+        height: 400px;
+        overflow: hidden;
+        margin: 15px 0;
+    }
+
+    .oferta-porcentaje {
+        position: absolute;
+        margin-top: 10px;
+        margin-left: 10px;
+        padding: 10px;
+        font-size: 1.5rem;
+        color: #e9d8c0;
+        background-color: #52a6b2;
+        z-index: 100;
+        border-radius: 10em;
+        border-style: dotted;
+        border-width: .1em;
+    }
+
+    .oferta-imagen {
+        content: "";
+        width: 100%;
+        height: 330px;
+        transition: .6s ease;
+    }
+
+    .oferta-imagen:hover {
+        opacity: 0;
+        transition: .6s ease;
+    }
+
+    .oferta-iconos {
+        background-color: #52a6b2;
+        height: 50px;
+        padding: 5px;
+        display: flex;
+        justify-content: space-around;
+        transform: translateY(0);
+        margin-top: -53px;
+        opacity: 1;
+        transition: .5s;
+    }
+
+    .oferta-iconos img {
+        width: 22px;
+        height: 22px;
+    }
+
+    .oferta-enlace {
+        text-decoration: none;
+        color: #444444;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .oferta-contenido {
+        text-align: center;
+    }
+
+    .oferta-contenido h1 {
+        font-family: 'Badoga', sans-serif;
+        font-size: 1rem;
+        color: #52a6b2;
+        margin-top: 10px;
+    }
+
+    .oferta-precio {
+        font-family: 'Monserrat', sans-serif;
+        font-size: 1.1em;
+        color: #000000;
+        font-weight: bold;
+    }
+
+    .oferta-contenido span {
+        font-family: 'Monserrat', sans-serif;
+        font-size: 1rem;
+        color: #918e8d;
+        font-weight: bold;
+        text-decoration: line-through;
+    }
+
+    /*----------------------------------------------*/
+    /*----------------------------------------------*/
+    /* Comienzan los estilos para el footer para pc */
+    /*----------------------------------------------*/
+    /*----------------------------------------------*/
+
+    .titulo-footer {
+        font-size: 1.4rem; /* Aumentar el tamaño del título del footer para pantallas grandes */
+    }
+
+    /*----------------------------------------------------*/
+    /*----------------------------------------------------*/
+    /*----------------------------------------------------*/
+    /*                  HTML CONOCENOS para pc            */
+    /*----------------------------------------------------*/
+    /*----------------------------------------------------*/
+    /*----------------------------------------------------*/
+
+    .contenedor-conocenos {
+        width: 100%;
+        height: 100%;
+    }
+
+    .contenedor-conocenos::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-image: url("/static/images/conocenos/horizontal.jpg");
+        background-size: cover;
+        background-position: center;
+        opacity: 0.3;
+        z-index: 10;
+    }
+
+    .contenedor-conocenos--p {
+        padding: 30px 30px; /* Aumentar el relleno para pantallas grandes */
+    }
+
+    .contenedor-conocenos h1,
+    section h2 {
+        font-size: 1.4em; /* Aumentar el tamaño de fuente para pantallas grandes */
+    }
+
+    .contenedor-conocenos p {
+        font-size: 1.1rem; /* Aumentar el tamaño de fuente para pantallas grandes */
+    }
+
+    /*----------------------------------------------------*/
+    /*----------------------------------------------------*/
+    /*----------------------------------------------------*/
+    /*                  HTML RECICLA para pc              */
+    /*----------------------------------------------------*/
+    /*----------------------------------------------------*/
+    /*----------------------------------------------------*/
+
+    .container_recicla {
+        width: 100%;
+        height: 100%;
+    }
+    
+    .container_recicla::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-image: url("/static/images/logos/logo-linkc.png");
+        background-size: cover;
+        background-position: center;
+        opacity: 0.2;
+        z-index: 10;
+    }
+
+    .description_seccion_recicla--one {
+        width: 60vw;
+    }
+
+    .description_seccion_recicla--two,
+    .description_seccion_recicla--three,
+    .description_seccion_recicla--tips {
+        margin: 30px 70px 10px;
+        font-size: 1.1em;
+    }
+
+    .description_seccion_recicla--four {
+        margin: 30px;
+        font-size: 1.2em;
+    }
+
+    .description_seccion2--final {
+        font-size: 1.3rem;
+    }
+
+    .container_ecoideas {
+        margin: 50px;
+    }
+
+    .tarjeta-ecoidea {
+        width: 600px;
+        margin: 10px;
+    }
+    
+    /* HTML CONTACTO para pc */
+
+    .contenedor-contacto {
+        width: 100%;
+        height: 100%;
+        padding: 30px 50px 10px;
+    }
+
+    .contenedor-contacto::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-image: url('/static/images/logos/logo-linkc.png');
+        background-size: contain;
+        background-position: center;
+        opacity: 0.1;
+        z-index: 10;
+    }
+
+    .titulo-contacto {
+        font-size: 1.5em;
+        line-height: 3.2;
+    }
+
+    .subtitulo-contacto {
+        font-size: 1.4em;
+        margin-top: 22px;
+    }
+
+    .contenedor-contacto--p h3 {
+        margin-top: 60px;
+    }
+
+    /* HTML BLOG para pc */
+
+    .main-blog p {
+        color: #000000;
+    }
+
+    .seccion-blog,
+    .seccion-categoria {
+        margin: 0;
+    }
+
+    .contenedor-blog {
+        max-width: 800px;
+    }
+
+    .titulo-blog {
+        width: 100%;
+        padding-right: 50px;
+    }
+
+    .titulo-cat {
+        padding: 10px 40px 0;
+    }
+
+    .post-individual,
+    .categoria-individual {
+        margin: 30px;
+    }
+
+    .contenedor-cat__categoria ul {
+        margin: 30px;
+    }
+
+    .contenedor-subpost {
+        padding: 20px;
+        margin: 0;
+    }
+
+    .post-contenido,
+    .post-contenido__detalles {
+        margin: 30px;
+        padding: 10px;
+    }
+
+    .post-contenido__formato {
+        font-family: 'Monserrat', sans-serif;
+        font-size: 1rem;
+        margin: 0 70px;
+        padding: 30px;
+        text-align: left;
+    }
+
+    .post-contenido p {
+        margin: 30px 0 60px;
+    }
+
+    /*----------------------------------------------------*/
+    /*----------------------------------------------------*/
+    /*----------------------------------------------------*/
+    /*----------------------------------------------------*/
+    /*----------------------------------------------------*/
+    /*                  HTML TIENDA                       */
+    /*----------------------------------------------------*/
+    /*----------------------------------------------------*/
+    /*----------------------------------------------------*/
+    /*----------------------------------------------------*/
+    /*----------------------------------------------------*/
+
+    .main-tienda-cat {
+        width: 100%;
+    }
+
+    .titulo-tienda-cat {
+        width: 100%;
+    }
+
+    .redireccion {
+        padding: 7px;
+        font-size: 1.2rem;
+    }
+
+    /*------------------------------------------*/
+    /*------------------------------------------*/
+    /* Comienzan los estilos para cada producto */
+    /*------------------------------------------*/
+    /*------------------------------------------*/
+
+    .contenedor-producto {
+        max-width: calc(85% - 50px);
+    }
+
+}

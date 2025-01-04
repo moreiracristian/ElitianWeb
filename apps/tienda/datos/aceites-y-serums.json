@@ -1,0 +1,229 @@
+[
+    {
+        "id": 1,
+
+        "name": "Aceite de Almendras",
+
+        "price": 200,
+
+        "image": "/static/images/aceites-y-serums/107.jpg",
+
+        "description": "Uno de los aceites básicos e indispensables, el aceite de almendras es ligero, súper hidratante, no deja sensación grasosa y es de rápida absorción. Es rico en ácidos grasos esenciales y vitamina E, favorece la prevención de arrugas, la regeneración de la piel frente a irritaciones, cicatrices, estrías y marcas de acné.   Utilizado en el cabello le aporta hidratación, brillo, suavidad y ayuda a reducir el frizz.",
+
+        "ingredientes": "",
+
+        "uso": "Modo de Uso:",
+
+        "uso1": "Aplicá un poquito de aceite en las puntas de tu pelo para lograr mayor hidratación, brillo y suavidad.",
+        
+        "uso2": "Aplicá 2 gotas en la llema de tus dedos y masajeate suavemente el rostro. Aporta hidratación profunda sin dejar sensación grasa.",
+
+        "uso3": "Es muy bueno para realizar masajes. Agregale unas gotitas de tu aceite esencial favorito y a disfrutar! También podés usarlo como óleo corporal.",
+
+        "conservacion": "CONSERVACION: Mantener en lugar seco y fresco. Evitar el sol directo.",
+        
+        "cantidad": "Cantidad neta: 30ml.",
+
+        "producto": "Producto 100% artesanal.",
+
+        "stock": ""
+
+    },
+    {
+        "id": 2,
+
+        "name": "Aceite Orgánico de Rosa Mosqueta",
+
+        "price": 200,
+
+        "image": "/static/images/aceites-y-serums/103.jpg",
+
+        "description": "El aceite de Rosa Mosqueta tiene inigualables propiedades cicatrizantes y antiinflamatorias. Es un aceite con potente acción anti-age, que favorece la síntesis de colágeno y es activo en la prevención de arrugas. Protege la piel contra las agresiones ambientales y regenera los tejidos dañados. Ayuda en el tratamiento de cicatrices, quemaduras, celulitis y estrías. También es muy útil para tratar pieles hiperqueratosicas o las que sufren de dermatitis atópica.",
+
+        "ingredientes": "",
+
+        "uso": "Modo de Uso:",
+
+        "uso1": "Aplicar de a gotas en el rostro y/o puntas del cabello.",
+
+        "uso2": "",
+        "uso3": "",
+        
+        "conservacion": "CONSERVACION:Mantener en lugar seco y fresco. Evitar el sol directo.",
+        
+        "cantidad": "Cantidad neta: 30ml.",
+
+        "producto": "Producto 100% artesanal.",
+
+        "stock": "Sin Stock"
+    },
+    {
+        "id": 3,
+
+        "name": "Aceite Orgánico de Jojoba",
+
+        "price": 200,
+
+        "image": "/static/images/aceites-y-serums/105.jpg",
+
+        "description": "El aceite de Jojoba es uno de esos ingredientes estrella, con muchísimas y valiosas propiedades. Es un aceite fluido muy afín al sebo humano y de excelente absorción, que logra acceder a las capas más profundas de la piel e influir ositivamente sobre todas sus funciones. Mantiene la hidratación de la piel formando una capa aterciopelada NO grasa en su superficie. Tiene la capacidad de regular la secreción de sebo, propiedad que beneficia a todo tipo de pieles, tantos secas como grasas (sobre todo) ya que tiende a equilibrarlas. Contiene vitamina E, potente antioxidante que previene el envejecimiento prematuro de la piel y favorece la síntesis de elastina. La Jojoba también es un excelente disolvente de la suciedad, pudiendo eliminar acumulaciones adheridas en el cabello o el rostro.",
+
+        "ingredientes": "",
+
+        "uso": "Modo de Uso:",
+
+        "uso1": "Aplicar de a gotas en el rostro y/o puntas del cabello.",
+
+        "uso2": "",
+        "uso3": "",
+        
+        "conservacion": "CONSERVACION:Mantener en lugar seco y fresco. Evitar el sol directo.",
+        
+        "cantidad": "Cantidad neta: 30ml.",
+
+        "producto": "Producto 100% artesanal.",
+
+        "stock": "Sin Stock"
+    },
+    {
+        "id": 4,
+
+        "name": "Serum Facial Nocturno",
+
+        "price": 200,
+
+        "image": "/static/images/aceites-y-serums/109.jpg",
+
+        "description": "Nuestro sérum nocturno se caracteriza por su gran capacidad de reparación, hidratación, y nutrición. Posee una concentración muy alta de ingredientes activos que se absorben rápidamente y son capaces de acceder a las capas mas profundas de la piel. Los efectos de una piel mas tersa e iluminada se pueden observar a las pocas semanas. Puede ser utilizado en todo tipo de pieles pero es sobre todo beneficioso para pieles deshidratadas, secas o maduras.",
+
+        "ingredientes": "Ingredientes: Aceite de Jojoba orgánico, aceite de Rosa Mosqueta orgánico, Fitoescualeno, aceite de Argán y Vitamina E.",
+
+        "uso": "",
+
+        "uso1": "",
+
+        "uso2": "",
+        "uso3": "",
+        
+        "conservacion": "CONSERVACION:Mantener en lugar seco y fresco. Evitar el sol directo.",
+        
+        "cantidad": "Cantidad neta: 30ml.",
+
+        "producto": "Producto 100% artesanal.",
+
+        "stock": "Sin Stock"
+    },
+    {
+        "id": 5,
+
+        "name": "Aceite Esencial de Lavanda",
+
+        "price": 200,
+
+        "image": "/static/images/aceites-y-serums/112.jpg",
+
+        "description": "Destacan sus propiedades relajantes y sedantes. Muy utilizado para calmar y regenerar irritaciones y quemaduras. Es antiséptico y antiinflamatorio.",
+
+        "ingredientes": "",
+
+        "uso": "Modo de Uso:",
+
+        "uso1": "Se puede aplicar directamente en la piel, vehiculizarlo en un aceite vegetal para realizar masajes y poner un par de gotitas en la almohada para un buen descanso.",
+
+        "uso2": "",
+        "uso3": "",
+        
+        "conservacion": "",
+        
+        "cantidad": "Cantidad neta: 10cc.",
+
+        "producto": "Producto 100% artesanal.",
+
+        "stock": "Sin Stock"
+    },
+    {
+        "id": 6,
+
+        "name": "Aceite Esencial de Tea Tree",
+
+        "price": 200,
+
+        "image": "/static/images/aceites-y-serums/110.jpg",
+
+        "description": "Muy reconocido por sus propiedades antibacterianas, antiséptico, desinfectante, seborregulador y antiinflamatorio.",
+
+        "ingredientes": "",
+
+        "uso": "Modo de Uso:",
+
+        "uso1": "Se puede aplicar directamente en la piel o vehiculizarlo con un aceite vegetal.",
+
+        "uso2": "",
+        "uso3": "",
+        
+        "conservacion": "",
+        
+        "cantidad": "Cantidad neta: 10cc.",
+
+        "producto": "Producto 100% artesanal.",
+
+        "stock": "Sin Stock"
+    },
+    {
+        "id": 7,
+
+        "name": "Aceite Esencial de Eucalipto",
+
+        "price": 200,
+
+        "image": "/static/images/aceites-y-serums/111.jpg",
+
+        "description": "Antiinflamatorio, antibacteriano, refrescante, expectorante.",
+
+        "ingredientes": "",
+
+        "uso": "Modo de Uso:",
+
+        "uso1": "Respirar profundamente para un efecto expectorante o vehiculizar en un aceite vegetal. No aplicar directamente en la piel sin aceite portador.",
+
+        "uso2": "",
+        "uso3": "",
+        
+        "conservacion": "",
+        
+        "cantidad": "Cantidad neta: 10cc.",
+
+        "producto": "Producto 100% artesanal.",
+
+        "stock": "Sin Stock"
+    },
+    {
+        "id": 8,
+
+        "name": "Aceite Esencial de Romero",
+
+        "price": 200,
+
+        "image": "/static/images/aceites-y-serums/113.jpg.jpg",
+
+        "description": "Propiedades astringentes, antiinflamatorias, estimulante de la circulación y la memoria.",
+
+        "ingredientes": "",
+
+        "uso": "Modo de Uso:",
+
+        "uso1": "No aplicar directo en la piel, vehiculizar en un aceite vegetal para realizar masajes o para estimular el crecimiento del cabello.",
+
+        "uso2": "",
+        "uso3": "",
+        
+        "conservacion": "",
+        
+        "cantidad": "Cantidad neta: 10cc.",
+
+        "producto": "Producto 100% artesanal.",
+
+        "stock": "Sin Stock"
+    }
+
+]

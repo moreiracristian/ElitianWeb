@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load humanize %}
+
+{% block title %} Blog Elitian {% endblock title %}
+
+{% block contenido %}
+<main class="main-blog">
+  <section class="seccion-blog">
+    <h2 class="titulo-blog">Posteos recientes</h2>
+    <div class="contenedor-blog">
+      <ul>
+        {% for post in posts_recientes %}
+          <div class="post-individual">
+            <div class="contenedor-blog__img">
+              {% if post.imagen_post %}
+                <img class="blog-img" src="{{ post.imagen_post.url }}" alt="{{ post.titulo }} Imagen" />
+              {% endif %}
+            </div>
+            <h2 class="titulo-cat">
+              {{ post.categoria.nombre }}
+            </h2>
+            <div class="post-contenido">
+              <h3><a href="{% url 'blog_post' categoria_slug=post.categoria.slug post_slug=post.slug %}">
+                    {{ post.titulo }} {{ post.subtitulo }}
+                  </a>
+              </h3>
+              <p>Publicado {{post.creado|naturaltime}}.</p>
+            </div>
+          </div>
+        {% endfor %}
+      </ul>
+    </div>
+  </section>
+  <section class="seccion-blog">
+    <h2 class="titulo-blog">Por categorías</h2>
+    <div class="contenedor-cat">
+      {% for cat in categorias %}
+        <div class="categoria-individual">
+          <a href="{% url 'blog_categoria' cat.slug %}">
+            <img class="blog-post-img" src="{{ cat.imagen_cat.url }}" alt="imagen de {{ cat.nombre }}">
+          </a>
+          <div class="contenedor-subpost">
+            <div class="post-contenido">
+              <ul>
+                {% for post in cat.posts.all %}
+                  <li>
+                    <h3><a href="{% url 'blog_post' categoria_slug=cat.slug post_slug=post.slug %}">
+                        {{ post.titulo }}
+                        {{ post.subtitulo }}
+                      </a></h3>
+                    <p>Publicado {{post.creado|naturaltime}}.</p>
+                  </li>
+                {% endfor %}
+              </ul>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </section>
+</main>
+{% endblock %}

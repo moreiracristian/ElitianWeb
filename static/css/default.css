@@ -1,0 +1,455 @@
+@import url(' https://fonts.cdnfonts.com/css/badoga ');
+/* familia de fuentes: 'Badoga', sans-serif; */
+@import url('https://fonts.googleapis.com/css2? family= Montserrat:ital,wght@0,100;0,200;1,200 & family= Roboto:ital,wght@0,100;0,300;0,400;0,500; 1,100;1,500;1,900 & familia= Sofia+Sans+Condensado:ital@1 & display=swap');
+/* familia de fuentes: 'Sofia Sans Condensed', sans-serif; */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+}
+
+.container_jyd {
+    max-width: 90vw;
+    margin: auto;
+    padding-top: 10px;
+    text-align: center;
+}
+
+.title_jyd {
+    font-size: 1.5em;
+    font-family: 'Badoga', sans-serif;
+    color: #52a6b2;
+    font-weight: bolder;
+    padding: 2px 0;
+}
+
+.ListaJyD .item_jyd .img_jyd {
+    object-position: center;
+    object-fit: cover;
+    width: 100%;
+    height: 70%;
+}
+
+.ListaJyD {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+}
+
+.ListaJyD .item_jyd {
+    background-color: white;
+    width: 70vw;
+    height: 200px;
+    border: 1px solid black;
+    filter: drop-shadow(0 5px 5px rgb(109, 106, 106));
+}
+
+.ListaJyD .item_jyd .name_jyd {
+    font-family: 'Badoga', sans-serif;
+    font-size: 0.9em;
+    font-weight: bolder;
+    color: black;
+    margin-top: 10px;
+}
+
+.ListaJyD .item_jyd .price_jyd {
+    letter-spacing: 3px;
+    font-size: 0.9em;
+    color: black;
+    font-weight: bold;
+}
+
+.ListaJyD .item_jyd .stock {
+    background-color: #52a6b2;
+    font-family: 'Sofia Sans Condensed', sans-serif;
+    position: absolute;
+    padding: 3px;
+    color: black;
+    font-size: 0.6em;
+    margin-top: -170px;
+}
+
+.item_jyd:hover {
+    background-color: #52a6b2;
+}
+
+/*------------------------------------------------------*/
+/*------------------------------------------------------*/
+/* Comienza los estilos para boton flotante de whatsapp */
+/*------------------------------------------------------*/
+/*------------------------------------------------------*/
+
+.container_botton {
+    width: 35px;
+    height: 35px;
+    background-color: #25D366;
+    border: solid 1px #25D366;
+    position: fixed;
+    z-index: 999;
+    border-radius: 100%;
+    bottom: 20px;
+    right: 10px;
+    padding: 10px;
+    transition: ease 0.3s;
+    animation: whatsapp 1.2s infinite;
+}
+
+.container_botton:hover {
+    transform: scale(2);
+    transition: 0.5s;
+}
+
+.icon_wa {
+    width: 50px;
+    transition: ease 1s;
+    height: auto;
+}
+
+@keyframes whatsapp {
+    0% {
+        box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.85);
+    }
+
+    100% {
+        box-shadow: 0 0 0 8px rgba(0, 0, 0, 0);
+    }
+}
+
+/*------------------------------------------------------------------------------------------------------------------------------------------------*/
+/* FIN DEFAULT */
+/*------------------------------------------------------------------------------------------------------------------------------------------------*/
+/*------------------------------------------------------------------------------------------------------------------------------------------------*/
+/*------------------------------------------------------------------------------------------------------------------------------------------------*/
+/*------------------------------------------------------------------------------------------------------------------------------------------------*/
+/* INICIO MOVIL */
+/*------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+@media (min-width: 280px) and (max-width: 767px) {
+
+    body {
+        font-size: 16px;
+        margin: 0;
+        background: orange;
+      }
+      
+      .container {
+        width: 100%;
+        padding: 0 15px;
+      }
+      
+      .imagen {
+        width: 100%;
+      }
+
+/*--------------------------------------------------------------------------*/
+/*--------------------------------------------------------------------------*/
+/* Comienzan los estilos de la galeria de imagenes por categorias para celu */
+/*--------------------------------------------------------------------------*/
+/*--------------------------------------------------------------------------*/
+
+
+
+    /*----------------------------------------------------*/
+    /*----------------------------------------------------*/
+    /*----------------------------------------------------*/
+    /*                       CATEGORIAS                   */
+    /*----------------------------------------------------*/
+    /*----------------------------------------------------*/
+    /*----------------------------------------------------*/
+
+    .container_jyd {
+        max-width: 90vw;
+        margin: auto;
+        padding-top: 10px;
+        text-align: center;
+    }
+
+    .title_jyd {
+        font-size: 1.5em;
+        font-family: 'Badoga', sans-serif;
+        color: #52a6b2;
+        font-weight: bolder;
+        padding: 2px 0;
+    }
+
+    .ListaJyD .item_jyd .img_jyd {
+        object-position: center;
+        object-fit: cover;
+        width: 100%;
+        height: 70%;
+    }
+
+    .ListaJyD {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        gap: 15px;
+    }
+
+    .ListaJyD .item_jyd {
+        background-color: white;
+        width: 70vw;
+        height: 200px;
+        border: 1px solid black;
+        filter: drop-shadow(0 5px 5px rgb(109, 106, 106));
+    }
+
+    .ListaJyD .item_jyd .name_jyd {
+        font-family: 'Badoga', sans-serif;
+        font-size: 0.9em;
+        font-weight: bolder;
+        color: black;
+        margin-top: 10px;
+    }
+
+    .ListaJyD .item_jyd .price_jyd {
+        letter-spacing: 3px;
+        font-size: 0.9em;
+        color: black;
+        font-weight: bold;
+    }
+
+    .ListaJyD .item_jyd .stock {
+        background-color: #52a6b2;
+        font-family: 'Sofia Sans Condensed', sans-serif;
+        position: absolute;
+        padding: 3px;
+        color: black;
+        font-size: 0.6em;
+        margin-top: -170px;
+    }
+
+    .item_jyd:hover {
+        background-color: #52a6b2;
+    }
+
+    /*DETALLES*/
+
+    .title_detalles_jyd {
+        font-family: 'Badoga', sans-serif;
+        font-size: 1.5em;
+        text-align: center;
+        color: #52a6b2;
+        font-weight: bolder;
+        padding: 15px 0;
+    }
+
+    .detalles_jyd {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        gap: 0;
+        text-align: left;
+    }
+
+    .detalles_jyd .image_detalles img {
+        width: 100%;
+    }
+
+    .detalles_jyd .name {
+        font-size: 1.3em;
+        text-align: center;
+        font-family: 'Badoga', sans-serif;
+        color: #52a6b2;
+        font-weight: bold;
+        padding: 10px;
+    }
+
+    .detalles_jyd .price {
+        text-align: center;
+        font-size: 1.6em;
+        letter-spacing: 2px;
+        margin-bottom: 10px;
+    }
+
+    .detalles_jyd .button_jyd {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        margin-bottom: 20px;
+    }
+
+    .detalles_jyd .button_jyd button {
+        background-color: #52a6b2;
+        border: none;
+        padding: 15px 20px;
+        border-radius: 20px;
+        font-size: large;
+    }
+
+    .detalles_jyd .button_jyd svg {
+        width: 15px;
+    }
+
+    .detalles_jyd .button_jyd span {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50px;
+    }
+
+    .detalles_jyd .button_jyd button:nth-child(2) {
+        background-color: violet;
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-shadow: 0 10px 20px blue;
+    }
+
+    .detalles_jyd .descripcion {
+        font-family: 'Sofia Sans Condensed', sans-serif;
+        margin: 15px;
+        text-align: justify;
+        font-weight: bold;
+    }
+
+    .ingredientes,
+    .usos,
+    .uso_item-1,
+    .uso_item-2,
+    .uso_item-3,
+    .conservacion,
+    .cantidad,
+    .productos-naturales {
+        font-family: 'Sofia Sans Condensed', sans-serif;
+        margin: 15px;
+        text-align: justify;
+    }
+
+    .detalles_jyd .stock {
+        background-color: #52a6b2;
+        color: #fff;
+        padding: 5px;
+        font-size: 1em;
+        position: absolute;
+        text-align: end;
+        margin-left: 15px;
+    }
+
+    /*SIMILARES*/
+
+    .container_detalles_jyd .ListaJyD_detalles {
+        display: flex;
+        overflow-x: auto;
+        /* Agrega desplazamiento horizontal cuando sea necesario */
+        gap: 15px;
+        padding: 10px;
+        /* Añadido para espacio entre el contenido y los bordes */
+    }
+
+    .container_detalles_jyd .ListaJyD_detalles .img_detalles {
+        width: 130px;
+        height: 130px;
+    }
+
+    .title_similar {
+        width: 100%;
+        background-color: #52a6b2;
+        text-align: center;
+        color: #fff;
+        padding: 5px;
+        margin-top: 50px;
+        font-size: 1.5em;
+        font-family: 'Badoga', sans-serif;
+    }
+
+    .ListaJyD_detalles {
+        display: flex;
+        gap: 15px;
+        padding: 10px;
+        /* Añadido para espacio entre el contenido y los bordes */
+    }
+
+    .ListaJyD_detalles .name_detalles {
+        font-size: 1em;
+        color: black;
+        text-align: center;
+    }
+
+    .price_similares {
+        text-align: center;
+        color: #52a6b2;
+    }
+
+}
+
+/*------------------------------------------------------------------------------------------------------------------------------------------------*/
+/* FIN MOVIL */
+/*------------------------------------------------------------------------------------------------------------------------------------------------*/
+/*------------------------------------------------------------------------------------------------------------------------------------------------*/
+/*------------------------------------------------------------------------------------------------------------------------------------------------*/
+/*------------------------------------------------------------------------------------------------------------------------------------------------*/
+/* INICIO TABLET (vertical) */
+/*------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
+
+    body {
+        font-size: 18px;
+        background: red;
+      }
+      
+      .container {
+        width: 70%;
+        padding: 0 20px;
+      }
+      
+      .imagen {
+        width: 70%;
+      }
+}
+
+/*------------------------------------------------------------------------------------------------------------------------------------------------*/
+/* FIN TABLET (vertical) */
+/*------------------------------------------------------------------------------------------------------------------------------------------------*/
+/*------------------------------------------------------------------------------------------------------------------------------------------------*/
+/*------------------------------------------------------------------------------------------------------------------------------------------------*/
+/*------------------------------------------------------------------------------------------------------------------------------------------------*/
+/* INICIO TABLET (horizontal) */
+/*------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+
+    body {
+        font-size: 18px;
+        background: yellow;
+      }
+      
+      .container {
+        width: 80%;
+        padding: 0 30px;
+      }
+      
+      .imagen {
+        width: 80%;
+      }
+}
+
+/*------------------------------------------------------------------------------------------------------------------------------------------------*/
+/* FIN TABLET (horizontal) */
+/*------------------------------------------------------------------------------------------------------------------------------------------------*/
+/*------------------------------------------------------------------------------------------------------------------------------------------------*/
+/*------------------------------------------------------------------------------------------------------------------------------------------------*/
+/*------------------------------------------------------------------------------------------------------------------------------------------------*/
+/* INICIO ESCRITORIO */
+/*------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+@media (min-width: 1025px) {
+    body {
+        font-size: 20px;
+        background: blue;
+      }
+      
+      .container {
+        width: 90%;
+        padding: 0 40px;
+      }
+      
+      .imagen {
+        width: 90%;
+      }
+}

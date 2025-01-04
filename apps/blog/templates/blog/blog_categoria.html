@@ -1,0 +1,50 @@
+{% extends 'base.html' %} 
+{% load static %} 
+{% load humanize %} 
+
+{% block title %} Blog Elitian | {{ categoria.nombre }} {% endblock title %} 
+
+{% block contenido %}
+
+<main class="main-blog">
+  <section class="seccion-categoria">
+    <div class="contenedor-cat__categoria">
+      <img
+        class="blog-post-img"
+        src="{{ categoria.imagen_cat.url }}"
+        alt="imagen de {{ categoria.nombre }}"
+      />
+      <ul>
+        <h4>{{ categoria.descripcion }}</h4>
+      </ul>
+    </div>
+    <h2 class="titulo-blog">Todos los post de esta categoría</h2>
+    <ul>
+      <div class="contenedor-cat">
+        <div class="post-individual-cat">
+          <ul>
+            {% for post in posts %} 
+              {% if post.imagen_post %}
+                <img class="blog-img" src="{{ post.imagen_post.url }}" alt="{{ post.titulo }} Imagen"/>
+              {% endif %}
+              <div class="post-contenido">
+                <h3>
+                  <a
+                    href="{% url 'blog_post' categoria_slug=categoria.slug post_slug=post.slug %}">
+                    {{ post.titulo }} {{ post.subtitulo }}
+                  </a>
+                </h3>
+              <p>Publicado {{post.creado|naturaltime}}.</p>
+            </div>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+    </ul>
+  </section>
+  <ul class="lista-redireccion">
+    <a href="{% url 'blog' %}" class="redireccion">
+    <img src="{% static 'images/icons/microblog.svg' %}" class="dropdown__icon_blog"/><span class="dropdown__span">Volver al blog<span></a>
+  <ul>
+</main>
+{% endblock %}

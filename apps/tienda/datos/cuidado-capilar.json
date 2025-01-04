@@ -1,0 +1,146 @@
+[
+    {
+        "id": 1,
+
+        "name": "Acondicionador solido",
+
+        "price": 200,
+
+        "image": "/static/images/cuidado-capilar/307.jpg",
+
+        "description": "El acondicionador solido aporta suavidad, hidratación y nutrición profunda. ",
+
+        "ingredientes": "Ingredientes: Aceite de Jojoba agroecológico, aceite de Almendras Dulces, Manteca de Karité, Btms, emulsionante vegetal y ácido esteárico.",
+
+
+        "uso": "Modo de Uso:",
+
+        "uso1": "Aplicá la pastilla desde el medio hacia las puntas.",
+
+        "uso2": "",
+        "uso3": "",
+        
+        "conservacion": " Con el fin de extender la vida útil de tu shampoo y acondicionador podés usar una jabonera escurridora y mantener la pastilla seca entre usos.",
+        
+        "cantidad": "Contiene 55 gr. Rinde entre 55 y 70 lavados.",
+
+        "producto": "Producto 100% artesanal.",
+
+        "stock": ""
+    },
+    {
+        "id": 2,
+
+        "name": "Shampoo Solido - Cabello Mixto",
+
+        "price": 200,
+
+        "image": "/static/images/cuidado-capilar/303.jpg",
+
+        "description": "Limpia suavemente, desintoxica el cuero cabelludo gracias a la arcilla rosa, hidrata, equilibra y nutre gracias a la selección de aceites y la hierba shikakai. Lo fortalece y suaviza gracias a la fitoqueratina.        Especialmente recomendado para cueros cabelludos no muy grasos, cueros cabelludos equilibrados y levemente secos.",
+
+        "ingredientes": "Ingredientes: Contiene SCI (tensioactivo), agua, harina de avena, arcilla rosa, hierba shikakai, aceites hidratantes de almendras, coco, palta y ricino, betaína de coco, manteca de karite, lactato de sodio y fitoqueratina. Aroma floral de madreselva y jazmín.",
+
+        "uso": "",
+
+        "uso1": "",
+
+        "uso2": "",
+        "uso3": "",
+        
+        "conservacion": " Con el fin de extender la vida útil de tu shampoo y acondicionador podés usar una jabonera escurridora y mantener la pastilla seca entre usos.",
+        
+        "cantidad": "Cada pastilla pesa 65 gramos ",
+
+        "producto": "Producto 100% artesanal.",
+
+        "stock": ""
+
+
+    },
+    {
+        "id": 3,
+
+        "name": "Shampoo Solido - Cabello Seco",
+
+        "price": 200,
+
+        "image": "/static/images/cuidado-capilar/306.jpg",
+
+        "description": " Limpia suavemente, hidrata en mayor medida gracias a sus aceites y el lactato de sodio, fortalece, acondiciona, nutre, devuelve brillo y suaviza las puntas. Recomendado para cuero cabelludo y cabello seco. También para cuero cabelludo sensible.",
+
+        "ingredientes": "Ingredientes: Contiene SCI (tensioactivo), arcilla blanca, hierba Amla, betaína de coco, aceites de argány coco, manteca de karité, lactato de sodio y fitoqueratina. Aroma dulce a coco.",
+
+        "uso": "",
+
+        "uso1": "",
+
+        "uso2": "",
+        "uso3": "",
+        
+        "conservacion": " Con el fin de extender la vida útil de tu shampoo y acondicionador podés usar una jabonera escurridora y mantener la pastilla seca entre usos.",
+        
+        "cantidad": "Cada pastilla pesa 65 gramos ",
+
+        "producto": "Producto 100% artesanal.",
+
+        "stock": "Sin Stock"
+    },
+    {
+        "id": 4,
+
+        "name": "Shampoo Solido - Control Caida",
+
+        "price": 200,
+
+        "image": "/static/images/cuidado-capilar/305.jpg",
+
+        "description": "Limpia suavemente, equilibra, hidrata, estimula, fortalece y engrosa desde la raíz. Recomendado para todo tipo de cabellos ya que su formulación es equilibrada en ingredientes grasos.",
+
+        "ingredientes": "Ingredientes: Contiene SCI (tensioactivo), agua, cúrcuma, arcilla blanca, hierba cassia obavata, aceites de jojoba, coco y ricino, manteca de karite, lacatato de sodio y fitoqueratina. Aroma floral de gardenia y lirio. Limpia suavemente, equilibra, hidrata, estimula, fortalece y engrosa desde la raíz.",
+
+        "uso": "",
+
+        "uso1": "",
+
+        "uso2": "",
+        "uso3": "",
+        
+        "conservacion": " Con el fin de extender la vida útil de tu shampoo y acondicionador podés usar una jabonera escurridora y mantener la pastilla seca entre usos.",
+        
+        "cantidad": "Cada pastilla pesa 65 gramos ",
+
+        "producto": "Producto 100% artesanal.",
+
+        "stock": "Sin Stock"
+    },
+    {
+        "id": 5,
+
+        "name": "Shampoo Solido - Cabello Graso",
+
+        "price": 200,
+
+        "image": "/static/images/cuidado-capilar/304.jpg",
+
+        "description": "Limpia en mayor profundidad, hidrata sin sobrecargar, regula la producción de sebo gracias a la arcilla verde y a la hierba reetha, que además, fortalece las raíces del cabello y lo equilibra en brillo y suavidad. Recomendado para cueros cabelludos mixtos y grasos.",
+
+        "ingredientes": "Ingredientes: Contiene SCI (tensioactivo), agua, arcilla verde, hierba reetha, aceites de jojoba, coco, pepitas de uva, betaína de coco, lactato de sodio y fitoqueratin. Aroma alimonado.",
+
+        "uso": "",
+
+        "uso1": "",
+
+        "uso2": "",
+        "uso3": "",
+        
+        "conservacion": " Con el fin de extender la vida útil de tu shampoo y acondicionador podés usar una jabonera escurridora y mantener la pastilla seca entre usos.",
+        
+        "cantidad": "Cada pastilla pesa 65 gramos ",
+
+        "producto": "Producto 100% artesanal.",
+
+        "stock": "Sin Stock"
+    }
+
+]

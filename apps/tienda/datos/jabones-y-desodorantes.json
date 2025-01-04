@@ -1,0 +1,290 @@
+[
+    {
+        "id": 1,
+
+        "name": "Jabon Avena, Almendras y Miel",
+
+        "price": 200,
+
+        "image": "/static/images/jabones-y-desodorantes/416.jpg",
+        
+        "description": "Esta variedad es excelente para pieles sensibles y reactivas. Calma irritaciones y es altamente eficaz contra el acné. Indicado para todo tipo de pieles, especialmente sensibles o secas.",
+       
+        "ingredientes": "Ingredientes: Aceite de oliva de primera prensada en frio, aceite de coco, aceite de almendras orgánico, manteca de karité, cera de abejas de producción local, leche de avena.",
+
+        "uso": "",
+
+        "uso1": "",
+
+        "uso2": "",
+        "uso3": "",
+        
+        "conservacion": "Con el fin de tener el mayor cuidado posible y extender la vida útil de tu jabón podés usar una jabonera escurridora para mantener la pastilla seca entre usos. ",
+        
+        "cantidad": "Peso neto: 100gr aprox.",
+
+        "producto": "Producto 100% artesanal.",
+
+        "stock": ""
+    },
+    {
+        "id": 2,
+
+        "name": "Jabon Palta y Limón",
+
+        "price": 200,
+
+        "image": "/static/images/jabones-y-desodorantes/426.jpg",
+        
+        "description": "Este jabón está indicado para todo tipo de pieles, en especial secas. Hidrata y nutre profundamente gracias al aceite de palta y la manteca de karité. Devuelve elasticidad a la piel. Útil en psoriasis, eczemas e irritaciones.",
+       
+        "ingredientes":"Ingredientes: Aceite de oliva de primera prensada en frio, aceite de coco, aceite de palta, manteca de cacao y manteca de karité.",
+        
+        "uso": "",
+
+        "uso1": "",
+
+        "uso2": "",
+        "uso3": "",
+        
+        "conservacion": "Con el fin de tener el mayor cuidado posible y extender la vida útil de tu jabón podés usar una jabonera escurridora para mantener la pastilla seca entre usos. ",
+        
+        "cantidad": "Peso neto: 100gr aprox.",
+
+        "producto": "Producto 100% artesanal.",
+
+        "stock": ""
+    },
+    {
+        "id": 3,
+
+        "name": "Jabon Carbon Activado",
+
+        "price": 200,
+
+        "image": "/static/images/jabones-y-desodorantes/418.jpg",
+        
+        "description": "Este jabón favorece procesos de desintoxicación y purificación de la piel. Recomendamos usarlo de 2 a 3 veces por semana.",
+        
+        "ingredientes": "Ingredientes: Aceite de oliva de primera prensada en frio, aceite de coco, manteca de cacao, manteca de karité y carbon activado.",
+
+        
+        "uso": "",
+
+        "uso1": "",
+
+        "uso2": "",
+        "uso3": "",
+        
+        "conservacion": "Con el fin de tener el mayor cuidado posible y extender la vida útil de tu jabón podés usar una jabonera escurridora para mantener la pastilla seca entre usos. ",
+        
+        "cantidad": "Peso neto: 100gr aprox.",
+
+        "producto": "Producto 100% artesanal.",
+
+        "stock": ""
+    },
+    {
+        "id": 4,
+
+        "name": "Jabon Calendula y Manzanilla",
+
+        "price": 200,
+
+        "image": "/static/images/jabones-y-desodorantes/420.jpg",
+        
+        "description": "Este jabón está indicado para todo tipo de pieles, siendo especialmente beneficioso para pieles sensibles, delicadas o atópicas. Es emoliente, calmante y regenerador. Proporciona armonía y plenitud.",
+        
+        "ingredientes": "Ingredientes: Aceite de oliva de primera prensada en frio, aceite de coco, flores de caléndula y manzanilla maceradas en oliva, manteca de cacao y manteca de karité",
+
+        
+        "uso": "",
+
+        "uso1": "",
+
+        "uso2": "",
+        "uso3": "",
+        
+        "conservacion": "Con el fin de tener el mayor cuidado posible y extender la vida útil de tu jabón podés usar una jabonera escurridora para mantener la pastilla seca entre usos. ",
+        
+        "cantidad": "Peso neto: 100gr aprox.",
+
+        "producto": "Producto 100% artesanal.",
+
+        "stock": "Sin Stock"
+    },
+    {
+        "id": 5,
+
+        "name": "Jabon Cafe y Cacao",
+
+        "price": 200,
+
+        "image": "/static/images/jabones-y-desodorantes/415.jpg",
+        
+        "description": "Indicado para todo tipo de pieles. Los granitos de café proporcionan una suave y relajante exfoliación mientras que la carga extra de manteca de cacao nutre en profundidad y deja la piel super suave. Aroma de cacao, coco y vainilla.",
+        
+        "ingredientes": "Ingredientes:Infusión de café, aceite de oliva de primera prensada en frio, aceite de coco, manteca de cacao, manteca de karité y cacao puro en polvo.",
+
+        
+        "uso": "",
+
+        "uso1": "",
+
+        "uso2": "",
+        "uso3": "",
+        
+        "conservacion": "Con el fin de tener el mayor cuidado posible y extender la vida útil de tu jabón podés usar una jabonera escurridora para mantener la pastilla seca entre usos. ",
+        
+        "cantidad": "Peso neto: 100gr aprox.",
+
+        "producto": "Producto 100% artesanal.",
+
+        "stock": "Sin Stock"
+    },
+    {
+        "id": 6,
+
+        "name": "Jabon Lavanda",
+
+        "price": 200,
+
+        "image": "/static/images/jabones-y-desodorantes/408.jpg",
+        
+        "description": "La combinación de sus ingredientes hacen de este jabón una experiencia de suavidad y reparación única. Es útil para tratar quemaduras, irritaciones y cicatrices.",
+        
+        "ingredientes": "Ingredientes: Hidrolato de lavanda de producción local, aceite de oliva de primera prensada en frio, aceite de coco, manteca de cacao y manteca de karité.",
+
+        
+        "uso": "",
+
+        "uso1": "",
+
+        "uso2": "",
+        "uso3": "",
+        
+        "conservacion": "Con el fin de tener el mayor cuidado posible y extender la vida útil de tu jabón podés usar una jabonera escurridora para mantener la pastilla seca entre usos. ",
+        
+        "cantidad": "Peso neto: 100gr aprox.",
+
+        "producto": "Producto 100% artesanal.",
+
+        "stock": "Sin Stock"
+    },
+    {
+        "id": 7,
+
+        "name": "Jabon Hibiscus",
+
+        "price": 200,
+
+        "image": "/static/images/jabones-y-desodorantes/413.jpg",
+        
+        "description": "Super cremoso y suave, posee gran cantidad de antioxidantes que ayudan a atenuar arrugas y manchas, estimula la elasticidad y renovación celular. Excelente para pieles deshidratadas y maduras. Su aroma es un delicioso mix floral.",
+        
+        "ingredientes": "Ingredientes: Infusión de hibiscus, aceite de oliva de primera prensada en frio, aceite de coco, aceite de ricino, flores de hibiscus maceradas en oliva, manteca de cacao y manteca de karité.",
+
+        
+        "uso": "",
+
+        "uso1": "",
+
+        "uso2": "",
+        "uso3": "",
+        
+        "conservacion": "Con el fin de tener el mayor cuidado posible y extender la vida útil de tu jabón podés usar una jabonera escurridora para mantener la pastilla seca entre usos. ",
+        
+        "cantidad": "Peso neto: 100gr aprox.",
+
+        "producto": "Producto 100% artesanal.",
+
+        "stock": "Sin Stock"
+    },
+    {
+        "id": 8,
+
+        "name": "Jabon Jazmin y Rosas",
+
+        "price": 200,
+
+        "image": "/static/images/jabones-y-desodorantes/409.jpg",
+        
+        "description": "Esta es la variedad más cremosa junto con Hibiscus, dejando la piel extra suave e hidratada. Su aroma aporta calma y relajación. Indicado para pieles normales a secas.",
+        
+        "ingredientes": "Ingredientes: Aceite de oliva de primera prensada en frio, aceite de coco, aceite de ricino, manteca de cacao y manteca de karité.",
+
+        
+        "uso": "",
+
+        "uso1": "",
+
+        "uso2": "",
+        "uso3": "",
+        
+        "conservacion": "Con el fin de tener el mayor cuidado posible y extender la vida útil de tu jabón podés usar una jabonera escurridora para mantener la pastilla seca entre usos. ",
+        
+        "cantidad": "Peso neto: 100gr aprox.",
+
+        "producto": "Producto 100% artesanal.",
+
+        "stock": "Sin Stock"
+    },
+    {
+        "id": 9,
+
+        "name": "Desodorante Lavanda",
+
+        "price": 200,
+
+        "image": "/static/images/jabones-y-desodorantes/423.jpg",
+        
+        "description": "Es una suave pomada que combina efectos antibacterianos que te protegen del mal olor junto con propiedades humectantes y regeneradoras. El óxido de zinc y el bicarbonato neutralizan las bacterias que general el mal olor. La manteca de karité y el aceite de coco son excelentes humectantes que ayudan a mantener la piel suave y tersa. Son ideales para luego de depilarse. La arcilla blanca se encarga de absorber el exceso de humedad. El aceite esencial de tea tree tiene propiedades ntibacterianas y antifúngicas que ayudan a combatir las bacterias y los hongos que causan el mal olor y las infecciones.",
+        
+        "ingredientes": "Ingredientes: Aceite de Coco, manteca de Karité, emulsionante vegetal, arcilla caolín, óxido de zinc, bicarbonato de sodio, aceite esencial de Tea Tree, Lavanda.",
+
+        
+        "uso": "Modo de Uso:",
+
+        "uso1": "En condiciones ideales es una pomada muy suave y fácil de aplicar. Si se endurece por el frío lo podes acercar a una fuente de calor, y si se derrite por el calor unos minutos en la heladera lo vuelve a endurecer. El cambio de textura no afecta sus propiedades y sigue siendo perfectamente seguro de utilizar. No irrita, no deja residuos y no mancha la ropa.",
+
+        "uso2": "",
+        "uso3": "",
+        
+        "conservacion": "",
+        
+        "cantidad": "Peso neto: 50gr.",
+
+        "producto": "Producto 100% artesanal.",
+
+        "stock": "Sin Stock"
+    },
+    {
+        "id": 10,
+
+        "name": "Desodorante Eucalipto",
+
+        "price": 200,
+
+        "image": "/static/images/jabones-y-desodorantes/424.jpg",
+        
+        "description": "Es una suave pomada que combina efectos antibacterianos que te protegen del mal olor junto con propiedades humectantes y regeneradoras. El óxido de zinc y el bicarbonato neutralizan las bacterias que general el mal olor. La manteca de karité y el aceite de coco son excelentes humectantes que ayudan a mantener la piel suave y tersa. Son ideales para luego de depilarse. La arcilla blanca se encarga de absorber el exceso de humedad. El aceite esencial de tea tree tiene propiedades ntibacterianas y antifúngicas que ayudan a combatir las bacterias y los hongos que causan el mal olor y las infecciones.",
+        
+        "ingredientes": "Ingredientes: Aceite de Coco, manteca de Karité, emulsionante vegetal, arcilla caolín, óxido de zinc, bicarbonato de sodio, aceite esencial de Tea Tree, Eucalipto.",
+
+        
+        "uso": "Modo de Uso:",
+
+        "uso1": "En condiciones ideales es una pomada muy suave y fácil de aplicar. Si se endurece por el frío lo podes acercar a una fuente de calor, y si se derrite por el calor unos minutos en la heladera lo vuelve a endurecer. El cambio de textura no afecta sus propiedades y sigue siendo perfectamente seguro de utilizar. No irrita, no deja residuos y no mancha la ropa.",
+
+        "uso2": "",
+        "uso3": "",
+        
+        "conservacion": "",
+        
+        "cantidad": "Peso neto: 50gr.",
+
+        "producto": "Producto 100% artesanal.",
+
+        "stock": "Sin Stock"
+    }
+]

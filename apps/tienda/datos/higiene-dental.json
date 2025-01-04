@@ -1,0 +1,58 @@
+[
+    {
+        "id": 1,
+
+        "name": "Pasta Dental",
+
+        "price": 200,
+
+        "image": "/static/images/higiene-dental/511.jpg",
+
+        "description": "Nuestra pasta dental está elaborada con ingredientes de origen natural y sin químicos agresivos. Contiene carbonato de calcio, arcilla blanca, xilitol, menta y mentol, ingredientes que ayudan a fortalecer tus dientes, prevenir la formación de caries y mantener un aliento fresco y agradable. El carbonato de calcio (ingrediente principal) es un mineral que ayuda a fortalecer el esmalte y a remineralizar los dientes. La arcilla blanca es ideal para absorber las impurezas y lograr una limpieza suave pero profunda. El xilitol es un endulzante natural que previene la formación de placa. El mentol y la menta brindan un sabor fresco y agradable a tu boca.",
+
+        "ingredientes": "Ingredientes: Carbonato de calcio, agua, arcilla caolín, glicerina vegetal, aceite de Coco, xilitol, bicarbonato de sodio, mentol, goma xantica, tintura madre de propóleo, aceites esenciales de Tea Tree, Menta y Eucalipto.",
+
+        "uso": "",
+
+        "uso1": "",
+
+        "uso2": "",
+        "uso3": "",
+        
+        "conservacion": "",
+        
+        "cantidad": "Cantidad neta: 150gr.",
+
+        "producto": "Producto 100% artesanal.",
+
+        "stock": ""
+    },
+    {
+        "id": 2,
+
+        "name": "Cepillo de Bambú",
+
+        "price": 200,
+
+        "image": "/static/images/higiene-dental/503.jpg",
+
+        "description": "Los cepillos de bambú generan 37 veces menos CO2 que los cepillos convencionales",
+
+        "ingredientes": "Están hechos en un 97% con material biodegradable y 3% de material reciclable. Un impacto gigante en favor de la regeneración de nuestro planeta.",
+
+        "uso": "",
+
+        "uso1": "",
+
+        "uso2": "",
+        "uso3": "",
+        
+        "conservacion": "",
+        
+        "cantidad": ".",
+
+        "producto": "Producto 100% artesanal.",
+
+        "stock": ""
+    }
+]

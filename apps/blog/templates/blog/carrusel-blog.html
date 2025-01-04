@@ -1,0 +1,30 @@
+{% load static %}
+
+<div class="carrusel-contenedor" onmouseover="detenerCarrusel()" onmouseout="reanudarCarrusel()">
+    <div class="miCarrusel fade">
+      <img src="{% static 'images/tienda/aceites-y-serums/108.jpg' %}" alt="aceite de almendras" loading="lazy">
+        <!--<div class="banner">
+            <div class="banner-contenido">
+                <p>Como elegir un shampoo y acondicionador</p>
+                <a href="{% url 'blog' %}">Quiero saber más</a>
+            </div>
+        </div>-->
+    </div>
+<div class="miCarrusel fade">
+  <img src="{% static 'images/tienda/aguas-y-tonicos/001.jpg' %}" alt="agua de rosas" loading="lazy">
+</div>
+<div class="miCarrusel fade">
+  <img src="{% static 'images/tienda/balsamos-y-cremas/206.jpg' %}" alt="balsamo labial" loading="lazy">
+</div>
+
+<div class="direcciones">
+  <a href="#" class="atras" onclick="retrocedeCarrusel(1)">&#10094</a>
+  <a href="#" class="adelante" onclick="avanzaCarrusel(1)">&#10095</a>
+</div>
+<div class="barras">
+  <span class="barra active" onclick="posicionCarrusel(1)"></span>
+  <span class="barra" onclick="posicionCarrusel(2)"></span>
+  <span class="barra" onclick="posicionCarrusel(3)"></span>
+
+</div>
+</div>

@@ -1,0 +1,2599 @@
+@import url(' https://fonts.cdnfonts.com/css/badoga ');
+/* familia de fuentes: 'Badoga', sans-serif; */
+@import url('https://fonts.googleapis.com/css2? family= Montserrat:ital,wght@0,100;0,200;1,200 & family= Roboto:ital,wght@0,100;0,300;0,400;0,500; 1,100;1,500;1,900 & familia= Sofia+Sans+Condensado:ital@1 & display=swap');
+/* familia de fuentes: 'Sofia Sans Condensed', sans-serif; */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+}
+
+
+/*------------------------------------------------------------------------------------------------------------------------------------------------*/
+/* FIN DEFAULT */
+/*------------------------------------------------------------------------------------------------------------------------------------------------*/
+/*------------------------------------------------------------------------------------------------------------------------------------------------*/
+/*------------------------------------------------------------------------------------------------------------------------------------------------*/
+/*------------------------------------------------------------------------------------------------------------------------------------------------*/
+/* INICIO MOVIL */
+/*------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+@media (min-width: 280px) and (max-width: 767px) {
+
+    /*----------------------------------------------------*/
+    /*----------------------------------------------------*/
+    /*----------------------------------------------------*/
+    /*                       INDEX                        */
+    /*----------------------------------------------------*/
+    /*----------------------------------------------------*/
+    /*----------------------------------------------------*/
+
+    /*-----------------------------------------------------------------*/
+    /*-----------------------------------------------------------------*/
+    /* Comienza los estilos para boton flotante de whatsapp para movil */
+    /*-----------------------------------------------------------------*/
+    /*-----------------------------------------------------------------*/
+
+    .container_botton {
+        width: 40px;
+        height: 40px;
+        background-color: #25D366;
+        border: solid 1px #25D366;
+        position: fixed;
+        z-index: 999;
+        border-radius: 100%;
+        bottom: 15px;
+        right: 10px;
+        padding: 5px;
+        transform: scale(1);
+        animation: whatsapp 1s infinite;
+    }
+
+    .container_botton:hover {
+        transform: scale(1.05);
+        transition: 0.3s;
+    }
+
+    .icon_wa {
+        width: min-content;
+    }
+
+    @keyframes whatsapp {
+        0% {
+            box-shadow: 0 0 0 0 #52a6b2;
+        }
+
+        100% {
+            box-shadow: 0 0 0 8px rgba(0, 0, 0, 0);
+        }
+    }
+
+
+    /*---------------------------------*/
+    /*---------------------------------*/
+    /* Comienza formato menu para celu */
+    /*---------------------------------*/
+    /*---------------------------------*/
+
+
+    .dropdown__icon_house {
+        height: 30px;
+    }
+
+    .dropdown__icon_elitianw {
+        margin: -13px;
+        height: 50px;
+    }
+
+    .dropdown__icon_product {
+        height: 30px;
+    }
+
+    .dropdown__icon_recicla {
+        height: 30px;
+    }
+
+    .dropdown__icon_blog {
+        height: 30px;
+    }
+
+    .dropdown__icon_email {
+        height: 27px;
+    }
+
+    .logo {
+        height: 55px;
+    }
+
+    .nav {
+        background-color: #a1dcdc;
+        --img1: scale(1);
+        --img2: scale(0);
+    }
+
+    .nav:has(.menu__links:target) {
+        --img1: scale(0);
+        --img2: scale(1);
+        --clip: inset(0 0 0 0);
+    }
+
+    .menu__container {
+        width: 100%;
+        margin: 0 auto;
+        height: 70px;
+        display: grid;
+        grid-template-columns: max-content max-content;
+        grid-template-areas: "title img";
+        justify-content: space-between;
+        align-items: center;
+        overflow: hidden;
+    }
+
+    .enlace {
+        margin: 8px;
+        grid-area: title;
+    }
+
+    .nav__menu {
+        grid-area: img;
+        position: relative;
+        z-index: 500;
+        transform: var(--img1);
+    }
+
+    .nav__menu--second {
+        transform: var(--img2);
+    }
+
+    .nav__icon {
+        width: 30px;
+        display: block;
+        margin-right: 10px;
+    }
+
+    .menu__links {
+        font-family: 'Sofia Sans Condensed', sans-serif;
+        position: absolute;
+        background-color: #a1dcdc;
+        max-width: 250px;
+        width: 80%;
+        right: 0;
+        top: 0;
+        bottom: 10%;
+        padding: 1em;
+        display: grid;
+        align-content: center;
+        gap: 1rem;
+        overflow-y: auto;
+        clip-path: var(--clip, inset(0 0 100% 100%));
+        transition: clip-path .5s;
+        z-index: 400;
+    }
+
+    .menu__item {
+        list-style: none;
+    }
+
+    .menu__link {
+        color: #444444;
+        padding: .3em .7em;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        gap: 1.3rem;
+        position: relative;
+        background-color: var(--bg, transparent);
+    }
+
+    .menu__item--show:has(:checked) {
+        --rows: 1fr;
+        --rotate: rotate(180deg);
+        --bg: #e9d8c0;
+    }
+
+    .checkbox {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        cursor: pointer;
+    }
+
+    .dropdown__span:hover {
+        color: #52a6b2;
+    }
+
+    .menu__arrow {
+        height: 12px;
+        margin-left: auto;
+        transform: var(--rotate, 0);
+        transition: .2s transform;
+    }
+
+    .list_categorias {
+        display: grid;
+        grid-template-rows: var(--rows, 0fr);
+        transition: .3s grid-template-rows;
+    }
+
+    .menu__nesting {
+        overflow: hidden;
+    }
+
+    .menu__inside {
+        width: 85%;
+        list-style: none;
+        margin-left: auto;
+    }
+
+    .menu__link--inside:hover {
+        color: #52a6b2;
+    }
+
+    /*---------------------------------------------*/
+    /*-------------------------------------------- */
+    /* Comienza los estilos del carrusel para celu */
+    /*---------------------------------------------*/
+    /*---------------------------------------------*/
+
+    .carrusel-contenedor {
+        max-width: 100%;
+        max-height: 100vh;
+        position: relative;
+        overflow: hidden;
+        margin: 0;
+        z-index: 100;
+    }
+
+    .miCarrusel {
+        display: none;
+        transition: opacity 2s;
+        max-height: 100vh;
+        z-index: 200;
+    }
+
+    .miCarrusel img {
+        width: 100%;
+        max-height: 100vh;
+        height: inherit;
+        object-fit: cover;
+        vertical-align: top;
+        transition: 2s;
+        opacity: 90%;
+    }
+
+    .banner {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 300;
+    }
+
+    .banner-contenido {
+        text-align: center;
+        color: #000000;
+    }
+
+    .banner-contenido p {
+        font-size: 1em;
+        /* margin: 1rem; */
+        font-weight: 500;
+    }
+
+    .banner-contenido a {
+        margin-top: 0.5rem;
+        text-decoration: none;
+        color: #000000;
+        background-color: #e9d8c0;
+        opacity: 80%;
+        display: inline-block;
+        padding: 0.2rem 0.3rem;
+        text-transform: uppercase;
+        border: 1px solid #52a6b2;
+        border-radius: 100px;
+    }
+
+    .direcciones {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 20px;
+        z-index: 300;
+    }
+
+    .direcciones a {
+        color: #52a6b2;
+        display: inline-block;
+        padding: 20px;
+        text-decoration: none;
+    }
+
+    .direcciones a:hover {
+        background: #e9d8c0;
+        transition: .5s;
+    }
+
+    .barras {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        margin-bottom: 15px;
+        z-index: 300;
+    }
+
+    .barra {
+        cursor: pointer;
+        height: 2px;
+        width: 25px;
+        margin: 0 2px;
+        background: #e9d8c0;
+        display: inline-block;
+        margin-left: 3px;
+    }
+
+    .active {
+        background-color: #52a6b2;
+    }
+
+    .fade {
+        animation-name: fade;
+        animation-duration: 1s;
+    }
+
+    @keyframes fade {
+        from {
+            opacity: .4;
+        }
+
+        to {
+            opacity: 1;
+        }
+    }
+
+    /*--------------------------------------------------------------------------*/
+    /*--------------------------------------------------------------------------*/
+    /* Comienzan los estilos de la galeria de imagenes por categorias para celu */
+    /*--------------------------------------------------------------------------*/
+    /*--------------------------------------------------------------------------*/
+
+    .galeria {
+        display: grid;
+        margin: 10px;
+        gap: 10px;
+        grid-template-columns: 1fr 1fr;
+        grid-auto-rows: 200px;
+        grid-template-areas:
+            "img1 img2"
+            "img1 img4"
+            "img3 img3"
+            "img7 img6"
+            "img8 img6"
+            "img5 img5"
+    }
+
+    .galeria-imagen {
+        position: relative;
+        cursor: pointer;
+        overflow: hidden;
+        text-align: center;
+    }
+
+    .galeria-imagen::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-color: #e9d8c0;
+        transform: scale(0);
+        transition: background-color 0.3, opacity 0.3;
+        color: #e9d8c0;
+        align-items: center;
+        justify-content: center;
+        font-size: 1em;
+    }
+
+    .galeria-imagen:hover::after {
+        transform: scale(1);
+        background-color: #e9d8c0;
+        opacity: 50%;
+    }
+
+    .ver-mas-btn {
+        font-family: 'Sofia Sans Condensed', sans-serif;
+        width: 7rem;
+        padding: 2px;
+        position: absolute;
+        top: 60%;
+        left: 50%;
+        border: 1px solid #52a6b2;
+        border-radius: 100px;
+        transform: translate(-50%, -50%);
+        letter-spacing: 2px;
+        font-weight: lighter;
+    }
+
+    .ver-mas-btn:hover {
+        background-color: #e9d8c0;
+        opacity: 70%;
+        transition: 0.5s;
+    }
+
+    .categoria {
+        font-family: 'Sofia Sans Condensed', sans-serif;
+        font-size: 1em;
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        letter-spacing: 1px;
+        font-weight: bolder;
+    }
+
+    .galeria-imagen--g1 {
+        grid-area: img1;
+    }
+
+    .galeria-imagen--g2 {
+        grid-area: img2;
+    }
+
+    .galeria-imagen--g3 {
+        grid-area: img3;
+    }
+
+    .galeria-imagen--g4 {
+        grid-area: img4;
+    }
+
+    .galeria-imagen--g5 {
+        grid-area: img5;
+    }
+
+    .galeria-imagen--g6 {
+        grid-area: img6;
+    }
+
+    .galeria-imagen--g7 {
+        grid-area: img7;
+    }
+
+    .galeria-imagen--g8 {
+        grid-area: img8;
+    }
+
+    .galeria-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        opacity: 80%;
+        transform: transition(-50%, -50%);
+    }
+
+    .galeria-img:hover {
+        background-color: #e9d8c0;
+        opacity: 30%;
+        transition: 0.1s;
+    }
+
+    /*-----------------------------------------------------------*/
+    /*-----------------------------------------------------------*/
+    /* Comienzan los estilos para las caracteristicas de ofertas */
+    /*-----------------------------------------------------------*/
+    /*-----------------------------------------------------------*/
+
+    .main-caracteristicas {
+        object-fit: cover;
+        margin: 20px 0 20px;
+    }
+
+    .caracteristicas-contenido {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr 1fr));
+        align-items: center;
+        justify-content: center;
+        font-size: 1em;
+        gap: 10px;
+    }
+
+    .tarjeta-contenido {
+        margin: 0px;
+        padding: 10px;
+        text-align: center;
+        border: 1px solid #e9d8c0;
+        border-radius: 10px;
+        transition: transform 0.1s ease;
+        overflow: hidden;
+    }
+
+    .tarjeta-contenido:hover {
+        transform: scale(1.05);
+    }
+
+    .tarjeta-contenido img {
+        height: 30px;
+        width: 30px;
+        margin-bottom: 10px;
+    }
+
+    .contenido-destacado {
+        height: 4px;
+        width: 80px;
+        background-color: #52a6b2;
+        margin: 0 auto 1rem auto;
+        font-family: 'Sofia Sans Condensed', sans-serif;
+        font-weight: bolder;
+    }
+
+    .tarjeta-contenido span {
+        font-size: 1.1em;
+        font-weight: bold;
+        color: #333;
+        text-transform: uppercase;
+    }
+
+    .tarjeta-contenido p {
+        font-size: 1em;
+        color: #444444;
+        font-family: 'Sofia Sans Condensed', sans-serif;
+        font-weight: normal;
+    }
+
+    /*------------------------------------------------------------*/
+    /*------------------------------------------------------------*/
+    /* Comienzan los estilos para la sección de ofertas para celu */
+    /*------------------------------------------------------------*/
+    /*------------------------------------------------------------*/
+
+    .seccion-ofertas {
+        position: relative;
+        align-items: center;
+        display: grid;
+        margin-bottom: 50px;
+    }
+
+    .titulo-ofertas {
+        background-color: #e9d8c0;
+        font-family: 'Badoga', sans-serif;
+        text-align: center;
+        font-size: 1.3em;
+        line-height: 2.5;
+    }
+
+    .contenedor-ofertas {
+        flex-wrap: wrap;
+        margin: 0 25px;
+    }
+
+    .caja-ofertas {
+        box-shadow: 1rem 1rem 1rem #e9d8c0;
+        border-radius: .7rem;
+        border: .1rem solid #e9d8c0;
+        height: 400px;
+        overflow: hidden;
+        margin: 15px 0;
+    }
+
+    .oferta-porcentaje {
+        position: absolute;
+        margin-top: 10px;
+        margin-left: 10px;
+        padding: 10px;
+        font-size: 1.5em;
+        color: #e9d8c0;
+        background-color: #52a6b2;
+        z-index: 100;
+        border-radius: 10em;
+        border-style: dotted;
+        border-width: .1em;
+    }
+
+    .oferta-imagen-1 {
+        content: "";
+        background-image: url('../images/tienda/cuidado-capilar/302.jpg');
+        background-position: center;
+        background-size: cover;
+        width: 100%;
+        height: 330px;
+        transition: .6s ease;
+    }
+
+    .ofimg-1 {
+        object-fit: cover;
+        width: 100%;
+        height: 330px;
+    }
+
+    .ofimg-1:hover {
+        opacity: 0;
+        transition: .6s ease;
+    }
+
+    .oferta-iconos {
+        background-color: #52a6b2;
+        height: 50px;
+        padding: 5px;
+        display: flex;
+        justify-content: space-around;
+        transform: translateY(0);
+        /* transition: transform 0.3s; */
+        margin-top: -53px;
+        opacity: 1;
+        transition: .5s;
+    }
+
+    .oferta-iconos img {
+        width: 22px;
+        height: 22px;
+    }
+
+    .oferta-imagen-2 {
+        content: "";
+        background-image: url('../images/tienda/protectores-y-repelentes/601.jpg');
+        background-position: center;
+        background-size: cover;
+        width: 100%;
+        height: 330px;
+        transition: .6s ease;
+    }
+
+    .ofimg-2 {
+        object-fit: cover;
+        width: 100%;
+        height: 330px;
+    }
+
+    .ofimg-2:hover {
+        opacity: 0;
+        transition: .6s ease;
+    }
+
+    .oferta-imagen-3 {
+        background-image: url('../images/tienda/aceites-y-serums/121.jpg');
+        background-position: bottom;
+        background-size: cover;
+        width: 100%;
+        height: 330px;
+        transition: .6s ease;
+    }
+
+    .ofimg-3 {
+        object-fit: cover;
+        width: 100%;
+        height: 329px;
+    }
+
+    .ofimg-3:hover {
+        opacity: 0;
+        transition: .6s ease;
+    }
+
+    .oferta-enlace {
+        text-decoration: none;
+        color: #444444;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .oferta-contenido {
+        text-align: center;
+    }
+
+    .oferta-contenido h1 {
+        font-family: 'Badoga', sans-serif;
+        font-size: 1.2rem;
+        color: #52a6b2;
+        margin-top: 10px;
+    }
+
+    .oferta-precio {
+        font-family: 'Sofia Sans Condensed', sans-serif;
+        font-size: 1.1em;
+        color: #000000;
+        font-weight: bold;
+    }
+
+    .oferta-contenido span {
+        font-family: 'Sofia Sans Condensed', sans-serif;
+        font-size: 1rem;
+        color: #918e8d;
+        font-weight: bold;
+        text-decoration: line-through;
+    }
+
+    /*------------------------------------------------*/
+    /*------------------------------------------------*/
+    /* Comienzan los estilos para el footer para celu */
+    /*------------------------------------------------*/
+    /*------------------------------------------------*/
+
+    .footer {
+        background-color: #52a6b2;
+        color: #fff;
+    }
+
+    .contenedor-footer {
+        font-family: 'Sofia Sans Condensed', sans-serif;
+        max-width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .social-icons,
+    .contacto-info,
+    .informacion,
+    .copyright {
+        flex: 0 0 100%;
+        margin-bottom: 5px;
+        margin-top: 10px;
+        text-align: center;
+    }
+
+    .social-icons a:hover {
+        color: #e9d8c0;
+    }
+
+    .informacion a:hover {
+        color: #e9d8c0;
+    }
+
+    .social-icons img {
+        width: 30px;
+        height: 30px;
+        margin-right: 10px;
+        background-color: #52a6b2;
+    }
+
+    .social-icons a {
+        text-decoration: none;
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 10px;
+    }
+
+    .titulo-footer {
+        font-family: 'Badoga', sans-serif;
+        font-size: 20px;
+        font-weight: bold;
+        margin-bottom: 5px;
+    }
+
+    .contacto-info ul,
+    .informacion ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .contacto-info li,
+    .informacion li {
+        margin-bottom: 2px;
+    }
+
+    .contacto-info img {
+        width: 13px;
+        margin-left: 5px;
+        margin-right: 5px;
+    }
+
+    .informacion a {
+        color: #fff;
+        text-decoration: none;
+    }
+
+    .copyright {
+        text-align: center;
+        background-color: #e9d8c0;
+        padding: 10px;
+        margin: 0;
+        width: 100%;
+    }
+
+    .copyright img {
+        width: 13px;
+        margin-left: 5px;
+        margin-right: 5px;
+    }
+
+    .copyright p {
+        color: #52a6b2;
+    }
+
+    /*----------------------------------------------------*/
+    /*----------------------------------------------------*/
+    /*----------------------------------------------------*/
+    /*                  HTML CONOCENOS                    */
+    /*----------------------------------------------------*/
+    /*----------------------------------------------------*/
+    /*----------------------------------------------------*/
+
+    .contenedor-conocenos {
+        color: #444444;
+        align-items: center;
+        position: relative;
+    }
+
+    .contenedor-conocenos::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: no-repeat right url('../images/conocenos/vertical.png');
+        /* background-position: right; */
+        background-size: cover;
+        opacity: 0.2;
+        z-index: 10;
+    }
+
+    .contenedor-conocenos--p {
+        padding: 30px;
+    }
+
+    .contenedor-conocenos h1,
+    section h2 {
+        font-family: 'Badoga', sans-serif;
+        text-align: center;
+        line-height: 2;
+        color: #52a6b2;
+    }
+
+    .contenedor-conocenos p {
+        font-family: 'Sofia Sans Condensed', sans-serif;
+        margin-bottom: 30px;
+        text-align: justify;
+    }
+
+    .contenedor-conocenos span {
+        font-weight: bold;
+    }
+
+    /*----------------------------------------------------*/
+    /*----------------------------------------------------*/
+    /*----------------------------------------------------*/
+    /*                  HTML RECICLA                      */
+    /*----------------------------------------------------*/
+    /*----------------------------------------------------*/
+    /*----------------------------------------------------*/
+
+    .container_recicla {
+        position: relative;
+        overflow: hidden;
+        align-items: center;
+        justify-content: center;
+        color: #444444;
+    }
+
+    .container_recicla::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: no-repeat center url('../images/logos/logo-linkc.png');
+        background-size: cover;
+        background-position: center;
+        opacity: 0.1;
+        z-index: 10;
+    }
+
+    .title_seccion_recicla {
+        text-align: center;
+        margin-top: 30px;
+        color: #52a6b2;
+        font-family: 'Badoga', sans-serif;
+        font-size: 1.5em;
+        line-height: 3;
+    }
+
+    .title_seccion_recicla span {
+        color: #e9d8c0;
+    }
+
+    .description_seccion_recicla--one {
+        text-align: center;
+        font-family: 'Sofia Sans Condensed', sans-serif;
+        color: #52a6b2;
+        margin: 20px auto;
+        font-size: 1.2em;
+        text-transform: uppercase;
+        width: 70vw;
+        box-shadow: 0 .5rem 1.5rem #e7d9c6;
+        border-radius: .5rem;
+        border: .1rem solid #e9d8c0;
+        padding: 8px;
+    }
+
+    .description_seccion_recicla--two {
+        font-family: 'Sofia Sans Condensed', sans-serif;
+        margin: 30px 30px 10px;
+        text-align: justify;
+        font-size: 1.1em;
+    }
+
+    .description_seccion_recicla--three {
+        font-family: 'Sofia Sans Condensed', sans-serif;
+        text-align: justify;
+        margin: 10px 30px 10px;
+        font-size: 1.1em;
+    }
+
+    .description_three--span {
+        font-family: 'Sofia Sans Condensed', sans-serif;
+        font-size: 1.1em;
+        text-align: center;
+        font-weight: bold;
+    }
+
+    .description_seccion_recicla--four {
+        text-align: center;
+        font-family: 'Badoga', sans-serif;
+        margin: 30px;
+        font-size: 1.1em;
+    }
+
+    .secciondos_img {
+        width: 15px;
+        height: 15px;
+    }
+
+    .description_seccion_recicla--tips {
+        font-family: 'Sofia Sans Condensed', sans-serif;
+        margin: 10px 30px;
+        font-size: 1.1em;
+        text-align: justify;
+    }
+
+    .description_seccion_recicla--reflexion {
+        width: 70vw;
+        text-align: center;
+        font-family: 'Badoga', sans-serif;
+        color: #444444;
+        box-shadow: 0 .5rem 1.5rem #e7d9c6;
+        border-radius: .5rem;
+        border: .1rem solid #e9d8c0;
+        margin: 30px auto;
+        font-size: 1.1em;
+        padding: 15px;
+    }
+
+    .span_medioambiente {
+        font-weight: bold;
+        color: #52a6b2;
+    }
+
+    .description_seccion2--final {
+        text-align: center;
+        font-family: 'Badoga', sans-serif;
+        text-decoration: solid;
+        margin-top: 40px;
+        font-size: 1.3rem;
+    }
+
+    .recicla-img {
+        text-align: center;
+        align-items: center;
+    }
+
+    .manos {
+        height: 50px;
+    }
+
+    .container_ecoideas {
+        font-family: 'Sofia Sans Condensed', sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 30px;
+    }
+
+    .tarjeta-ecoidea {
+        width: 350px;
+        margin: 0;
+        padding: 10px;
+        text-align: center;
+        border: 1px solid #e9d8c0;
+        border-radius: 10px;
+        transition: transform 0.1s ease;
+        overflow: hidden;
+    }
+
+    .tarjeta-ecoidea:hover {
+        transform: scale(1.05);
+    }
+
+    .ecoidea_img {
+        height: 30px;
+        width: 30px;
+        margin-bottom: 10px;
+    }
+
+    .ecoideas {
+        height: 4px;
+        width: 75px;
+        background-color: #52a6b2;
+        margin: 0 auto 1rem auto;
+    }
+
+    .ecoidea_title {
+        font-size: 1.1em;
+        font-weight: bold;
+        color: #333;
+        text-transform: uppercase;
+    }
+
+    .ecoidea_desc {
+        font-size: 1em;
+        color: #444444;
+        font-family: 'Sofia Sans Condensed', sans-serif;
+        font-weight: normal;
+    }
+
+    /*----------------------------------------------------*/
+    /*----------------------------------------------------*/
+    /*----------------------------------------------------*/
+    /*                  HTML CONTACTO                     */
+    /*----------------------------------------------------*/
+    /*----------------------------------------------------*/
+    /*----------------------------------------------------*/
+
+    .contenedor-contacto {
+        color: #444444;
+        margin: 10px;
+        position: relative;
+        overflow: hidden;
+        align-items: center;
+    }
+
+    .contenedor-contacto::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url('../images/logos/logo-linkc.png');
+        background-position: center;
+        background-size: cover;
+        opacity: 0.2;
+        z-index: -1;
+    }
+
+    .contenedor-contacto--p {
+        padding: 30px;
+        text-align: center;
+        position: relative;
+    }
+
+    .titulo-contacto {
+        font-family: 'Badoga', sans-serif;
+        color: #52a6b2;
+        font-size: 1.4em;
+        text-align: center;
+        line-height: 3;
+    }
+
+    .subtitulo-contacto {
+        color: #52a6b2;
+        font-size: 1.2em;
+        margin-top: 20px;
+        font-family: 'Badoga', sans-serif;
+        text-align: center;
+    }
+
+    .contenedor-contacto p {
+        text-align: justify;
+        font-family: 'Sofia Sans Condensed', sans-serif;
+    }
+
+    .contenedor-contacto--p h3 {
+        margin-top: 70px;
+        text-align: center;
+        font-family: 'Sofia Sans Condensed', sans-serif;
+    }
+
+    .contenedor-contacto--p span {
+        position: relative;
+        line-height: 2;
+    }
+
+    .img-redes {
+        align-items: center;
+    }
+
+    .img-redes a {
+        color: #444444;
+        text-align: center;
+        text-decoration: none;
+        margin-right: 20px;
+    }
+
+    .img-redes a:hover {
+        color: #52a6b2;
+    }
+
+    .img-redes img {
+        align-items: center;
+        max-width: 210px;
+        max-height: 1px;
+    }
+
+    .img-redes span {
+        font-size: 1.1em;
+    }
+
+    /*----------------------------------------------------*/
+    /*----------------------------------------------------*/
+    /*----------------------------------------------------*/
+    /*----------------------------------------------------*/
+    /*----------------------------------------------------*/
+    /*                  HTML BLOG                         */
+    /*----------------------------------------------------*/
+    /*----------------------------------------------------*/
+    /*----------------------------------------------------*/
+    /*----------------------------------------------------*/
+    /*----------------------------------------------------*/
+
+    .main-blog {
+        max-width: 1200px;
+    }
+
+    .main-blog p {
+        color: #000000;
+    }
+
+    .seccion-blog {
+        position: relative;
+        display: grid;
+        margin: 10px 0 10px 0;
+    }
+
+    .seccion-categoria {
+        position: relative;
+        display: grid;
+        margin: 0 0 20px 0;
+    }
+
+    .titulo-blog {
+        background-color: #e9d8c0;
+        font-family: 'Badoga', sans-serif;
+        padding-right: 30px;
+        text-align: right;
+        font-size: 1em;
+        line-height: 2;
+    }
+
+    .titulo-cat {
+        padding: 10px 30px 0;
+        font-family: 'Sofia Sans Condensed', sans-serif;
+        text-align: left;
+        color: #52a6b2;
+        font-size: 1em;
+    }
+
+    .post-individual {
+        margin: 10px 60px 30px;
+        padding-bottom: 3px;
+        flex-wrap: wrap;
+        border-radius: 2%;
+        box-shadow: 0 15px 15px -15px #e9d8c0, 0 0 0 0 #e9d8c0;
+        /* Sombreado arriba y abajo */
+    }
+
+    .categoria-individual {
+        margin: 30px 10px;
+        flex-wrap: wrap;
+        border-radius: 2%;
+        box-shadow: 0 15px 15px -15px #e9d8c0, 0 0 0 0 #e9d8c0;
+        /* Sombreado arriba y abajo */
+    }
+
+    .contenedor-cat__categoria {
+        margin: 0;
+        flex-wrap: wrap;
+    }
+
+    .contenedor-cat__categoria ul {
+        font-family: 'Sofia Sans Condensed', sans-serif;
+        margin: 15px 100px 30px;
+        font-size: 1em;
+        color: #52a6b2;
+    }
+
+    .contenedor-subpost {
+        padding: 20px 20px 20px 20px;
+        border: 0 1px 1px 1px solid #e9d8c0;
+    }
+
+    .post-contenido {
+        font-family: 'Sofia Sans Condensed', sans-serif;
+        font-size: 1em;
+        margin: 15px 30px;
+    }
+
+    .post-contenido p {
+        margin: 15px 0 60px;
+    }
+
+    .post-contenido__detalles {
+        font-family: 'Sofia Sans Condensed', sans-serif;
+        font-size: 1em;
+        margin: 20px 50px 10px;
+        padding: 20px 0 0;
+        text-align: left;
+        color: #52a6b2;
+    }
+
+    .post-contenido__detalles p {
+        margin: 20px 0 30px;
+    }
+
+    .post-contenido__formato {
+        font-family: 'Sofia Sans Condensed', sans-serif;
+        font-size: 1.3em;
+        margin: 15px 20px;
+        padding: 10px;
+        text-align: justify;
+    }
+
+    .post-contenido__hash {
+        text-align: left;
+    }
+
+    .post-contenido li {
+        color: #e9d8c0;
+    }
+
+    .blog-post-img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    .blog-img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 5% 5% 0 0;
+    }
+
+    .redireccion {
+        padding: 10px 5px;
+        font-size: 1.5em;
+        text-align: right;
+    }
+
+
+    /*----------------------------------------------------*/
+    /*----------------------------------------------------*/
+    /*----------------------------------------------------*/
+    /*----------------------------------------------------*/
+    /*----------------------------------------------------*/
+    /*                  HTML TIENDA                       */
+    /*----------------------------------------------------*/
+    /*----------------------------------------------------*/
+    /*----------------------------------------------------*/
+    /*----------------------------------------------------*/
+    /*----------------------------------------------------*/
+
+    .main-tienda-cat {
+        width: 80%;
+        margin: 0 auto;
+    }
+
+    .titulo-tienda-cat {
+        background-color: #e9d8c0;
+        font-family: 'Badoga', sans-serif;
+        margin: 20px 0;
+        text-align: center;
+        font-size: 1.3rem;
+        line-height: 2;
+    }
+
+    .lista-productos {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        padding: 0;
+    }
+
+    .producto-item-cat {
+        max-width: calc(50% - 10px);
+        /* Aproximadamente 2 productos por fila */
+        margin-bottom: 50px;
+        box-sizing: border-box;
+        font-family: 'Sofia Sans Condensed', sans-serif;
+        border: 1px solid #e9d8c0;
+        border-radius: 8px;
+    }
+
+    .producto-imagen-cat {
+        max-width: 100%;
+        height: auto;
+    }
+
+    .producto-titulo-cat {
+        margin-top: 10px;
+        margin-bottom: 5px;
+        font-size: 1.1rem;
+        font-weight: bold;
+    }
+
+    .producto-precio-cat span {
+        font-family: 'Sofia Sans Condensed', sans-serif;
+        margin-top: 5px;
+        padding-bottom: 10px;
+        font-size: 0.8rem;
+        color: #918e8d;
+        text-decoration: line-through;
+    }
+
+    .producto-precio-cat {
+        font-family: 'Sofia Sans Condensed', sans-serif;
+        margin-top: 5px;
+        padding-bottom: 15px;
+        font-size: 1.1rem;
+        color: #000000;
+        font-weight: bold;
+    }
+
+    /*------------------------------------------*/
+    /*------------------------------------------*/
+    /* Comienzan los estilos para cada producto */
+    /*------------------------------------------*/
+    /*------------------------------------------*/
+
+    .contenedor-producto {
+        position: relative;
+        display: flex;
+        flex-flow: column;
+        max-width: 800px;
+        margin: 20px auto;
+        border: 1px solid #e9d8c0;
+        border-radius: 8px;
+        overflow: hidden;
+    }
+
+    .producto-imagen-carrusel {
+        max-width: 100%;
+        height: auto;
+        display: flex;
+        position: relative;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .producto-imagen-carrusel img {
+        max-width: 100%;
+        max-height: 365px;
+    }
+
+    #btn-next,
+    #btn-prev {
+        cursor: pointer;
+        padding: 10px;
+        margin-top: 10px;
+    }
+
+    .direcciones-producto {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 20px;
+        z-index: 300;
+    }
+
+    .direcciones-producto a {
+        color: #52a6b2;
+        display: inline-block;
+        padding: 20px;
+        text-decoration: none;
+    }
+
+    .direcciones-producto a:hover {
+        background: #e9d8c0;
+        transition: .5s;
+    }
+
+
+    .producto-detalles {
+        padding: 20px;
+    }
+
+    .producto-codmar {
+        flex-flow: column;
+        padding-bottom: 10px;
+        font-size: 1.2rem;
+        color: #52a6b2;
+    }
+
+    .producto-codmar span {
+        font-size: 0.8rem;
+        color: #444444;
+    }
+
+    .producto-titulo {
+        font-family: 'Sofia Sans Condensed', sans-serif;
+        font-size: 1.4rem;
+        margin-bottom: 0px;
+    }
+
+    .producto-descripcion p {
+        color: #52a6b2;
+        font-size: 1rem;
+        margin-top: 20px;
+        margin-bottom: 3px;
+    }
+
+    .producto-descripcion {
+        margin-bottom: 5px;
+        font-size: 1.3rem;
+        text-align: justify;
+    }
+}
+
+/*------------------------------------------------------------------------------------------------------------------------------------------------*/
+/* FIN MOVIL */
+/*------------------------------------------------------------------------------------------------------------------------------------------------*/
+/*------------------------------------------------------------------------------------------------------------------------------------------------*/
+/*------------------------------------------------------------------------------------------------------------------------------------------------*/
+/*------------------------------------------------------------------------------------------------------------------------------------------------*/
+/* INICIO TABLET (vertical) */
+/*------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
+
+    body {
+        font-size: 18px;
+        background: red;
+    }
+
+    .container {
+        width: 70%;
+        padding: 0 20px;
+    }
+
+    .imagen {
+        width: 70%;
+    }
+}
+
+/*------------------------------------------------------------------------------------------------------------------------------------------------*/
+/* FIN TABLET (vertical) */
+/*------------------------------------------------------------------------------------------------------------------------------------------------*/
+/*------------------------------------------------------------------------------------------------------------------------------------------------*/
+/*------------------------------------------------------------------------------------------------------------------------------------------------*/
+/*------------------------------------------------------------------------------------------------------------------------------------------------*/
+/* INICIO TABLET (horizontal) */
+/*------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+
+    body {
+        font-size: 18px;
+        background: yellow;
+    }
+
+    .container {
+        width: 80%;
+        padding: 0 30px;
+    }
+
+    .imagen {
+        width: 80%;
+    }
+}
+
+/*------------------------------------------------------------------------------------------------------------------------------------------------*/
+/* FIN TABLET (horizontal) */
+/*------------------------------------------------------------------------------------------------------------------------------------------------*/
+/*------------------------------------------------------------------------------------------------------------------------------------------------*/
+/*------------------------------------------------------------------------------------------------------------------------------------------------*/
+/*------------------------------------------------------------------------------------------------------------------------------------------------*/
+/* INICIO ESCRITORIO */
+/*------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+@media (min-width: 1025px) {
+    
+    .container {
+        width: 90%;
+        padding: 0 40px;
+    }
+
+    .imagen {
+        width: 90%;
+    }
+
+    /*----------------------------------------------------*/
+    /*----------------------------------------------------*/
+    /*----------------------------------------------------*/
+    /*                       INDEX                        */
+    /*----------------------------------------------------*/
+    /*----------------------------------------------------*/
+    /*----------------------------------------------------*/
+
+    /*-----------------------------------------------------------------*/
+    /*-----------------------------------------------------------------*/
+    /* Comienza los estilos para boton flotante de whatsapp para movil */
+    /*-----------------------------------------------------------------*/
+    /*-----------------------------------------------------------------*/
+
+    .container_botton {
+        width: 40px;
+        height: 40px;
+        background-color: #25D366;
+        border: solid 1px #25D366;
+        position: fixed;
+        z-index: 999;
+        border-radius: 100%;
+        bottom: 15px;
+        right: 10px;
+        padding: 5px;
+        transform: scale(1);
+        animation: whatsapp 1s infinite;
+    }
+
+    .container_botton:hover {
+        transform: scale(1.05);
+        transition: 0.3s;
+    }
+
+    .icon_wa {
+        width: min-content;
+    }
+
+    @keyframes whatsapp {
+        0% {
+            box-shadow: 0 0 0 0 #52a6b2;
+        }
+
+        100% {
+            box-shadow: 0 0 0 8px rgba(0, 0, 0, 0);
+        }
+    }
+
+    @media (min-width: 1025px) {
+        .container_botton {
+            width: 60px;
+            height: 60px;
+            bottom: 20px;
+            right: 20px;
+        }
+
+        .container_botton:hover {
+            transform: scale(1.1);
+        }
+    }
+
+    /*---------------------------------*/
+    /*---------------------------------*/
+    /* Comienza formato menu para celu */
+    /*---------------------------------*/
+    /*---------------------------------*/
+
+    .dropdown__icon_house {
+        height: 30px;
+    }
+
+    .dropdown__icon_elitianw {
+        margin: -13px;
+        height: 50px;
+    }
+
+    .dropdown__icon_product {
+        height: 30px;
+    }
+
+    .dropdown__icon_recicla {
+        height: 30px;
+    }
+
+    .dropdown__icon_blog {
+        height: 30px;
+    }
+
+    .dropdown__icon_email {
+        height: 27px;
+    }
+
+    .logo {
+        height: 55px;
+    }
+
+    .nav {
+        background-color: #a1dcdc;
+        --img1: scale(1);
+        --img2: scale(0);
+    }
+
+    .nav:has(.menu__links:target) {
+        --img1: scale(0);
+        --img2: scale(1);
+        --clip: inset(0 0 0 0);
+    }
+
+    .menu__container {
+        width: 100%;
+        margin: 0 auto;
+        height: 70px;
+        display: grid;
+        grid-template-columns: max-content max-content;
+        grid-template-areas: "title img";
+        justify-content: space-between;
+        align-items: center;
+        overflow: hidden;
+    }
+
+    .enlace {
+        margin: 8px;
+        grid-area: title;
+    }
+
+    .nav__menu {
+        grid-area: img;
+        position: relative;
+        z-index: 500;
+        transform: var(--img1);
+    }
+
+    .nav__menu--second {
+        transform: var(--img2);
+    }
+
+    .nav__icon {
+        width: 30px;
+        display: block;
+        margin-right: 10px;
+    }
+
+    .menu__links {
+        font-family: 'Sofia Sans Condensed', sans-serif;
+        position: absolute;
+        background-color: #a1dcdc;
+        max-width: 250px;
+        width: 80%;
+        right: 0;
+        top: 0;
+        bottom: 10%;
+        padding: 1em;
+        display: grid;
+        align-content: center;
+        gap: 1rem;
+        overflow-y: auto;
+        clip-path: var(--clip, inset(0 0 100% 100%));
+        transition: clip-path .5s;
+        z-index: 400;
+    }
+
+    .menu__item {
+        list-style: none;
+    }
+
+    .menu__link {
+        color: #444444;
+        padding: .3em .7em;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        gap: 1.3rem;
+        position: relative;
+        background-color: var(--bg, transparent);
+    }
+
+    .menu__item--show:has(:checked) {
+        --rows: 1fr;
+        --rotate: rotate(180deg);
+        --bg: #e9d8c0;
+    }
+
+    .checkbox {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        cursor: pointer;
+    }
+
+    .dropdown__span:hover {
+        color: #52a6b2;
+    }
+
+    .menu__arrow {
+        height: 12px;
+        margin-left: auto;
+        transform: var(--rotate, 0);
+        transition: .2s transform;
+    }
+
+    .list_categorias {
+        display: grid;
+        grid-template-rows: var(--rows, 0fr);
+        transition: .3s grid-template-rows;
+    }
+
+    .menu__nesting {
+        overflow: hidden;
+    }
+
+    .menu__inside {
+        width: 85%;
+        list-style: none;
+        margin-left: auto;
+    }
+
+    .menu__link--inside:hover {
+        color: #52a6b2;
+    }
+
+    /*---------------------------------------------*/
+    /*-------------------------------------------- */
+    /* Comienza los estilos del carrusel para celu */
+    /*---------------------------------------------*/
+    /*---------------------------------------------*/
+    .carrusel-contenedor {
+        max-width: 100%;
+        max-height: 100vh;
+        position: relative;
+        overflow: hidden;
+        margin: 0;
+        z-index: 100;
+    }
+
+    .miCarrusel {
+        display: none;
+        transition: opacity 2s;
+        max-height: 100vh;
+        z-index: 200;
+    }
+
+    .miCarrusel img {
+        width: 100%;
+        max-height: 100vh;
+        height: inherit;
+        object-fit: cover;
+        vertical-align: top;
+        transition: 2s;
+        opacity: 90%;
+    }
+
+    .banner {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 300;
+    }
+
+    .banner-contenido {
+        text-align: center;
+        color: #000000;
+    }
+
+    .banner-contenido p {
+        font-size: 1em;
+        font-weight: 500;
+    }
+
+    .banner-contenido a {
+        margin-top: 0.5rem;
+        text-decoration: none;
+        color: #000000;
+        background-color: #e9d8c0;
+        opacity: 80%;
+        display: inline-block;
+        padding: 0.2rem 0.3rem;
+        text-transform: uppercase;
+        border: 1px solid #52a6b2;
+        border-radius: 100px;
+    }
+
+    .direcciones {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 20px;
+        z-index: 300;
+    }
+
+    .direcciones a {
+        color: #52a6b2;
+        display: inline-block;
+        padding: 20px;
+        text-decoration: none;
+    }
+
+    .direcciones a:hover {
+        background: #e9d8c0;
+        transition: .5s;
+    }
+
+    .barras {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        margin-bottom: 15px;
+        z-index: 300;
+    }
+
+    .barra {
+        cursor: pointer;
+        height: 2px;
+        width: 25px;
+        margin: 0 2px;
+        background: #e9d8c0;
+        display: inline-block;
+        margin-left: 3px;
+    }
+
+    .active {
+        background-color: #52a6b2;
+    }
+
+    .fade {
+        animation-name: fade;
+        animation-duration: 1s;
+    }
+
+    /* Media query para pantallas con un ancho mínimo de 1025px */
+    @media screen and (min-width: 1025px) {
+
+        /* Agrega estilos específicos para pantallas más grandes aquí */
+        .miCarrusel img {
+            max-height: 70vh;
+            /* Por ejemplo, ajusta la altura máxima de la imagen */
+        }
+
+        .banner-contenido p {
+            font-size: 1.2em;
+            /* Por ejemplo, ajusta el tamaño de fuente del contenido del banner */
+        }
+    }
+
+    /*--------------------------------------------------------------------------*/
+    /*--------------------------------------------------------------------------*/
+    /* Comienzan los estilos de la galeria de imagenes por categorias para celu */
+    /*--------------------------------------------------------------------------*/
+    /*--------------------------------------------------------------------------*/
+
+    .galeria {
+        display: grid;
+        margin: 10px;
+        gap: 10px;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-auto-rows: 200px;
+        grid-template-areas:
+            'img1 img2'
+            "img1 img4"
+            "img3 img3"
+            "img7 img6"
+            "img5 img6"
+    }
+
+    .galeria-imagen {
+        position: relative;
+        cursor: pointer;
+        overflow: hidden;
+        text-align: center;
+    }
+
+    .galeria-imagen::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-color: #e9d8c0;
+        transform: scale(0);
+        transition: background-color 0.3s, opacity 0.3s;
+        color: #e9d8c0;
+        align-items: center;
+        justify-content: center;
+        font-size: 1em;
+    }
+
+    .galeria-imagen:hover::after {
+        transform: scale(1);
+        background-color: #e9d8c0;
+        opacity: 50%;
+    }
+
+    .ver-mas-btn {
+        font-family: 'Sofia Sans Condensed', sans-serif;
+        width: 7rem;
+        padding: 2px;
+        position: absolute;
+        top: 60%;
+        left: 50%;
+        border: 1px solid #52a6b2;
+        border-radius: 100px;
+        transform: translate(-50%, -50%);
+        letter-spacing: 2px;
+        font-weight: lighter;
+    }
+
+    .ver-mas-btn:hover {
+        background-color: #e9d8c0;
+        opacity: 70%;
+        transition: 0.5s;
+    }
+
+    .categoria {
+        font-family: 'Sofia Sans Condensed', sans-serif;
+        font-size: 1em;
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        letter-spacing: 1px;
+        font-weight: bolder;
+    }
+
+    .galeria-imagen--g1 {
+        grid-area: img1;
+    }
+
+    .galeria-imagen--g2 {
+        grid-area: img2;
+    }
+
+    .galeria-imagen--g3 {
+        grid-area: img3;
+    }
+
+    .galeria-imagen--g4 {
+        grid-area: img4;
+    }
+
+    .galeria-imagen--g5 {
+        grid-area: img5;
+    }
+
+    .galeria-imagen--g6 {
+        grid-area: img6;
+    }
+
+    .galeria-imagen--g7 {
+        grid-area: img7;
+    }
+
+    .galeria-imagen--g8 {
+        grid-area: img8;
+    }
+
+    .galeria-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        opacity: 80%;
+        transform: transition(-50%, -50%);
+    }
+
+    .galeria-img:hover {
+        background-color: #e9d8c0;
+        opacity: 30%;
+        transition: 0.1s;
+    }
+
+    .galeria {
+        display: grid;
+        margin: 30px;
+        gap: 30px;
+        grid-template-areas:
+            'img1 img4 img2'
+            'img1 img3 img3'
+            'img8 img7 img6'
+            'img5 img5 img6'
+    }
+
+
+    /*-----------------------------------------------------------*/
+    /*-----------------------------------------------------------*/
+    /* Comienzan los estilos para las caracteristicas de ofertas */
+    /*-----------------------------------------------------------*/
+    /*-----------------------------------------------------------*/
+
+    .main-caracteristicas {
+        object-fit: cover;
+        padding: 50px;
+    }
+    
+    .caracteristicas-contenido {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+        align-items: center;
+        justify-content: space-around;
+        font-size: 1em;
+        gap: 20px;
+    }
+    
+    .tarjeta-contenido {
+        margin: 0px;
+        padding: 10px;
+        text-align: center;
+        border: 1px solid #e9d8c0;
+        border-radius: 10px;
+        transition: transform 0.1s ease;
+        overflow: hidden;
+    }
+    
+    .tarjeta-contenido:hover {
+        transform: scale(1.05);
+    }
+    
+    .tarjeta-contenido img {
+        height: 30px;
+        width: 30px;
+        margin-bottom: 10px;
+    }
+    
+    .contenido-destacado {
+        height: 4px;
+        width: 80px;
+        background-color: #52a6b2;
+        margin: 0 auto 1rem auto;
+        font-family: 'Sofia Sans Condensed', sans-serif;
+        font-weight: bolder;
+    }
+    
+    .tarjeta-contenido span {
+        font-size: 1.1em;
+        font-weight: bold;
+        color: #333;
+        text-transform: uppercase;
+    }
+    
+    .tarjeta-contenido p {
+        font-size: 1em;
+        color: #444444;
+        font-family: 'Sofia Sans Condensed', sans-serif;
+        font-weight: normal;
+    }
+
+    /*------------------------------------------------------------*/
+    /*------------------------------------------------------------*/
+    /* Comienzan los estilos para la sección de ofertas para celu */
+    /*------------------------------------------------------------*/
+    /*------------------------------------------------------------*/
+
+    .seccion-ofertas {
+        margin-bottom: 50px;
+    }
+
+    .contenedor-ofertas {
+        display: flex;
+        justify-content: space-between;
+        margin: 0 auto;
+    }
+
+    .caja-ofertas {
+        width: calc(33.33% - 30px);
+        margin: 15px 0;
+    }
+
+
+    /* Estilos generales */
+    .titulo-ofertas {
+        background-color: #e9d8c0;
+        font-family: 'Badoga', sans-serif;
+        text-align: center;
+        font-size: 1.3em;
+        line-height: 2.5;
+    }
+
+    .contenedor-ofertas {
+        flex-wrap: wrap;
+        margin: 0 25px;
+    }
+
+    .caja-ofertas {
+        box-shadow: 1rem 1rem 1rem #e9d8c0;
+        border-radius: .7rem;
+        border: .1rem solid #e9d8c0;
+        height: 400px;
+        overflow: hidden;
+        margin: 15px 0;
+    }
+
+    .oferta-porcentaje {
+        position: absolute;
+        margin-top: 10px;
+        margin-left: 10px;
+        padding: 10px;
+        font-size: 1.5em;
+        color: #e9d8c0;
+        background-color: #52a6b2;
+        z-index: 100;
+        border-radius: 10em;
+        border-style: dotted;
+        border-width: .1em;
+    }
+
+    .oferta-imagen {
+        content: "";
+        width: 100%;
+        height: 330px;
+        transition: .6s ease;
+    }
+
+    .oferta-imagen:hover {
+        opacity: 0;
+        transition: .6s ease;
+    }
+
+    .oferta-iconos {
+        background-color: #52a6b2;
+        height: 50px;
+        padding: 5px;
+        display: flex;
+        justify-content: space-around;
+        transform: translateY(0);
+        margin-top: -53px;
+        opacity: 1;
+        transition: .5s;
+    }
+
+    .oferta-iconos img {
+        width: 22px;
+        height: 22px;
+    }
+
+    .oferta-enlace {
+        text-decoration: none;
+        color: #444444;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .oferta-contenido {
+        text-align: center;
+    }
+
+    .oferta-contenido h1 {
+        font-family: 'Badoga', sans-serif;
+        font-size: 1.2rem;
+        color: #52a6b2;
+        margin-top: 10px;
+    }
+
+    .oferta-precio {
+        font-family: 'Sofia Sans Condensed', sans-serif;
+        font-size: 1.1em;
+        color: #000000;
+        font-weight: bold;
+    }
+
+    .oferta-contenido span {
+        font-family: 'Sofia Sans Condensed', sans-serif;
+        font-size: 1rem;
+        color: #918e8d;
+        font-weight: bold;
+        text-decoration: line-through;
+    }
+
+    /*------------------------------------------------*/
+    /*------------------------------------------------*/
+    /* Comienzan los estilos para el footer para celu */
+    /*------------------------------------------------*/
+    /*------------------------------------------------*/
+
+    .contenedor-footer {
+        flex-flow: nowrap;
+    }
+
+    .social-icons,
+    .contacto-info,
+    .informacion {
+        margin: 20px;
+    }
+
+    .copyright {
+        width: 100%;
+    }
+
+
+    /* Estilos generales */
+    .footer {
+        background-color: #52a6b2;
+        color: #fff;
+    }
+
+    .contenedor-footer {
+        font-family: 'Sofia Sans Condensed', sans-serif;
+        max-width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .social-icons,
+    .contacto-info,
+    .informacion {
+        flex: 0 0 100%;
+        margin-bottom: 5px;
+        margin-top: 1rem;
+        text-align: center;
+        justify-content: center;
+        
+    }
+
+    .copyright {
+        flex-flow: wrap;
+        background-color: #e9d8c0;
+        color: #52a6b2;
+        margin-top: 10px;
+        padding: 10px 0;
+        justify-content: center;
+        text-align: center;
+
+    }
+
+    .social-icons a:hover {
+        color: #e9d8c0;
+    }
+
+    .informacion a:hover {
+        color: #e9d8c0;
+    }
+
+    .social-icons img {
+        width: 30px;
+        height: 30px;
+        margin-right: 10px;
+        background-color: #52a6b2;
+    }
+
+    .social-icons a {
+        text-decoration: none;
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 10px;
+    }
+
+    .titulo-footer {
+        font-family: 'Badoga', sans-serif;
+        font-size: 20px;
+        font-weight: bold;
+        margin-bottom: 5px;
+    }
+
+    .contacto-info ul,
+    .informacion ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .contacto-info li,
+    .informacion li {
+        margin-bottom: 2px;
+    }
+
+    .contacto-info img {
+        width: 13px;
+        margin-left: 5px;
+        margin-right: 5px;
+    }
+
+    .informacion a {
+        color: #fff;
+        text-decoration: none;
+    }
+
+    .informacion a {
+        color: #fff;
+        text-decoration: none;
+    }
+
+    /*----------------------------------------------------*/
+    /*----------------------------------------------------*/
+    /*----------------------------------------------------*/
+    /*                  HTML CONOCENOS                    */
+    /*----------------------------------------------------*/
+    /*----------------------------------------------------*/
+    /*----------------------------------------------------*/
+
+    .contenedor-contacto {
+        color: #444444;
+        margin: 10px;
+        position: relative;
+        overflow: hidden;
+        align-items: center;
+    }
+
+    .contenedor-contacto::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url('../images/logos/logo-linkc.png');
+        background-position: center;
+        background-size: cover;
+        opacity: 0.2;
+        z-index: -1;
+    }
+
+    .contenedor-contacto--p {
+        padding: 30px;
+        text-align: center;
+        position: relative;
+    }
+
+    .titulo-contacto {
+        font-family: 'Badoga', sans-serif;
+        color: #52a6b2;
+        font-size: 1.4em;
+        text-align: center;
+        line-height: 3;
+    }
+
+    .subtitulo-contacto {
+        color: #52a6b2;
+        font-size: 1.2em;
+        margin-top: 20px;
+        font-family: 'Badoga', sans-serif;
+        text-align: center;
+    }
+
+    .contenedor-contacto p {
+        text-align: justify;
+        font-family: 'Sofia Sans Condensed', sans-serif;
+    }
+
+    .contenedor-contacto--p h3 {
+        margin-top: 70px;
+        text-align: center;
+        font-family: 'Sofia Sans Condensed', sans-serif;
+    }
+
+    .contenedor-contacto--p span {
+        position: relative;
+        line-height: 2;
+    }
+
+    .img-redes {
+        align-items: center;
+    }
+
+    .img-redes a {
+        color: #444444;
+        text-align: center;
+        text-decoration: none;
+        margin-right: 20px;
+    }
+
+    .img-redes a:hover {
+        color: #52a6b2;
+    }
+
+    .img-redes img {
+        align-items: center;
+        max-width: 210px;
+        max-height: 1px;
+    }
+
+    .img-redes span {
+        font-size: 1.1em;
+    }
+
+    /*----------------------------------------------------*/
+    /*----------------------------------------------------*/
+    /*----------------------------------------------------*/
+    /*                  HTML RECICLA                      */
+    /*----------------------------------------------------*/
+    /*----------------------------------------------------*/
+    /*----------------------------------------------------*/
+
+
+    .container_recicla {
+        position: relative;
+        overflow: hidden;
+        align-items: center;
+        justify-content: center;
+        color: #444444;
+    }
+    
+    .container_recicla::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: no-repeat center url('../images/logos/logo-linkc.png');
+        background-size: cover;
+        background-position: center;
+        opacity: 0.1;
+        z-index: 10;
+    }
+    
+    .title_seccion_recicla {
+        text-align: center;
+        margin-top: 30px;
+        color: #52a6b2;
+        font-family: 'Badoga', sans-serif;
+        font-size: 1.5em;
+        line-height: 3;
+    }
+    
+    .title_seccion_recicla span {
+        color: #e9d8c0;
+    }
+    
+    .description_seccion_recicla--one {
+        text-align: center;
+        font-family: 'Sofia Sans Condensed', sans-serif;
+        color: #52a6b2;
+        margin: 20px auto;
+        font-size: 1.2em;
+        text-transform: uppercase;
+        width: 70vw;
+        box-shadow: 0 .5rem 1.5rem #e7d9c6;
+        border-radius: .5rem;
+        border: .1rem solid #e9d8c0;
+        padding: 8px;
+    }
+    
+    .description_seccion_recicla--two {
+        font-family: 'Sofia Sans Condensed', sans-serif;
+        margin: 30px 30px 10px;
+        text-align: justify;
+        font-size: 1.1em;
+    }
+    
+    .description_seccion_recicla--three {
+        font-family: 'Sofia Sans Condensed', sans-serif;
+        text-align: justify;
+        margin: 10px 30px 10px;
+        font-size: 1.1em;
+    }
+    
+    .description_three--span {
+        font-family: 'Sofia Sans Condensed', sans-serif;
+        font-size: 1.1em;
+        text-align: center;
+        font-weight: bold;
+    }
+    
+    .description_seccion_recicla--four {
+        text-align: center;
+        font-family: 'Badoga', sans-serif;
+        margin: 30px;
+        font-size: 1.1em;
+    }
+    
+    .secciondos_img {
+        width: 15px;
+        height: 15px;
+    }
+    
+    .description_seccion_recicla--tips {
+        font-family: 'Sofia Sans Condensed', sans-serif;
+        margin: 10px 30px;
+        font-size: 1.1em;
+        text-align: justify;
+    }
+    
+    .description_seccion_recicla--reflexion {
+        width: 70vw;
+        text-align: center;
+        font-family: 'Badoga', sans-serif;
+        color: #444444;
+        box-shadow: 0 .5rem 1.5rem #e7d9c6;
+        border-radius: .5rem;
+        border: .1rem solid #e9d8c0;
+        margin: 30px auto;
+        font-size: 1.1em;
+        padding: 15px;
+    }
+    
+    .span_medioambiente {
+        font-weight: bold;
+        color: #52a6b2;
+    }
+    
+    .description_seccion2--final {
+        text-align: center;
+        font-family: 'Badoga', sans-serif;
+        text-decoration: solid;
+        margin-top: 40px;
+        font-size: 1.3rem;
+    }
+    
+    .recicla-img {
+        text-align: center;
+        align-items: center;
+    }
+    
+    .manos {
+        height: 50px;
+    }
+    
+    .container_ecoideas {
+        font-family: 'Sofia Sans Condensed', sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 30px;
+    }
+    
+    .tarjeta-ecoidea {
+        width: 350px;
+        margin: 0;
+        padding: 10px;
+        text-align: center;
+        border: 1px solid #e9d8c0;
+        border-radius: 10px;
+        transition: transform 0.1s ease;
+        overflow: hidden;
+    }
+    
+    .tarjeta-ecoidea:hover {
+        transform: scale(1.05);
+    }
+    
+    .ecoidea_img {
+        height: 30px;
+        width: 30px;
+        margin-bottom: 10px;
+    }
+    
+    .ecoideas {
+        height: 4px;
+        width: 75px;
+        background-color: #52a6b2;
+        margin: 0 auto 1rem auto;
+    }
+    
+    .ecoidea_title {
+        font-size: 1.1em;
+        font-weight: bold;
+        color: #333;
+        text-transform: uppercase;
+    }
+    
+    .ecoidea_desc {
+        font-size: 1em;
+        color: #444444;
+        font-family: 'Sofia Sans Condensed', sans-serif;
+        font-weight: normal;
+    }
+
+}

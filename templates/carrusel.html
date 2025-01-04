@@ -1,0 +1,35 @@
+{% load static %}
+
+  <div class="carrusel-contenedor" onmouseover="detenerCarrusel()" onmouseout="reanudarCarrusel()">
+      <div class="miCarrusel fade">
+        <a href="{% url 'tienda_categoria' slug='jabones-y-desodorantes' %}">
+          <img src="{% static 'images/banners/jaboncitos-movil.svg' %}" alt="banner de jaboncitos" class="img-carrusel-movil" loading="lazy">
+          <img src="{% static 'images/banners/jaboncitos-pc.svg' %}" alt="banner de jaboncitos" class="img-carrusel-pc" loading="lazy">
+        </a>
+      </div>
+  <div class="miCarrusel fade">
+    <img src="{% static 'images/banners/blog-movil.svg' %}" alt="banner de medios de pagos" class="img-carrusel-movil" loading="lazy">
+    <img src="{% static 'images/banners/blog-pc.svg' %}" alt="banner de medios de pagos" class="img-carrusel-pc" loading="lazy">
+  </div>
+  <div class="miCarrusel fade">
+    <img src="{% static 'images/banners/pagos-movil.svg' %}" alt="banner de horarios" class="img-carrusel-movil" loading="lazy">
+    <img src="{% static 'images/banners/pagos-pc.svg' %}" alt="banner de horarios" class="img-carrusel-pc" loading="lazy">
+  </div>
+  <div class="miCarrusel fade">
+    <a href="{% url 'blog' %}">
+      <img src="{% static 'images/banners/envios-movil.svg' %}" alt="banner del blog" class="img-carrusel-movil" loading="lazy">
+      <img src="{% static 'images/banners/envios-pc.svg' %}" alt="banner del blog" class="img-carrusel-pc" loading="lazy">
+    </a>
+  </div>
+
+  <div class="direcciones">
+    <a href="#" class="atras" onclick="retrocedeCarrusel(1)">&#10094</a>
+    <a href="#" class="adelante" onclick="avanzaCarrusel(1)">&#10095</a>
+  </div>
+  <div class="barras">
+    <span class="barra active" onclick="posicionCarrusel(1)"></span>
+    <span class="barra" onclick="posicionCarrusel(2)"></span>
+    <span class="barra" onclick="posicionCarrusel(3)"></span>
+    <span class="barra" onclick="posicionCarrusel(4)"></span>
+  </div>
+  </div>

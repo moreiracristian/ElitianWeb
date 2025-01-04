@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} Conocénos Elitian {% endblock title %}
+
+{% block contenido %}
+
+<section class="contenedor-conocenos">
+  <!-- <img src="img/conocenos/vertical.png" alt="foto de eliana y cristian en vertical" loading="lazy"> -->
+  <div class="contenedor-conocenos--p">
+    <h1 class="titulo-conocenos">Conocénos</h1>
+    <p>¡Hola! Nos llamamos <span>Eliana y Cristian. Unimos nuestro amor y emprendimos este proyecto. Nació fruto de tomar mayor conciencia sobre nuestro medio ambiente ecológico y el deseo de
+        cuidar tu
+        piel de manera natural.</span> Ofrecemos productos de higiene y cosmética natural, pensados y
+      elegidos cuidando nuestro hogar compartido, el planeta y a vos.</p>
+    <h2>Misión</h2>
+    <p><span>En Elitian, nos comprometemos a contribiur un grano de arena ofreciendo opciones amigables y sostenibles.</span> Por eso nuestra propuesta es brindarte productos que nutran tu piel con ingredientes naturales.
+    </p>
+    <h2>Visión</h2>
+    <p><span>Visualizamos un mundo donde el cuidado personal se mezcla de manera equilibrada con el respeto por la
+        Tierra.</span> En
+      Elitian, aspiramos a ser parte de tu rutina diaria, ofreciéndote productos que reflejen esta visión de belleza
+      consciente y respetuosa.</p>
+    <h2>Valores</h2>
+    <p><span>En el corazón de Elitian están la autenticidad, la responsabilidad, el compromiso y el amor sobre
+        todo.</span> Queremos crear una conexión genuina con vos, brindándote productos que reflejen nuestro compromiso
+      con la
+      salud de tu piel y el bienestar de nuestro entorno. <span>Somos conscientes que cada elección cuenta y hacen la
+      diferencia, por lo que cada producto es una expresión de cuidado de nuestro común hogar y cuidado hacia vos.</span></p>
+    </div>
+    <div class="logo-elitian">
+      <img src="{% static 'images/logos/logoC.png' %}" alt="logo Elitian" class="logo" loading="lazy" />
+      
+    </div>
+</section>
+
+
+{% endblock %}

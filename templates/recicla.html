@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} Recicla Elitian {% endblock title %}
+
+{% block contenido %}
+
+{% include "whatsapp.html" %}
+
+<section class="container_recicla">
+  <!-- <img class="background_recicla" src="img/logos/logo-linkc.png" alt="logo grafico de elitian" loading="lazy"> -->
+
+  <h1 class="title_seccion_recicla">Reciclá <span class="title_seccion_recicla--second">&</span> Reutiliza</h1>
+
+  <h2 class="description_seccion_recicla--one">Recibimos los envases de los productos que vendemos.</h2>
+  <p class="description_seccion_recicla--two">El vidrio puede ser reutilizado y los plásticos enviamos a reciclar.
+  </p>
+  <p class="description_seccion_recicla--three"> Para colaborar con el reciclado y la reutilización de los envases,
+    te pedimos entregarlos <span class="description_three--span">previamente lavados</span>.</p>
+
+  <h2 class="description_seccion_recicla--four">Tips para lavarlos:</h2>
+
+  <p class="description_seccion_recicla--tips"> <img class="secciondos_img" src="static/images/icons/png/eco-check.png"> Cuando
+    terminaste
+    de usar el producto enjuágalo dos veces con agua caliente para que facilite la remoción de aceites vegetales. Esto
+    también ayudará a remover la etiqueta.
+  </p>
+
+  <p class="description_seccion_recicla--tips"> <img class="secciondos_img" src="static/images/icons/png/eco-check.png">
+    Realizá un tercer
+    enjuague con un agente limpiador como jabón o un detergente y agua caliente.</p>
+
+  <p class="description_seccion_recicla--tips"> <img class="secciondos_img" src="static/images/icons/png/eco-check.png"> Deja
+    secar el
+    envase boca abajo sobre una superficie que respire, ¡y listo! Ya está para entregar en tu siguiente compra!</p>
+
+  <h2 class="description_seccion_recicla--reflexion"><b>Creemos en la importancia de comprometernos activamente en el
+      cuidado del <span class="span_medioambiente">medio ambiente</span>.</b></h2>
+
+  <h3 class="description_seccion2--final">¿Te sumás al compromiso?</h3>
+
+  <div class="recicla-img">
+    <img class="manos" src="{% static 'images/icons/manosc.svg' %}" alt="manos de compromiso">
+  </div>
+
+  <!---->
+  <!-- Aca comienza Seccion tarjeta ecoideas-->
+  <!---->
+
+  <div class="container_ecoideas">
+      <div class="tarjeta-ecoidea">
+        <img class="ecoidea_img" src="{% static 'images/icons/ideaeco.svg' %}" alt="ecoidea.svg">
+        <div class="ecoideas"></div>
+          <span class="ecoidea_title">ECOIDEAS</span>
+          <p class="ecoidea_desc">Conoce maneras de reciclar<br>tus envases de vidrio</p>
+      </div>
+  </div>
+</section>
+
+{% endblock %}

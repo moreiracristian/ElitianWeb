@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} Tienda Elitian | {{ categoria.nombre }} {% endblock title %}
+
+{% block contenido %}
+{% include "whatsapp.html" %}
+
+<main class="main-tienda-cat">
+  <h2 class="titulo-tienda-cat">{{ categoria.nombre }}</h2>
+  <seccion class="lista-productos">
+    {% for producto in productos_list %}
+      <div class="producto-item-cat">
+        {% if producto.imagen and producto.imagen.url %}
+          <img class="producto-imagen-cat"
+            src="{{ producto.imagen.url }}"
+            alt="{{ producto.nombre }} {{ producto.codigo }}"
+          />  
+        {% endif %}
+        <div class="producto-titulo-cat"> 
+          <a href="{% url 'tienda_producto' categoria_slug=categoria.slug producto_slug=producto.slug %}">{{ producto.nombre }}</a>
+        </div>
+        <div class="producto-precio-cat">
+          <p><span>$ {{ producto.precio }}</span></p>
+          <p>$ {{ producto.precio_oferta }}</p>
+        </div>
+      </div>
+      
+      {% if forloop.counter|divisibleby:2 and not forloop.last %}
+          </seccion>
+          <seccion class="lista-productos">
+        {% endif %}
+    {% endfor %}
+  </seccion>
+  <ul class="lista-redireccion">
+    <a href="{% url 'tienda' %}" class="redireccion"> 
+      <img src="{% static 'images/icons/product.svg' %}" class="dropdown__icon_blog">
+    <span class="dropdown__span">Volver a todas las categorías de la tienda</span></a>
+  </ul>
+</main>
+{% endblock %}

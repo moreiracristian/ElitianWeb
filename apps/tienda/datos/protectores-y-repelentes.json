@@ -1,0 +1,58 @@
+[
+    {
+        "id": 1,
+
+        "nombre": "Protector Solar",
+
+        "precio": 200,
+
+        "image": "/static/images/protectores-y-repelentes/601.jpg",
+
+        "descripcion": " es una crema bloqueadora que protege de los rayos del sol gracias a sus filtros minerales (óxido de zinc y dióxido de titanio). Está potenciado con aceite puro de Zanahoria, que favorece un bronceado natural y manteca de Karité, la cual hidrata profundamente. Es un producto seguro para usar en niños y que no daña la vida marina.",
+        
+        "ingredientes": "Ingredientes: Agua destilada, aceite de zanahoria, manteca de karité, óxido de zinc, cera lanette N, alcohol cetílico, goma xántica, dióxido de titanio y aceite esencial de Gardenia.",
+
+        "uso": "Modo de Uso:",
+
+        "uso1": "Aplicarlo 20 minutos antes de exponerse al sol, en caso de excesiva sudoración o cada 2 horas.",
+
+        "uso2": "No es resistente al agua.",
+        "uso3": "",
+        
+        "conservacion": "Conservación: Lugar seco y fresco. Evitar exposición prolongada al sol directo.",
+        
+        "cantidad": "Cantidad neta: 150gr.",
+
+        "producto": "Producto 100% artesanal.",
+
+        "stock": "Sin Stock"
+    },
+    {
+        "id": 2,
+        
+        "nombre": "Gel Post Solar",
+        
+        "precio": 200,
+        
+        "image": "/static/images/protectores-y-repelentes/602.jpg",
+       
+        "descripcion": "Posee propiedades calmantes, cicatrizantes, hidratantes y refrescantes. El gel de Aloe Vera tiene potentes propiedades cicatrizantes. La Lavanda es excelente calmando irritaciones provenientes de quemaduras. El mentol confiere una sensación de frescura y alivio. La alantoina es un activo maravilloso que calma irritaciones y quemaduras, a la vez que favorece procesos de cicatrización.",
+        
+        "ingredientes": "Ingredientes: Agua destilada, Hidrolato de Lavanda, gel de Aloe Vera, Glicerina vegetal, aceite de Coco, Mentol, Alantoina, Goma Xantica, Vitamina E, conservante natural.",
+
+        "uso": "",
+
+        "uso1": "",
+
+        "uso2": "",
+        "uso3": "",
+        
+        "conservacion": "Conservación: Lugar seco y fresco. Evitar exposición prolongada al sol directo.",
+        
+        "cantidad": "Cantidad neta: 150gr.",
+
+        "producto": "Producto 100% artesanal.",
+
+        "stock": "Sin Stock"
+    }
+]

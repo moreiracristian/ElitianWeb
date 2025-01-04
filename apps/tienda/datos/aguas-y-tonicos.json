@@ -1,0 +1,31 @@
+[
+    {
+        "id": 1,
+
+        "name": "Agua de Rosas",
+
+        "price": 200,
+
+        "image": "/static/images/aguas-y-tonicos/001.jpg",
+        
+        "description": "Esta variedad es excelente para pieles sensibles y reactivas. Calma irritaciones y es altamente eficaz contra el acné. Indicado para todo tipo de pieles, especialmente sensibles o secas.",
+        
+        "ingredientes": "",
+
+        "uso": "Modo de Uso:",
+
+        "uso1": "",
+
+        "uso2": "",
+
+        "uso3": "",
+        
+        "conservacion": "",
+        
+        "cantidad": "Cantidad neta: 50cc.",
+
+        "producto": "Producto 100% artesanal.",
+
+        "stock": "Sin Stock"
+    }
+]

@@ -1,2 +1,1 @@
-Alquimia es un proyecto de sitio web tipo tienda para la venta de productos naturales con distintas marcas que fabrican los productos.
-El proyecto base se llama Elitian.
+Elitian es un proyecto de tienda online para venta de productos naturales y ecológicos sobre el cuidado personal y la belleza: Con la idea de ofrecer distintos emprendedores que los fabrican. Fomentar el cuidado de nuestro planeta y el consumo diario de una manera ecoconsciente integrando un blog tematico para dicha misión.

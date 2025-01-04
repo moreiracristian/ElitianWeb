@@ -1,0 +1,262 @@
+{% load static %}
+
+<nav class="nav-corto">
+  <header class="menu__container">
+    <a href="{% url 'index' %}" class="enlace">
+      <img
+        src="{% static 'images/logos/logo-linkb.png' %}"
+        alt="logo elitian negro"
+        class="logo"
+      />
+    </a>
+    <a href="#menu" class="nav__menu">
+      <img src="{% static 'images/icons/menu.svg' %}" class="nav__icon" />
+    </a>
+
+    <a href="#" class="nav__menu nav__menu--second">
+      <img src="{% static 'images/icons/close.svg' %}" class="nav__icon" />
+    </a>
+
+    <ul class="menu__links" id="menu">
+      <br />
+      <li class="menu__item">
+        <a href="{% url 'index' %}" class="menu__link">
+          <img
+            src="{% static 'images/icons/house.svg' %}"
+            class="dropdown__icon_house"
+          />
+          <span class="dropdown__span">Inicio</span></a
+        >
+      </li>
+      <li class="menu__item">
+        <a href="{% url 'conocenos' %}" class="menu__link"
+          ><img
+            src="{% static 'images/icons/elitianb.svg' %}"
+            class="dropdown__icon_elitianw"
+          />
+          <span class="dropdown__span">Conocénos</span></a
+        >
+      </li>
+
+      <li class="menu__item menu__item--show">
+        <a href="#" class="menu__link"
+          ><img
+            src="{% static 'images/icons/product.svg' %}"
+            class="dropdown__icon_product"
+          />
+          <span class="dropdown__span">Tienda</span
+          ><img
+            src="{% static 'images/icons/down.svg' %}"
+            class="menu__arrow"
+          />
+          <input type="checkbox" class="checkbox" />
+        </a>
+
+        <div class="list_categorias">
+          <ul class="menu__nesting">
+            <li class="menu__inside"></li>
+            <a
+              href="{% url 'tienda_categoria' slug='aceites-y-serums' %}"
+              class="menu__link menu__link--inside"
+              >» Aceites y Serums</a
+            >
+            <li class="menu__inside"></li>
+            <a
+              href="{% url 'tienda_categoria' slug='aguas-y-tonicos' %}"
+              class="menu__link menu__link--inside"
+              >» Aguas y Tónicos</a
+            >
+            <li class="menu__inside"></li>
+            <a
+              href="{% url 'tienda_categoria' slug='balsamos-y-cremas' %}"
+              class="menu__link menu__link--inside"
+              >» Bálsamos y Cremas</a
+            >
+            <li class="menu__inside"></li>
+            <a
+              href="{% url 'tienda_categoria' slug='cuidado-capilar' %}"
+              class="menu__link menu__link--inside"
+              >» Cuidado Capilar</a
+            >
+            <li class="menu__inside"></li>
+            <a
+              href="{% url 'tienda_categoria' slug='higiene-dental' %}"
+              class="menu__link menu__link--inside"
+              >» Higiene Dental</a
+            >
+            <li class="menu__inside"></li>
+            <a
+              href="{% url 'tienda_categoria' slug='jabones-y-desodorantes' %}"
+              class="menu__link menu__link--inside"
+              >» Jabones y Desodorantes</a
+            >
+            <li class="menu__inside"></li>
+            <a
+              href="{% url 'tienda_categoria' slug='protectores-y-repelentes' %}"
+              class="menu__link menu__link--inside"
+              >» Protectores y Repelentes</a
+            >
+            <a
+              href="{% url 'tienda_categoria' slug='accesorios' %}"
+              class="menu__link menu__link--inside"
+              >» Accesorios</a
+            >
+          </ul>
+        </div>
+      </li>
+
+      <li class="menu__item">
+        <a href="{% url 'recicla' %}" class="menu__link">
+          <img
+            src="{% static 'images/icons/recicla.svg' %}"
+            class="dropdown__icon_recicla"
+          />
+          <span class="dropdown__span">Reciclá</span></a
+        >
+      </li>
+
+      <li class="menu__item">
+        <a href="{% url 'blog' %}" class="menu__link">
+          <img
+            src="{% static 'images/icons/microblog.svg' %}"
+            class="dropdown__icon_blog"
+          />
+          <span class="dropdown__span">Blog</span></a
+        >
+      </li>
+
+      <li class="menu__item">
+        <a href="{% url 'contacto' %}" class="menu__link"
+          ><img
+            src="{% static 'images/icons/email.svg' %}"
+            class="dropdown__icon_email"
+          />
+          <span class="dropdown__span">Contacto</span></a
+        >
+      </li>
+    </ul>
+  </header>
+</nav>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<nav class="nav-largo">
+  <header class="menu__container">
+    <div class="menu__container-logo">
+      <a href="{% url 'index' %}" class="enlace">
+        <img
+          src="{% static 'images/logos/logo-linkb.png' %}"
+          alt="logo elitian negro"
+          class="logo"
+        />
+      </a>
+    </div>
+    <div class="menu__container-cat">
+      <li class="menu__item">
+        <a href="{% url 'conocenos' %}" class="menu__link">
+          <img
+            src="{% static 'images/icons/elitianb.svg' %}"
+            class="dropdown__icon_elitianw"
+          />
+          <span class="dropdown__span">Conocénos</span>
+        </a>
+      </li>
+      
+      <li class="menu__item menu__item--show">
+        <a href="#" class="menu__link">
+          <img
+            src="{% static 'images/icons/product.svg' %}"
+            class="dropdown__icon_product"
+          />
+          <span class="dropdown__span">Tienda</span>
+          <img src="{% static 'images/icons/down.svg' %}" class="menu__arrow" />
+          <input type="checkbox" class="checkbox" />
+        </a>
+
+          <div class="list_categorias">
+              <ul class="menu__nesting">
+                <li class="menu__inside"></li>
+                <a
+                  href="{% url 'tienda_categoria' slug='aceites-y-serums' %}"
+                  class="menu__link menu__link--inside"
+                  >» Aceites y Serums</a
+                >
+                
+                <li class="menu__inside"></li>
+                <a
+                  href="{% url 'tienda_categoria' slug='aguas-y-tonicos' %}"
+                  class="menu__link menu__link--inside"
+                  >» Aguas y Tónicos</a
+                >
+                <li class="menu__inside"></li>
+                <a
+                  href="{% url 'tienda_categoria' slug='balsamos-y-cremas' %}"
+                  class="menu__link menu__link--inside"
+                  >» Bálsamos y Cremas</a
+                >
+                <li class="menu__inside"></li>
+                <a
+                  href="{% url 'tienda_categoria' slug='cuidado-capilar' %}"
+                  class="menu__link menu__link--inside"
+                  >» Cuidado Capilar</a
+                >
+                <li class="menu__inside"></li>
+                <a
+                  href="{% url 'tienda_categoria' slug='higiene-dental' %}"
+                  class="menu__link menu__link--inside"
+                  >» Higiene Dental</a
+                >
+                <li class="menu__inside"></li>
+                <a
+                  href="{% url 'tienda_categoria' slug='jabones-y-desodorantes' %}"
+                  class="menu__link menu__link--inside"
+                  >» Jabones y Desodorantes</a
+                >
+                <li class="menu__inside"></li>
+                <a
+                  href="{% url 'tienda_categoria' slug='protectores-y-repelentes' %}"
+                  class="menu__link menu__link--inside"
+                  >» Protectores y Repelentes</a
+                >
+                <a
+                  href="{% url 'tienda_categoria' slug='accesorios' %}"
+                  class="menu__link menu__link--inside"
+                  >» Accesorios</a
+                >
+              </ul>
+          </div>
+      </li>   
+      <a href="{% url 'recicla' %}" class="menu__link">
+        <img
+          src="{% static 'images/icons/recicla.svg' %}"
+          class="dropdown__icon_recicla"
+        />
+        <span class="dropdown__span">Reciclá</span></a
+      >
+      <a href="{% url 'blog' %}" class="menu__link">
+        <img
+          src="{% static 'images/icons/microblog.svg' %}"
+          class="dropdown__icon_blog"
+        />
+        <span class="dropdown__span">Blog</span></a
+      >
+      <a href="{% url 'contacto' %}" class="menu__link"
+        ><img
+          src="{% static 'images/icons/email.svg' %}"
+          class="dropdown__icon_email"
+        />
+        <span class="dropdown__span">Contacto</span></a
+      >
+    </div>
+  </header>
+</nav>

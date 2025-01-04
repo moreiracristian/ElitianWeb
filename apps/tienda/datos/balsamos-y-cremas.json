@@ -1,0 +1,115 @@
+[
+    {
+        "id": 1,
+
+        "name": "Balsamo Labial",
+
+        "price": 200,
+
+        "image": "/static/images/balsamos-y-cremas/201.jpg",
+
+        "description": "Cuida tus labios de manera natural con este bálsamo labial. Sus propiedades hidratantes y nutritivas no sólo ayudan a proteger y suavizar tus labios, sino que también son muy útiles para zonas del cuerpo súper secas (codos) y para calmar irritaciones.",
+
+        "ingredientes": "Ingredientes: Hecho con manteca de Cacao, manteca de Karite, aceite de Almendras y cera de abejas. La manteca de cacao es rica en antioxidantes y ácidos grasos, que ayudan a mejorar la elasticidad y la hidratación general. El aceite de almendras es suave y no irritante, por lo que además es perfecto para pieles sensibles. La manteca de karité es conocida por su gran capacidad para hidratar, suavizar y proteger la piel.",
+
+        "uso": "",
+
+        "uso1": "",
+
+        "uso2": "",
+        "uso3": "",
+        
+        "conservacion": "",
+        
+        "cantidad": "Cantidad neta: 15gr.",
+
+        "producto": "Producto 100% artesanal.",
+
+        "stock": ""
+    },
+    {
+        "id": 2,
+
+        "name": "Bálsamo Expectorante",
+
+        "price": 200,
+
+        "image": "/static/images/balsamos-y-cremas/204.jpg",
+
+        "description": "Este bálsamo está formulado principalmente para abrir las vías respiratorias y aliviar malestares relacionados a la tos y resfriados.",
+
+        "ingredientes": "Ingredientes: Macerado de Eucalipto, Menta y Tomillo en aceite de Oliva, cera carnauba y mentol.",
+
+        "uso": "",
+
+        "uso1": "",
+
+        "uso2": "",
+        "uso3": "",
+        
+        "conservacion": "",
+        
+        "cantidad": "Cantidad neta: 40gr.",
+
+        "producto": "Producto 100% artesanal.",
+
+        "stock": "Sin Stock"
+    },
+
+    {
+        "id": 3,
+
+        "name": "Crema Facial Hidratante",
+
+        "price": 200,
+
+        "image": "/static/images/balsamos-y-cremas/225.jpg",
+
+        "description": "Una fórmula muy ligera, de rápida absorción y sensación sedosa. Combina ingredientes que favorecen la hidratación de las capas más profundas de la piel, volviéndola más flexible, luminosa y tersa. El extracto de manzanilla suaviza y calma irritaciones, favorece los procesos de cicatrización y es excelente para tratar pieles sensibles, atópicas o con rosácea. El aceite de jojoba es un ingrediente muy ligero, no graso, de efecto aterciopelado, conocido por su profunda hidratación y por su capacidad para equilibrar la producción de sebo en la piel.",
+
+        "ingredientes":"Ingredientes: Agua destilada, Hidrolato de Manzanilla, aceite de Jojoba, aceite de Sésamo, Cera Lanette N, Propanediol, manteca de Karité, Alcohol Cetilico, Ácido Hialurónico, Vitamina E, Conservante natural.",
+
+        "uso": "Modo de Uso:",
+
+        "uso1": "Podés aplicarla en cualquier momento del dia pero sugerimos hacerlo por la mañana para aprovechar al máximo sus propiedades.",
+
+        "uso2": "Recomendada para: Piel mixta, piel seca, piel grasa deshidratada.",
+        "uso3": "",
+        
+        "conservacion": "En lugar fresco, seco y oscuro",
+        
+        "cantidad": "Cantidad neta: 50ml.",
+
+        "producto": "Producto 100% artesanal.",
+
+        "stock": "Sin Stock"
+    },
+    {
+        "id": 4,
+
+        "name": "Crema Nocturna",
+
+        "price": 200,
+
+        "image": "/static/images/balsamos-y-cremas/212.jpg",
+
+        "description": "Es una fórmula cuyos ingredientes han sido cuidadosamente seleccionados por sus propiedades hidratantes, nutritivas y rejuvenecedoras para la piel.",
+
+        "ingredientes": "Ingredientes: La fórmula contiene cinco ingredientes clave: aceite de jojoba, aceite de almendras, rosa mosqueta, ácido hialurónico y agua de rosas. Tal vez el ingrediente más importante de esta fórmula sea la Rosa Mosqueta, reconocida por sus propiedades regenerativas y cicatrizantes. Contiene vitaminas A, E, K y C. Favorece la síntesis de colágeno, previene arrugas y estrías. El agua de rosas es un ingrediente refrescante y tonificante que ayuda a equilibrar el pH de la piel y a suavizarla.",
+
+        "uso": "Modo de Uso:",
+
+        "uso1": "Para obtener los mejores resultados, se recomienda aplicar por la noche con el rostro limpio, después de haber aplicado un tónico o sérum.",
+
+        "uso2": "Es adecuada para pieles mixtas, secas y grasas deshidratadas. Está suavemente perfumada con aceite esencial de jazmín.",
+        "uso3": "",
+        
+        "conservacion": "En lugar fresco, seco y oscuro.",
+        
+        "cantidad": "Cantidad neta: 50cc.",
+
+        "producto": "Producto 100% artesanal.",
+
+        "stock": "Sin Stock"
+    }
+]
