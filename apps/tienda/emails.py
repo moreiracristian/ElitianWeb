@@ -1,15 +1,21 @@
+import logging
 from django.core.mail import send_mail
 from django.conf import settings
 
+logger = logging.getLogger(__name__)
+
 
 def _send(subject, body, to):
-    send_mail(
-        subject=subject,
-        message=body,
-        from_email=settings.DEFAULT_FROM_EMAIL,
-        recipient_list=[to],
-        fail_silently=True,
-    )
+    try:
+        send_mail(
+            subject=subject,
+            message=body,
+            from_email=settings.DEFAULT_FROM_EMAIL,
+            recipient_list=[to],
+            fail_silently=False,
+        )
+    except Exception as exc:
+        logger.error('Error enviando email a %s — %s: %s', to, subject, exc)
 
 
 def email_orden_confirmada(orden):

@@ -1,4 +1,5 @@
 import os
+import sentry_sdk
 from pathlib import Path
 from decouple import config
 
@@ -8,9 +9,19 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = config('SECRET_KEY')
 DEBUG = config('DEBUG', default=False, cast=bool)
 
+# ── Sentry — error tracking en producción ─────────────────────────────────────
+_SENTRY_DSN = config('SENTRY_DSN', default='')
+if _SENTRY_DSN:
+    sentry_sdk.init(
+        dsn=_SENTRY_DSN,
+        traces_sample_rate=0.2,   # 20% de requests trackeados
+        send_default_pii=False,
+    )
+
 MP_ACCESS_TOKEN = config('MP_ACCESS_TOKEN', default='')
 MP_WEBHOOK_SECRET = config('MP_WEBHOOK_SECRET', default='')
 SITE_URL = config('SITE_URL', default='http://localhost:3000')
+WEBHOOK_URL = config('WEBHOOK_URL', default='http://localhost:8000')
 
 # Email
 EMAIL_BACKEND = config(
@@ -54,6 +65,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'corsheaders.middleware.CorsMiddleware',  # debe ir antes de CommonMiddleware
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -139,6 +151,7 @@ USE_TZ = True
 STATIC_URL = 'static/'
 STATICFILES_DIRS = [BASE_DIR, 'static']
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # Media files
 
@@ -237,6 +250,21 @@ LOGGING = {
         },
     },
 }
+
+# ---------------------------------------------------------------------------
+# Seguridad para producción (se activan automáticamente cuando DEBUG=False)
+# ---------------------------------------------------------------------------
+if not DEBUG:
+    SECURE_SSL_REDIRECT = True
+    SECURE_HSTS_SECONDS = 31536000          # 1 año
+    SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+    SECURE_HSTS_PRELOAD = True
+    SESSION_COOKIE_SECURE = True
+    CSRF_COOKIE_SECURE = True
+    SECURE_BROWSER_XSS_FILTER = True
+    SECURE_CONTENT_TYPE_NOSNIFF = True
+    X_FRAME_OPTIONS = 'DENY'
+    SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 CKEDITOR_CONFIGS = {
     'default': {

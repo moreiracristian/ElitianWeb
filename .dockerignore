@@ -1,0 +1,38 @@
+# Credenciales — NUNCA al contenedor
+.env
+.env.*
+
+# Entorno virtual
+entornos/
+venv/
+.venv/
+
+# Frontend (tiene su propio build)
+frontend/
+
+# Git
+.git/
+.gitignore
+
+# Claude Code
+CLAUDE.md
+AGENTS.md
+.claude/
+
+# Python cache
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Logs locales
+logs/
+*.log
+
+# Media y estáticos locales (se generan en el contenedor)
+media/
+staticfiles/
+
+# VS Code / IDE
+.vscode/
+.idea/

@@ -9,14 +9,16 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     libpq-dev gcc && \
     rm -rf /var/lib/apt/lists/*
 
-COPY utils/requirements.txt .
-RUN pip install --no-cache-dir -r requirements.txt gunicorn
+COPY utils/requirements.django.txt .
+RUN pip install --no-cache-dir -r requirements.django.txt
 
 COPY . .
 
 RUN mkdir -p logs staticfiles media
 
-RUN python manage.py collectstatic --noinput
+# SECRET_KEY mínimo solo para que collectstatic cargue settings sin DB
+RUN SECRET_KEY=build-only DB_NAME=x DB_USER=x DB_PASSWORD=x \
+    python manage.py collectstatic --noinput
 
 EXPOSE 8000
 

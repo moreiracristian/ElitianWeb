@@ -28,8 +28,9 @@ services:
       - media_files:/app/media
       - static_files:/app/staticfiles
       - ./logs:/app/logs
-    ports:
-      - "8000:8000"
+    # Puerto solo expuesto en dev; en prod Nginx hace de proxy
+    # ports:
+    #   - "8000:8000"
     command: >
       sh -c "python manage.py migrate &&
              gunicorn Elitian.wsgi:application --bind 0.0.0.0:8000 --workers 3 --timeout 60"
@@ -38,14 +39,33 @@ services:
     build:
       context: ./frontend
       dockerfile: Dockerfile
+      args:
+        # CAMBIAR por tu dominio real antes de hacer el build de producción
+        - NEXT_PUBLIC_API_URL=https://elitian.com.ar/api/v1
+        - NEXT_PUBLIC_API_HOST=elitian.com.ar
+        - NEXT_PUBLIC_MEDIA_URL=https://elitian.com.ar
     restart: unless-stopped
     depends_on:
       - backend
-    environment:
-      NEXT_PUBLIC_API_URL: http://backend:8000/api/v1
-      NEXT_PUBLIC_MEDIA_URL: http://backend:8000
+    # Puerto solo expuesto en dev; en prod Nginx hace de proxy
+    # ports:
+    #   - "3000:3000"
+
+  nginx:
+    image: nginx:alpine
+    restart: unless-stopped
     ports:
-      - "3000:3000"
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./nginx/certs:/etc/letsencrypt:ro
+      - ./nginx/certbot-www:/var/www/certbot:ro
+      - static_files:/app/staticfiles:ro
+      - media_files:/app/media:ro
+    depends_on:
+      - backend
+      - frontend
 
 volumes:
   postgres_data:

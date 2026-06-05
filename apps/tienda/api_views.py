@@ -8,6 +8,7 @@ from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated, AllowAny
 from django.shortcuts import get_object_or_404
 from django.db.models import Q
+from django.db import transaction
 from django.conf import settings
 from django.views.decorators.csrf import csrf_exempt
 
@@ -187,6 +188,7 @@ class OrdenViewSet(viewsets.ReadOnlyModelViewSet):
         return Orden.objects.filter(usuario=self.request.user).prefetch_related('items__producto')
 
     @action(detail=False, methods=['post'])
+    @transaction.atomic
     def crear(self, request):
         carrito = get_object_or_404(Carrito, usuario=request.user)
 
@@ -282,7 +284,7 @@ class OrdenViewSet(viewsets.ReadOnlyModelViewSet):
                 'pending': f'{site_url}/checkout/mp-retorno?status=pending&orden={orden.id}',
             },
             'auto_return': 'approved',
-            'notification_url': f'{settings.SITE_URL.replace("3000", "8000")}/api/v1/mp/webhook/',
+            'notification_url': f'{settings.WEBHOOK_URL}/api/v1/mp/webhook/',
         }
 
         result = sdk.preference().create(preference_data)
