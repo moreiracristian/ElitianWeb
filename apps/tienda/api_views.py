@@ -7,7 +7,7 @@ from rest_framework.decorators import action, api_view, permission_classes
 from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated, AllowAny
 from django.shortcuts import get_object_or_404
-from django.db.models import Q
+from django.db.models import Q, Avg, Count
 from django.db import transaction
 from django.conf import settings
 from django.views.decorators.csrf import csrf_exempt
@@ -35,11 +35,27 @@ class CategoriaViewSet(viewsets.ReadOnlyModelViewSet):
 
 
 class ProductoViewSet(viewsets.ReadOnlyModelViewSet):
-    queryset = Productos.objects.filter(activo=True).select_related('categoria').prefetch_related('imagenes')
+    queryset = (
+        Productos.objects
+        .filter(activo=True)
+        .select_related('categoria')
+        .prefetch_related('imagenes')
+        .annotate(
+            calificacion_promedio=Avg(
+                'resenas__calificacion',
+                filter=Q(resenas__aprobado=True),
+            ),
+            total_resenas_count=Count(
+                'resenas',
+                filter=Q(resenas__aprobado=True),
+                distinct=True,
+            ),
+        )
+    )
     lookup_field = 'slug'
     filter_backends = [filters.SearchFilter, filters.OrderingFilter]
     search_fields = ['nombre', 'marca', 'descripcion']
-    ordering_fields = ['precio', 'nombre', 'creado']
+    ordering_fields = ['precio', 'nombre', 'creado', 'calificacion_promedio']
     ordering = ['nombre']
 
     def get_serializer_class(self):

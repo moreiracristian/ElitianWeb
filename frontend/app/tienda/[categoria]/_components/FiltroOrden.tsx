@@ -24,6 +24,7 @@ export default function FiltroOrden() {
       <option value="precio">Menor precio</option>
       <option value="-precio">Mayor precio</option>
       <option value="-creado">Más nuevos</option>
+      <option value="-calificacion_promedio">Mejor calificados</option>
     </select>
   )
 }

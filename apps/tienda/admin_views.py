@@ -1,9 +1,12 @@
+import zoneinfo
+
 from rest_framework import status
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework.permissions import IsAdminUser
 from rest_framework.response import Response
 from django.contrib.auth.models import User
-from django.db.models import Sum, Count
+from django.db.models import Sum, Count, F
+from django.db.models.functions import TruncDay
 from django.utils import timezone
 from datetime import timedelta
 
@@ -11,7 +14,7 @@ from django.core.mail import send_mail
 from django.conf import settings as django_settings
 
 from .models import (
-    Productos, Orden, ProductoImagen, Resena,
+    Productos, Orden, ItemOrden, ProductoImagen, Resena,
     ConfiguracionGlobal, ConfiguracionCategoriaCosto, CostoProducto, PromocionBanco, Categorias,
 )
 from .emails import email_estado_actualizado
@@ -352,6 +355,167 @@ def admin_resena_detalle(request, pk):
         serializer.save()
         return Response(serializer.data)
     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+# ─── Analytics ────────────────────────────────────────────────────────────────
+
+AR_TZ = zoneinfo.ZoneInfo('America/Argentina/Buenos_Aires')
+ESTADOS_VALIDOS = ['confirmado', 'enviado', 'entregado']
+
+
+@api_view(['GET'])
+@permission_classes([IsAdminUser])
+def analytics(request):
+    hoy = timezone.now()
+
+    # Primer día del mes actual (UTC)
+    inicio_mes_actual = hoy.replace(day=1, hour=0, minute=0, second=0, microsecond=0)
+    # Primer día del mes anterior
+    ultimo_mes_anterior = inicio_mes_actual - timedelta(days=1)
+    inicio_mes_anterior = ultimo_mes_anterior.replace(day=1, hour=0, minute=0, second=0, microsecond=0)
+
+    hace_30 = hoy - timedelta(days=30)
+
+    ordenes_validas = Orden.objects.filter(estado__in=ESTADOS_VALIDOS)
+
+    # ── Ventas diarias — últimos 30 días ──────────────────────────────────────
+    ventas_diarias_qs = (
+        ordenes_validas
+        .filter(creado__gte=hace_30)
+        .annotate(dia=TruncDay('creado', tzinfo=AR_TZ))
+        .values('dia')
+        .annotate(total=Sum('total'), cantidad=Count('id'))
+        .order_by('dia')
+    )
+    ventas_diarias = [
+        {
+            'fecha': item['dia'].strftime('%Y-%m-%d'),
+            'total': float(item['total']),
+            'cantidad': item['cantidad'],
+        }
+        for item in ventas_diarias_qs
+    ]
+
+    # ── Comparativa mes actual vs anterior ────────────────────────────────────
+    mes_actual = ordenes_validas.filter(creado__gte=inicio_mes_actual).aggregate(
+        total=Sum('total'), ordenes=Count('id')
+    )
+    mes_anterior = ordenes_validas.filter(
+        creado__gte=inicio_mes_anterior, creado__lt=inicio_mes_actual
+    ).aggregate(total=Sum('total'), ordenes=Count('id'))
+
+    total_actual = float(mes_actual['total'] or 0)
+    total_anterior = float(mes_anterior['total'] or 0)
+    ordenes_actual = mes_actual['ordenes'] or 0
+
+    variacion_pct = None
+    if total_anterior > 0:
+        variacion_pct = round((total_actual - total_anterior) / total_anterior * 100, 1)
+
+    ticket_promedio = round(total_actual / ordenes_actual, 2) if ordenes_actual > 0 else 0
+
+    # ── Top 10 productos — últimos 30 días ────────────────────────────────────
+    top_qs = (
+        ItemOrden.objects
+        .filter(orden__estado__in=ESTADOS_VALIDOS, orden__creado__gte=hace_30)
+        .values('producto__nombre', 'producto__slug', 'producto__categoria__slug')
+        .annotate(
+            unidades=Sum('cantidad'),
+            ingresos=Sum(F('precio_unitario') * F('cantidad')),
+        )
+        .order_by('-unidades')[:10]
+    )
+    top_productos = [
+        {
+            'nombre': p['producto__nombre'],
+            'slug': p['producto__slug'],
+            'categoria_slug': p['producto__categoria__slug'],
+            'unidades': p['unidades'],
+            'ingresos': float(p['ingresos']),
+        }
+        for p in top_qs
+    ]
+
+    # ── Ventas por categoría — últimos 30 días ────────────────────────────────
+    cat_qs = (
+        ItemOrden.objects
+        .filter(orden__estado__in=ESTADOS_VALIDOS, orden__creado__gte=hace_30)
+        .values('producto__categoria__nombre')
+        .annotate(
+            total=Sum(F('precio_unitario') * F('cantidad')),
+            unidades=Sum('cantidad'),
+        )
+        .order_by('-total')
+    )
+    por_categoria = [
+        {
+            'nombre': c['producto__categoria__nombre'],
+            'total': float(c['total']),
+            'unidades': c['unidades'],
+        }
+        for c in cat_qs
+    ]
+
+    # ── Métodos de pago — últimos 30 días ─────────────────────────────────────
+    metodos_qs = (
+        ordenes_validas
+        .filter(creado__gte=hace_30)
+        .values('metodo_pago')
+        .annotate(cantidad=Count('id'), total=Sum('total'))
+        .order_by('-cantidad')
+    )
+    metodos_pago = [
+        {
+            'metodo_pago': m['metodo_pago'],
+            'cantidad': m['cantidad'],
+            'total': float(m['total']),
+        }
+        for m in metodos_qs
+    ]
+
+    # ── Stock en riesgo (stock ≤ 5, activos) ──────────────────────────────────
+    vendidos_map = dict(
+        ItemOrden.objects
+        .filter(orden__estado__in=ESTADOS_VALIDOS, orden__creado__gte=hace_30)
+        .values('producto_id')
+        .annotate(vendidos=Sum('cantidad'))
+        .values_list('producto_id', 'vendidos')
+    )
+    productos_bajo_stock = (
+        Productos.objects
+        .filter(stock__lte=5, activo=True)
+        .select_related('categoria')
+        .values('id', 'nombre', 'slug', 'stock', 'categoria__slug')[:30]
+    )
+    stock_en_riesgo = sorted(
+        [
+            {
+                'nombre': p['nombre'],
+                'slug': p['slug'],
+                'categoria_slug': p['categoria__slug'],
+                'stock': p['stock'],
+                'vendidos_30_dias': vendidos_map.get(p['id'], 0),
+            }
+            for p in productos_bajo_stock
+        ],
+        key=lambda x: -x['vendidos_30_dias'],
+    )
+
+    return Response({
+        'ventas_diarias': ventas_diarias,
+        'comparativa': {
+            'ventas_mes_actual': total_actual,
+            'ventas_mes_anterior': total_anterior,
+            'variacion_pct': variacion_pct,
+            'ordenes_mes_actual': ordenes_actual,
+            'ordenes_mes_anterior': mes_anterior['ordenes'] or 0,
+            'ticket_promedio': float(ticket_promedio),
+        },
+        'top_productos': top_productos,
+        'por_categoria': por_categoria,
+        'metodos_pago': metodos_pago,
+        'stock_en_riesgo': stock_en_riesgo,
+    })
 
 
 # ─── Contacto ─────────────────────────────────────────────────────────────────

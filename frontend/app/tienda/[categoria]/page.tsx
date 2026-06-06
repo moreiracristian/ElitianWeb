@@ -3,6 +3,7 @@ import Image from 'next/image'
 import { notFound } from 'next/navigation'
 import { getCategoria, getProductos } from '@/lib/api'
 import FiltroOrden from './_components/FiltroOrden'
+import EstrellasBadge from '@/components/EstrellasBadge'
 
 export const dynamic = 'force-dynamic'
 
@@ -82,7 +83,12 @@ export default async function CategoriaPage({ params, searchParams }: Props) {
                 </div>
                 <div className="p-3">
                   <p className="text-xs text-stone-500 mb-0.5">{producto.marca}</p>
-                  <p className="text-sm font-medium text-stone-800 line-clamp-2 mb-2">{producto.nombre}</p>
+                  <p className="text-sm font-medium text-stone-800 line-clamp-2 mb-1">{producto.nombre}</p>
+                  {producto.calificacion_promedio !== null && producto.total_resenas > 0 && (
+                    <div className="mb-1.5">
+                      <EstrellasBadge calificacion={producto.calificacion_promedio} total={producto.total_resenas} />
+                    </div>
+                  )}
                   <div className="flex items-baseline gap-2">
                     <span className="text-green-700 font-semibold">${producto.precio_final}</span>
                     {producto.tiene_oferta && (

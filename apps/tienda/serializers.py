@@ -24,6 +24,8 @@ class ProductoListSerializer(serializers.ModelSerializer):
     tiene_oferta = serializers.BooleanField(read_only=True)
     categoria_nombre = serializers.CharField(source='categoria.nombre', read_only=True)
     categoria_slug = serializers.CharField(source='categoria.slug', read_only=True)
+    calificacion_promedio = serializers.FloatField(read_only=True, allow_null=True)
+    total_resenas = serializers.IntegerField(source='total_resenas_count', read_only=True)
 
     class Meta:
         model = Productos
@@ -32,6 +34,7 @@ class ProductoListSerializer(serializers.ModelSerializer):
             'categoria', 'categoria_nombre', 'categoria_slug',
             'precio', 'precio_oferta', 'descuento', 'precio_final', 'tiene_oferta',
             'stock', 'destacado', 'activo', 'imagen_principal',
+            'calificacion_promedio', 'total_resenas',
         ]
 
     def get_imagen_principal(self, obj):

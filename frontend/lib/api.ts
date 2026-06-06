@@ -499,3 +499,61 @@ export async function enviarContacto(data: {
     body: JSON.stringify(data),
   })
 }
+
+// ─── Analytics ────────────────────────────────────────────────────────────────
+
+export interface VentaDia {
+  fecha: string
+  total: number
+  cantidad: number
+}
+
+export interface TopProducto {
+  nombre: string
+  slug: string
+  categoria_slug: string
+  unidades: number
+  ingresos: number
+}
+
+export interface VentaCategoria {
+  nombre: string
+  total: number
+  unidades: number
+}
+
+export interface MetodoPago {
+  metodo_pago: string
+  cantidad: number
+  total: number
+}
+
+export interface StockRiesgo {
+  nombre: string
+  slug: string
+  categoria_slug: string
+  stock: number
+  vendidos_30_dias: number
+}
+
+export interface Comparativa {
+  ventas_mes_actual: number
+  ventas_mes_anterior: number
+  variacion_pct: number | null
+  ordenes_mes_actual: number
+  ordenes_mes_anterior: number
+  ticket_promedio: number
+}
+
+export interface AnalyticsData {
+  ventas_diarias: VentaDia[]
+  comparativa: Comparativa
+  top_productos: TopProducto[]
+  por_categoria: VentaCategoria[]
+  metodos_pago: MetodoPago[]
+  stock_en_riesgo: StockRiesgo[]
+}
+
+export async function getAnalytics(token: string): Promise<AnalyticsData> {
+  return apiFetch<AnalyticsData>('/admin/analytics/', {}, token)
+}

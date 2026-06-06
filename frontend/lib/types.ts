@@ -32,6 +32,8 @@ export interface ProductoList {
   destacado: boolean
   activo: boolean
   imagen_principal: string | null
+  calificacion_promedio: number | null
+  total_resenas: number
 }
 
 export interface ProductoDetail extends Omit<ProductoList, 'categoria'> {

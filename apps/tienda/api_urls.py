@@ -27,6 +27,8 @@ urlpatterns = router.urls + [
     path('admin/costos/productos/<int:pk>/', admin_views.costos_producto, name='admin-costos-producto'),
     path('admin/costos/bancos/', admin_views.costos_bancos, name='admin-costos-bancos'),
     path('admin/costos/bancos/<int:pk>/', admin_views.costo_banco_detalle, name='admin-costos-banco-detalle'),
+    # Analytics
+    path('admin/analytics/', admin_views.analytics, name='admin-analytics'),
     # Reseñas
     path('admin/resenas/', admin_views.admin_resenas, name='admin-resenas'),
     path('admin/resenas/<int:pk>/', admin_views.admin_resena_detalle, name='admin-resena-detalle'),
