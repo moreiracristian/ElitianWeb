@@ -5,6 +5,7 @@ import { useSearchParams } from 'next/navigation'
 import { useAuthStore } from '@/store/auth'
 import { getAdminOrdenes, updateOrdenEstado } from '@/lib/api'
 import type { Orden } from '@/lib/types'
+import { Package } from 'lucide-react'
 
 const ESTADOS = [
   { value: '', label: 'Todos' },
@@ -86,7 +87,7 @@ export default function AdminOrdenesPage() {
         </div>
       ) : ordenes.length === 0 ? (
         <div className="text-center py-16 text-stone-400">
-          <p className="text-4xl mb-3">📦</p>
+          <Package className="w-10 h-10 mx-auto mb-3 text-stone-300" />
           <p className="text-sm">No hay pedidos con este filtro.</p>
         </div>
       ) : (

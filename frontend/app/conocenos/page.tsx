@@ -1,14 +1,16 @@
 import Image from 'next/image'
 import Link from 'next/link'
+import { Leaf, Recycle, Heart, Target, Globe } from 'lucide-react'
+import type { LucideIcon } from 'lucide-react'
 
 export const metadata = {
   title: 'Conocénos | Elitian',
   description: 'Somos Eliana y Cristian. Descubrí nuestra historia, misión y valores detrás de Elitian.',
 }
 
-const VALORES = [
+const VALORES: { Icono: LucideIcon; titulo: string; texto: string; bg: string; accent: string; textAccent: string }[] = [
   {
-    icono: '🌿',
+    Icono: Leaf,
     titulo: 'Autenticidad',
     texto: 'Cada producto que elegimos refleja genuinamente quiénes somos y en qué creemos.',
     bg: 'bg-green-50',
@@ -16,7 +18,7 @@ const VALORES = [
     textAccent: 'text-green-800',
   },
   {
-    icono: '♻️',
+    Icono: Recycle,
     titulo: 'Responsabilidad',
     texto: 'Tomamos decisiones conscientes para reducir nuestro impacto en el planeta.',
     bg: 'bg-[#f0fbfb]',
@@ -24,7 +26,7 @@ const VALORES = [
     textAccent: 'text-green-700',
   },
   {
-    icono: '💚',
+    Icono: Heart,
     titulo: 'Compromiso',
     texto: 'Nos comprometemos con tu bienestar y con el cuidado de nuestro hogar común.',
     bg: 'bg-[#fdf9f4]',
@@ -32,7 +34,7 @@ const VALORES = [
     textAccent: 'text-[#6b4f2a]',
   },
   {
-    icono: '🤝',
+    Icono: Heart,
     titulo: 'Amor',
     texto: 'Este proyecto nació del amor — entre nosotros y hacia el mundo que habitamos.',
     bg: 'bg-green-100',
@@ -67,13 +69,16 @@ export default function ConocenosPage() {
             {[
               { valor: '100%', label: 'Natural' },
               { valor: 'Local', label: 'Emprendedores' },
-              { valor: '♻️', label: 'Reciclamos' },
             ].map(({ valor, label }) => (
               <div key={label} className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl px-6 py-3 text-center">
                 <p className="text-xl font-bold text-white">{valor}</p>
                 <p className="text-green-200 text-xs mt-0.5">{label}</p>
               </div>
             ))}
+            <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl px-6 py-3 text-center">
+              <div className="flex justify-center mb-0.5"><Recycle className="w-5 h-5 text-white" /></div>
+              <p className="text-green-200 text-xs">Reciclamos</p>
+            </div>
           </div>
         </div>
       </section>
@@ -145,8 +150,8 @@ export default function ConocenosPage() {
             <div className="group relative overflow-hidden bg-gradient-to-br from-green-800 to-green-700 rounded-3xl p-8 text-white">
               <div className="absolute -bottom-8 -right-8 w-40 h-40 rounded-full bg-green-600 opacity-40 group-hover:scale-110 transition-transform duration-500" />
               <div className="relative">
-                <div className="w-14 h-14 bg-white/15 backdrop-blur rounded-2xl flex items-center justify-center text-3xl mb-6">
-                  🎯
+                <div className="w-14 h-14 bg-white/15 backdrop-blur rounded-2xl flex items-center justify-center mb-6">
+                  <Target className="w-7 h-7 text-white" />
                 </div>
                 <h3 className="text-2xl font-bold mb-3">Misión</h3>
                 <p className="text-green-100 leading-relaxed text-sm">
@@ -161,8 +166,8 @@ export default function ConocenosPage() {
             <div className="group relative overflow-hidden bg-[#e9d8c0] rounded-3xl p-8">
               <div className="absolute -bottom-8 -right-8 w-40 h-40 rounded-full bg-[#d9c2a0] opacity-60 group-hover:scale-110 transition-transform duration-500" />
               <div className="relative">
-                <div className="w-14 h-14 bg-white/70 backdrop-blur rounded-2xl flex items-center justify-center text-3xl mb-6">
-                  🌍
+                <div className="w-14 h-14 bg-white/70 backdrop-blur rounded-2xl flex items-center justify-center mb-6">
+                  <Globe className="w-7 h-7 text-stone-600" />
                 </div>
                 <h3 className="text-2xl font-bold text-stone-800 mb-3">Visión</h3>
                 <p className="text-stone-600 leading-relaxed text-sm">
@@ -190,13 +195,13 @@ export default function ConocenosPage() {
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-5">
-            {VALORES.map(({ icono, titulo, texto, bg, accent, textAccent }) => (
+            {VALORES.map(({ Icono, titulo, texto, bg, accent, textAccent }) => (
               <div
                 key={titulo}
                 className={`${bg} rounded-3xl p-6 text-center flex flex-col items-center hover:-translate-y-1 transition-transform duration-300`}
               >
-                <div className={`w-16 h-16 ${accent} rounded-2xl flex items-center justify-center text-3xl mb-5`}>
-                  {icono}
+                <div className={`w-16 h-16 ${accent} rounded-2xl flex items-center justify-center mb-5`}>
+                  <Icono className={`w-8 h-8 ${textAccent}`} />
                 </div>
                 <h4 className={`font-bold text-base mb-2 ${textAccent}`}>{titulo}</h4>
                 <p className="text-stone-500 text-xs leading-relaxed">{texto}</p>
@@ -245,7 +250,7 @@ export default function ConocenosPage() {
           <div className="absolute -bottom-14 -left-10 w-64 h-64 rounded-full bg-white/10" />
 
           <div className="relative px-8 py-14 text-center">
-            <div className="text-5xl mb-5">♻️</div>
+            <div className="flex justify-center mb-5"><Recycle className="w-12 h-12 text-green-700" /></div>
             <h3 className="text-2xl font-bold text-green-900 mb-3">Cuidamos el planeta juntos</h3>
             <p className="text-green-800 max-w-md mx-auto mb-7 leading-relaxed text-sm">
               Recibimos los envases de los productos que vendemos.

@@ -5,6 +5,7 @@ import Link from 'next/link'
 import { useAuthStore } from '@/store/auth'
 import { getAdminResenas, aprobarResena, eliminarResenaAdmin } from '@/lib/api'
 import type { ResenaAdmin } from '@/lib/types'
+import { Star } from 'lucide-react'
 
 type Filtro = 'pendientes' | 'aprobadas' | 'todas'
 
@@ -112,7 +113,7 @@ export default function AdminResenasPage() {
         </div>
       ) : resenas.length === 0 ? (
         <div className="text-center py-20 text-stone-400">
-          <p className="text-5xl mb-4">⭐</p>
+          <Star className="w-10 h-10 mx-auto mb-4 text-stone-300" />
           <p className="text-sm font-medium">
             {filtro === 'pendientes' ? 'No hay reseñas pendientes de aprobación' : 'No hay reseñas'}
           </p>

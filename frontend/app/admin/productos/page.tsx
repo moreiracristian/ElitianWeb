@@ -8,6 +8,7 @@ import { useAuthStore } from '@/store/auth'
 import { getAdminProductos, toggleProductoActivo } from '@/lib/api'
 import type { ProductoList } from '@/lib/types'
 import ProductoDrawer from './_components/ProductoDrawer'
+import { Package, Leaf } from 'lucide-react'
 
 export default function AdminProductosPage() {
   const { access } = useAuthStore()
@@ -142,7 +143,7 @@ export default function AdminProductosPage() {
           </div>
         ) : productos.length === 0 ? (
           <div className="text-center py-16 text-stone-400">
-            <p className="text-4xl mb-3">📦</p>
+            <Package className="w-10 h-10 mx-auto mb-3 text-stone-300" />
             <p className="text-sm">No hay productos con este filtro.</p>
             <button
               onClick={abrirNuevo}
@@ -188,8 +189,8 @@ export default function AdminProductosPage() {
                               className="object-cover"
                             />
                           ) : (
-                            <div className="w-full h-full flex items-center justify-center text-stone-300 text-sm">
-                              🌿
+                            <div className="w-full h-full flex items-center justify-center">
+                              <Leaf className="w-5 h-5 text-stone-200" />
                             </div>
                           )}
                         </div>

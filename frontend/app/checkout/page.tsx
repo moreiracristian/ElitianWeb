@@ -7,11 +7,13 @@ import { useRouter } from 'next/navigation'
 import { useCarritoStore } from '@/store/carrito'
 import { useAuthStore } from '@/store/auth'
 import { crearOrden, crearPreferenciaMP } from '@/lib/api'
+import { Landmark, Banknote, CreditCard, ShoppingCart, Leaf } from 'lucide-react'
+import type { LucideIcon } from 'lucide-react'
 
-const METODOS_PAGO = [
-  { id: 'transferencia', label: 'Transferencia bancaria', desc: '20% OFF — Te enviamos el CBU por WhatsApp', icon: '🏦' },
-  { id: 'efectivo', label: 'Efectivo al retirar', desc: '20% OFF — Coordinamos punto de entrega', icon: '💵' },
-  { id: 'tarjeta', label: 'Pago online con MercadoPago', desc: 'Tarjeta de crédito, débito o dinero en cuenta MP', icon: '💳' },
+const METODOS_PAGO: { id: string; label: string; desc: string; Icon: LucideIcon }[] = [
+  { id: 'transferencia', label: 'Transferencia bancaria', desc: '20% OFF — Te enviamos el CBU por WhatsApp', Icon: Landmark },
+  { id: 'efectivo', label: 'Efectivo al retirar', desc: '20% OFF — Coordinamos punto de entrega', Icon: Banknote },
+  { id: 'tarjeta', label: 'Pago online con MercadoPago', desc: 'Tarjeta de crédito, débito o dinero en cuenta MP', Icon: CreditCard },
 ]
 
 export default function CheckoutPage() {
@@ -82,7 +84,7 @@ export default function CheckoutPage() {
   if (carrito.items.length === 0) {
     return (
       <div className="max-w-2xl mx-auto px-4 py-20 text-center">
-        <p className="text-5xl mb-4">🛒</p>
+        <ShoppingCart className="w-12 h-12 mx-auto mb-4 text-stone-300" />
         <h1 className="text-xl font-semibold text-stone-800 mb-3">Tu carrito está vacío</h1>
         <Link href="/tienda" className="inline-block px-6 py-3 bg-green-700 text-white font-semibold rounded-xl hover:bg-green-800 transition-colors">
           Ir a la tienda
@@ -217,7 +219,7 @@ export default function CheckoutPage() {
                   />
                   <div className="flex-1 min-w-0">
                     <p className="font-medium text-stone-800 text-sm flex items-center gap-2">
-                      <span>{m.icon}</span> {m.label}
+                      <m.Icon className="w-4 h-4 text-stone-500 shrink-0" /> {m.label}
                     </p>
                     <p className="text-xs text-stone-500 mt-0.5">{m.desc}</p>
                   </div>
@@ -260,7 +262,7 @@ export default function CheckoutPage() {
                     {item.producto.imagen_principal ? (
                       <Image src={item.producto.imagen_principal} alt={item.producto.nombre} fill className="object-cover" />
                     ) : (
-                      <div className="w-full h-full flex items-center justify-center text-stone-300 text-lg">🌿</div>
+                      <div className="w-full h-full flex items-center justify-center"><Leaf className="w-6 h-6 text-stone-200" /></div>
                     )}
                   </div>
                   <div className="flex-1 min-w-0">
@@ -302,7 +304,7 @@ export default function CheckoutPage() {
 
             {/* Método seleccionado */}
             <div className="bg-stone-50 rounded-xl p-3 text-xs text-stone-600 flex items-center gap-2">
-              <span className="text-base">{metodoSeleccionado.icon}</span>
+              <metodoSeleccionado.Icon className="w-4 h-4 text-stone-500 shrink-0" />
               <span>{metodoSeleccionado.label}</span>
             </div>
 

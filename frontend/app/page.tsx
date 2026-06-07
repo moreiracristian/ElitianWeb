@@ -2,6 +2,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { getCategorias, getProductos } from '@/lib/api'
 import HeroCarousel from '@/components/HeroCarousel'
+import { Truck, Leaf, Recycle, CreditCard } from 'lucide-react'
 
 export const dynamic = 'force-dynamic'
 
@@ -21,13 +22,13 @@ export default async function HomePage() {
       <section className="bg-white border-b border-stone-100">
         <div className="max-w-7xl mx-auto px-4 py-8 grid grid-cols-2 md:grid-cols-4 gap-6">
           {[
-            { icon: '🚚', titulo: 'Envío gratis', desc: 'En compras +$10.000 (Resistencia)' },
-            { icon: '🌿', titulo: 'Regalá conciencia', desc: 'Productos respetuosos con el planeta' },
-            { icon: '♻️', titulo: 'Reciclamos', desc: 'Recibimos tus envases usados' },
-            { icon: '💳', titulo: '3 cuotas s/interés', desc: '20% OFF efectivo / transferencia' },
-          ].map(({ icon, titulo, desc }) => (
+            { Icon: Truck, titulo: 'Envío gratis', desc: 'En compras +$10.000 (Resistencia)' },
+            { Icon: Leaf, titulo: 'Regalá conciencia', desc: 'Productos respetuosos con el planeta' },
+            { Icon: Recycle, titulo: 'Reciclamos', desc: 'Recibimos tus envases usados' },
+            { Icon: CreditCard, titulo: '3 cuotas s/interés', desc: '20% OFF efectivo / transferencia' },
+          ].map(({ Icon, titulo, desc }) => (
             <div key={titulo} className="flex flex-col items-center text-center gap-2">
-              <span className="text-3xl">{icon}</span>
+              <Icon className="w-7 h-7 text-green-700" />
               <p className="font-semibold text-stone-800 text-sm">{titulo}</p>
               <p className="text-stone-500 text-xs leading-relaxed">{desc}</p>
             </div>
@@ -96,7 +97,7 @@ export default async function HomePage() {
                         className="object-cover group-hover:scale-105 transition-transform duration-500"
                       />
                     ) : (
-                      <div className="w-full h-full flex items-center justify-center text-stone-300 text-4xl">🌿</div>
+                      <div className="w-full h-full flex items-center justify-center"><Leaf className="w-10 h-10 text-stone-200" /></div>
                     )}
                     {producto.tiene_oferta && (
                       <span className="absolute top-2 left-2 bg-green-600 text-white text-xs font-semibold px-2 py-1 rounded-full">

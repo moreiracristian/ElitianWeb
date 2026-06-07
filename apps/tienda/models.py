@@ -47,7 +47,7 @@ class Productos(models.Model):
     ofrecido = models.CharField(max_length=50, blank=True)
     marca = models.CharField(max_length=50)
     precio = models.DecimalField(
-        max_digits=10, decimal_places=2, validators=[MinValueValidator(0)]
+        max_digits=10, decimal_places=2, validators=[MinValueValidator(Decimal('0'))]
     )
     precio_oferta = models.DecimalField(
         max_digits=10, decimal_places=2, null=True, blank=True
@@ -260,18 +260,18 @@ class ConfiguracionGlobal(models.Model):
     """Singleton — siempre pk=1. Configura defaults globales de costos."""
     margen_ganancia = models.DecimalField(
         max_digits=5, decimal_places=2, default=30,
-        validators=[MinValueValidator(0), MaxValueValidator(1000)],
+        validators=[MinValueValidator(Decimal('0')), MaxValueValidator(Decimal('1000'))],
         help_text='Margen de ganancia global en %'
     )
     iva = models.CharField(max_length=5, choices=IVA_OPCIONES, default='21')
     recargo_tarjeta = models.DecimalField(
         max_digits=5, decimal_places=2, default=0,
-        validators=[MinValueValidator(0)],
+        validators=[MinValueValidator(Decimal('0'))],
         help_text='Recargo por pago con tarjeta de crédito en %'
     )
     transporte = models.DecimalField(
         max_digits=10, decimal_places=2, default=0,
-        validators=[MinValueValidator(0)],
+        validators=[MinValueValidator(Decimal('0'))],
         help_text='Costo de transporte fijo por defecto (en $)'
     )
 
@@ -299,7 +299,7 @@ class ConfiguracionCategoriaCosto(models.Model):
     )
     margen_ganancia = models.DecimalField(
         max_digits=5, decimal_places=2,
-        validators=[MinValueValidator(0), MaxValueValidator(1000)],
+        validators=[MinValueValidator(Decimal('0')), MaxValueValidator(Decimal('1000'))],
         help_text='Margen de ganancia para esta categoría en %'
     )
     iva = models.CharField(
@@ -322,27 +322,27 @@ class CostoProducto(models.Model):
     )
     costo_neto = models.DecimalField(
         max_digits=10, decimal_places=2, default=0,
-        validators=[MinValueValidator(0)],
+        validators=[MinValueValidator(Decimal('0'))],
         help_text='Costo de compra al proveedor sin IVA'
     )
     descuento_proveedor = models.DecimalField(
         max_digits=5, decimal_places=2, default=0,
-        validators=[MinValueValidator(0), MaxValueValidator(100)],
+        validators=[MinValueValidator(Decimal('0')), MaxValueValidator(Decimal('100'))],
         help_text='Descuento otorgado por el proveedor en %'
     )
     impuesto_interno = models.DecimalField(
         max_digits=5, decimal_places=2, default=0,
-        validators=[MinValueValidator(0)],
+        validators=[MinValueValidator(Decimal('0'))],
         help_text='Impuesto interno adicional en %'
     )
     transporte = models.DecimalField(
         max_digits=10, decimal_places=2, null=True, blank=True,
-        validators=[MinValueValidator(0)],
+        validators=[MinValueValidator(Decimal('0'))],
         help_text='Costo de transporte en $ (vacío = usar global)'
     )
     margen_ganancia = models.DecimalField(
         max_digits=5, decimal_places=2, null=True, blank=True,
-        validators=[MinValueValidator(0), MaxValueValidator(1000)],
+        validators=[MinValueValidator(Decimal('0')), MaxValueValidator(Decimal('1000'))],
         help_text='Margen de ganancia en % (vacío = usar categoría o global)'
     )
     iva = models.CharField(
@@ -351,12 +351,12 @@ class CostoProducto(models.Model):
     )
     descuento_promocion = models.DecimalField(
         max_digits=5, decimal_places=2, default=0,
-        validators=[MinValueValidator(0), MaxValueValidator(100)],
+        validators=[MinValueValidator(Decimal('0')), MaxValueValidator(Decimal('100'))],
         help_text='Descuento promocional al consumidor final en %'
     )
     recargo_tarjeta = models.DecimalField(
         max_digits=5, decimal_places=2, null=True, blank=True,
-        validators=[MinValueValidator(0)],
+        validators=[MinValueValidator(Decimal('0'))],
         help_text='Recargo tarjeta de crédito en % (vacío = usar global)'
     )
 
@@ -439,7 +439,7 @@ class PromocionBanco(models.Model):
     tipo = models.CharField(max_length=20, choices=TIPO_CHOICES, default='descuento')
     valor = models.DecimalField(
         max_digits=5, decimal_places=2, default=0,
-        validators=[MinValueValidator(0)],
+        validators=[MinValueValidator(Decimal('0'))],
         help_text='% de descuento o cantidad de cuotas según tipo'
     )
     activo = models.BooleanField(default=True)

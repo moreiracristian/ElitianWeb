@@ -93,6 +93,10 @@ export async function getProductosRelacionados(slug: string): Promise<ProductoLi
   return apiFetch<ProductoList[]>(`/productos/${slug}/relacionados/`)
 }
 
+export async function getMasVendidosCategoria(slug: string): Promise<ProductoList[]> {
+  return apiFetch<ProductoList[]>(`/productos/${slug}/mas_vendidos_categoria/`)
+}
+
 export async function getResenas(slug: string): Promise<Resena[]> {
   return apiFetch<Resena[]>(`/productos/${slug}/resenas/`)
 }

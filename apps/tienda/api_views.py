@@ -1,7 +1,9 @@
 import hashlib
 import hmac
 from decimal import Decimal
+from datetime import timedelta
 
+from django.utils import timezone
 from rest_framework import viewsets, status, filters
 from rest_framework.decorators import action, api_view, permission_classes
 from rest_framework.response import Response
@@ -107,10 +109,70 @@ class ProductoViewSet(viewsets.ReadOnlyModelViewSet):
     @action(detail=True, methods=['get'])
     def relacionados(self, request, slug=None):
         producto = self.get_object()
-        relacionados = Productos.objects.filter(
-            categoria=producto.categoria, activo=True, stock__gt=0
-        ).exclude(pk=producto.pk).prefetch_related('imagenes')[:4]
-        serializer = ProductoListSerializer(relacionados, many=True, context={'request': request})
+        desde = timezone.now() - timedelta(days=30)
+        estados_validos = ['confirmado', 'enviado', 'entregado']
+        qs = (
+            Productos.objects
+            .filter(categoria=producto.categoria, activo=True, stock__gt=0)
+            .exclude(pk=producto.pk)
+            .annotate(
+                vendidos_30d=Count(
+                    'itemorden',
+                    filter=Q(
+                        itemorden__orden__creado__gte=desde,
+                        itemorden__orden__estado__in=estados_validos,
+                    ),
+                    distinct=True,
+                ),
+                calificacion_promedio=Avg(
+                    'resenas__calificacion',
+                    filter=Q(resenas__aprobado=True),
+                ),
+                total_resenas_count=Count(
+                    'resenas',
+                    filter=Q(resenas__aprobado=True),
+                    distinct=True,
+                ),
+            )
+            .order_by('-vendidos_30d', '-calificacion_promedio', 'nombre')
+            .prefetch_related('imagenes')[:4]
+        )
+        serializer = ProductoListSerializer(qs, many=True, context={'request': request})
+        return Response(serializer.data)
+
+    @action(detail=True, methods=['get'])
+    def mas_vendidos_categoria(self, request, slug=None):
+        producto = self.get_object()
+        desde = timezone.now() - timedelta(days=30)
+        estados_validos = ['confirmado', 'enviado', 'entregado']
+        qs = (
+            Productos.objects
+            .filter(categoria=producto.categoria, activo=True, stock__gt=0)
+            .exclude(pk=producto.pk)
+            .annotate(
+                vendidos_30d=Count(
+                    'itemorden',
+                    filter=Q(
+                        itemorden__orden__creado__gte=desde,
+                        itemorden__orden__estado__in=estados_validos,
+                    ),
+                    distinct=True,
+                ),
+                calificacion_promedio=Avg(
+                    'resenas__calificacion',
+                    filter=Q(resenas__aprobado=True),
+                ),
+                total_resenas_count=Count(
+                    'resenas',
+                    filter=Q(resenas__aprobado=True),
+                    distinct=True,
+                ),
+            )
+            .filter(vendidos_30d__gt=0)
+            .order_by('-vendidos_30d', '-calificacion_promedio')
+            .prefetch_related('imagenes')[:8]
+        )
+        serializer = ProductoListSerializer(qs, many=True, context={'request': request})
         return Response(serializer.data)
 
 

@@ -1,5 +1,4 @@
 import os
-import sentry_sdk
 from pathlib import Path
 from decouple import config
 
@@ -12,11 +11,15 @@ DEBUG = config('DEBUG', default=False, cast=bool)
 # ── Sentry — error tracking en producción ─────────────────────────────────────
 _SENTRY_DSN = config('SENTRY_DSN', default='')
 if _SENTRY_DSN:
-    sentry_sdk.init(
-        dsn=_SENTRY_DSN,
-        traces_sample_rate=0.2,   # 20% de requests trackeados
-        send_default_pii=False,
-    )
+    try:
+        import sentry_sdk
+        sentry_sdk.init(
+            dsn=_SENTRY_DSN,
+            traces_sample_rate=0.2,
+            send_default_pii=False,
+        )
+    except ImportError:
+        pass
 
 MP_ACCESS_TOKEN = config('MP_ACCESS_TOKEN', default='')
 MP_WEBHOOK_SECRET = config('MP_WEBHOOK_SECRET', default='')

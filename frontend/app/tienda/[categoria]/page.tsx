@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation'
 import { getCategoria, getProductos } from '@/lib/api'
 import FiltroOrden from './_components/FiltroOrden'
 import EstrellasBadge from '@/components/EstrellasBadge'
+import { Leaf } from 'lucide-react'
 
 export const dynamic = 'force-dynamic'
 
@@ -23,7 +24,7 @@ export default async function CategoriaPage({ params, searchParams }: Props) {
       page: page ? Number(page) : 1,
       ordering,
       search,
-    }),
+    }).catch(() => ({ results: [], count: 0, next: null, previous: null })),
   ])
 
   if (!categoria) notFound()
@@ -68,7 +69,7 @@ export default async function CategoriaPage({ params, searchParams }: Props) {
                       className="object-cover group-hover:scale-105 transition-transform duration-300"
                     />
                   ) : (
-                    <div className="w-full h-full flex items-center justify-center text-stone-300 text-4xl">🌿</div>
+                    <div className="w-full h-full flex items-center justify-center"><Leaf className="w-10 h-10 text-stone-200" /></div>
                   )}
                   {producto.stock === 0 && (
                     <div className="absolute inset-0 bg-white/60 flex items-center justify-center">

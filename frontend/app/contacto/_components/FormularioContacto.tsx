@@ -30,7 +30,7 @@ export default function FormularioContacto() {
   if (enviado) {
     return (
       <div className="bg-green-50 border border-green-100 rounded-3xl px-8 py-12 text-center">
-        <p className="text-4xl mb-4">💚</p>
+        <svg className="w-10 h-10 text-green-600 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" /></svg>
         <h2 className="text-2xl font-semibold text-stone-800 mb-3">¡Mensaje recibido!</h2>
         <p className="text-stone-600 max-w-md mx-auto leading-relaxed">
           Gracias por escribirnos, {form.nombre}. Te respondemos a la brevedad.

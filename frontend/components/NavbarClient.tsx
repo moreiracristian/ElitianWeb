@@ -7,6 +7,7 @@ import { usePathname, useRouter } from 'next/navigation'
 import { useCarritoStore } from '@/store/carrito'
 import { useAuthStore } from '@/store/auth'
 import type { Categoria } from '@/lib/types'
+import { Home, Leaf, ShoppingBag, Recycle, FileText, Mail, Package, Settings, LogOut } from 'lucide-react'
 
 interface Props {
   categorias: Categoria[]
@@ -97,20 +98,20 @@ export default function NavbarClient({ categorias }: Props) {
                 {usuario?.is_staff && (
                   <>
                     <Link href="/admin" className="flex items-center gap-2 px-3 py-2.5 rounded-lg text-sm text-green-700 font-medium hover:bg-green-50 transition-colors">
-                      ⚙️ Panel admin
+                      <Settings className="w-4 h-4" /> Panel admin
                     </Link>
                     <div className="my-1 border-t border-stone-100" />
                   </>
                 )}
                 <Link href="/cuenta/ordenes" className="flex items-center gap-2 px-3 py-2.5 rounded-lg text-sm text-stone-600 hover:bg-stone-50 transition-colors">
-                  📦 Mis pedidos
+                  <Package className="w-4 h-4" /> Mis pedidos
                 </Link>
                 <div className="my-1 border-t border-stone-100" />
                 <button
                   onClick={handleLogout}
                   className="w-full flex items-center gap-2 px-3 py-2.5 rounded-lg text-sm text-red-500 hover:bg-red-50 transition-colors"
                 >
-                  🚪 Cerrar sesión
+                  <LogOut className="w-4 h-4" /> Cerrar sesión
                 </button>
               </div>
             </div>
@@ -172,10 +173,10 @@ export default function NavbarClient({ categorias }: Props) {
         {/* Links del drawer */}
         <nav className="flex-1 overflow-y-auto px-3 py-4 space-y-1 text-sm font-medium text-stone-700">
           <Link href="/" className="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-stone-50 transition-colors">
-            <span>🏠</span> Inicio
+            <Home className="w-4 h-4 text-stone-500" /> Inicio
           </Link>
           <Link href="/conocenos" className="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-stone-50 transition-colors">
-            <span>🌿</span> Conocénos
+            <Leaf className="w-4 h-4 text-stone-500" /> Conocénos
           </Link>
 
           {/* Tienda accordion */}
@@ -184,7 +185,7 @@ export default function NavbarClient({ categorias }: Props) {
               onClick={() => setTiendaAbierta((v) => !v)}
               className="w-full flex items-center justify-between gap-3 px-4 py-3 rounded-xl hover:bg-stone-50 transition-colors"
             >
-              <span className="flex items-center gap-3"><span>🛍️</span> Tienda</span>
+              <span className="flex items-center gap-3"><ShoppingBag className="w-4 h-4 text-stone-500" /> Tienda</span>
               <svg className={`w-4 h-4 text-stone-400 transition-transform ${tiendaAbierta ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
               </svg>
@@ -205,22 +206,22 @@ export default function NavbarClient({ categorias }: Props) {
           </div>
 
           <Link href="/recicla" className="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-stone-50 transition-colors">
-            <span>♻️</span> Reciclá
+            <Recycle className="w-4 h-4 text-stone-500" /> Reciclá
           </Link>
           <Link href="/blog" className="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-stone-50 transition-colors">
-            <span>📝</span> Blog
+            <FileText className="w-4 h-4 text-stone-500" /> Blog
           </Link>
           <Link href="/contacto" className="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-stone-50 transition-colors">
-            <span>✉️</span> Contacto
+            <Mail className="w-4 h-4 text-stone-500" /> Contacto
           </Link>
           {autenticado && (
             <Link href="/cuenta/ordenes" className="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-stone-50 transition-colors">
-              <span>📦</span> Mis pedidos
+              <Package className="w-4 h-4 text-stone-500" /> Mis pedidos
             </Link>
           )}
           {usuario?.is_staff && (
             <Link href="/admin" className="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-green-50 text-green-700 font-medium transition-colors">
-              <span>⚙️</span> Panel admin
+              <Settings className="w-4 h-4" /> Panel admin
             </Link>
           )}
         </nav>

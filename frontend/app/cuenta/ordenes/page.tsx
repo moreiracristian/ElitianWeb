@@ -6,6 +6,7 @@ import { useRouter } from 'next/navigation'
 import { useAuthStore } from '@/store/auth'
 import { getOrdenes } from '@/lib/api'
 import type { Orden } from '@/lib/types'
+import { Package } from 'lucide-react'
 
 const ESTADO_COLORES: Record<string, string> = {
   pendiente:  'bg-yellow-100 text-yellow-700',
@@ -50,7 +51,7 @@ export default function OrdenesPage() {
   if (ordenes.length === 0) {
     return (
       <div className="max-w-3xl mx-auto px-4 py-20 text-center">
-        <p className="text-5xl mb-4">📦</p>
+        <Package className="w-12 h-12 mx-auto mb-4 text-stone-300" />
         <h1 className="text-xl font-semibold text-stone-800 mb-2">Todavía no tenés pedidos</h1>
         <p className="text-stone-500 text-sm mb-8">Explorá nuestra tienda y hacé tu primer pedido.</p>
         <Link

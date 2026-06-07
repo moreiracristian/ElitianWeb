@@ -35,7 +35,7 @@ export default function FormularioResena({ productoSlug, onResenaAgregada }: Pro
   if (enviado) {
     return (
       <div className="bg-green-50 border border-green-100 rounded-2xl p-6 text-center">
-        <p className="text-2xl mb-2">✓</p>
+        <svg className="w-8 h-8 text-green-600 mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
         <p className="font-semibold text-stone-800 mb-1">¡Gracias por tu reseña!</p>
         <p className="text-stone-500 text-sm">Será visible una vez que la aprobemos.</p>
       </div>

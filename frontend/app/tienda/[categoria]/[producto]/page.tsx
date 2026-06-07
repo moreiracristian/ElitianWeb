@@ -2,10 +2,12 @@ import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
-import { getProducto, getProductosRelacionados, getResenas } from '@/lib/api'
+import { getProducto, getProductosRelacionados, getMasVendidosCategoria, getResenas } from '@/lib/api'
 import BotonAgregarCarrito from './_components/BotonAgregarCarrito'
 import GaleriaImagenes from './_components/GaleriaImagenes'
 import FormularioResena from './_components/FormularioResena'
+import EstrellasBadge from '@/components/EstrellasBadge'
+import { CreditCard, Banknote, Truck, Leaf } from 'lucide-react'
 
 export const dynamic = 'force-dynamic'
 
@@ -34,9 +36,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function ProductoPage({ params }: Props) {
   const { categoria: categoriaSlug, producto: productoSlug } = await params
 
-  const [producto, relacionados, resenas] = await Promise.all([
+  const [producto, relacionados, masVendidos, resenas] = await Promise.all([
     getProducto(productoSlug).catch(() => null),
     getProductosRelacionados(productoSlug).catch(() => []),
+    getMasVendidosCategoria(productoSlug).catch(() => []),
     getResenas(productoSlug).catch(() => []),
   ])
 
@@ -83,14 +86,14 @@ export default async function ProductoPage({ params }: Props) {
           </div>
 
           {/* Métodos de pago */}
-          <div className="bg-stone-50 rounded-xl p-4 text-sm text-stone-600 space-y-1">
-            <p>💳 Mismo precio en <span className="font-medium">3 cuotas sin interés</span></p>
-            <p>💵 Efectivo / transferencia: <span className="font-medium text-green-700">20% OFF</span></p>
+          <div className="bg-stone-50 rounded-xl p-4 text-sm text-stone-600 space-y-1.5">
+            <p className="flex items-center gap-2"><CreditCard className="w-4 h-4 shrink-0 text-stone-400" /> Mismo precio en <span className="font-medium">3 cuotas sin interés</span></p>
+            <p className="flex items-center gap-2"><Banknote className="w-4 h-4 shrink-0 text-stone-400" /> Efectivo / transferencia: <span className="font-medium text-green-700">20% OFF</span></p>
           </div>
 
           {/* Envíos */}
           <div className="bg-green-50 rounded-xl p-4 text-sm text-stone-600">
-            <p>🚚 <span className="font-medium">Envíos gratis</span> en compras +$10.000 (Resistencia)</p>
+            <p className="flex items-center gap-2"><Truck className="w-4 h-4 shrink-0 text-green-600" /> <span className="font-medium">Envíos gratis</span> en compras +$10.000 (Resistencia)</p>
           </div>
 
           {/* Stock */}
@@ -166,7 +169,7 @@ export default async function ProductoPage({ params }: Props) {
 
       {/* Relacionados */}
       {relacionados.length > 0 && (
-        <section>
+        <section className="mb-16">
           <h2 className="text-xl font-semibold text-stone-800 mb-6">También te puede interesar</h2>
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-5">
             {relacionados.map((rel) => (
@@ -179,12 +182,53 @@ export default async function ProductoPage({ params }: Props) {
                   {rel.imagen_principal ? (
                     <Image src={rel.imagen_principal} alt={rel.nombre} fill className="object-cover group-hover:scale-105 transition-transform duration-300" />
                   ) : (
-                    <div className="w-full h-full flex items-center justify-center text-stone-300 text-3xl">🌿</div>
+                    <div className="w-full h-full flex items-center justify-center"><Leaf className="w-8 h-8 text-stone-200" /></div>
                   )}
                 </div>
                 <div className="p-3">
                   <p className="text-sm font-medium text-stone-800 line-clamp-2 mb-1">{rel.nombre}</p>
-                  <span className="text-green-700 font-semibold text-sm">${rel.precio_final}</span>
+                  <div className="flex items-center justify-between gap-2">
+                    <span className="text-green-700 font-semibold text-sm">${rel.precio_final}</span>
+                    {rel.calificacion_promedio != null && rel.total_resenas > 0 && (
+                      <EstrellasBadge calificacion={rel.calificacion_promedio} total={rel.total_resenas} />
+                    )}
+                  </div>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </section>
+      )}
+
+      {/* Más vendidos de la categoría */}
+      {masVendidos.length > 0 && (
+        <section>
+          <h2 className="text-xl font-semibold text-stone-800 mb-2">
+            Más vendidos de {producto.categoria.nombre}
+          </h2>
+          <p className="text-sm text-stone-400 mb-6">Los más elegidos en los últimos 30 días</p>
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-5">
+            {masVendidos.map((mv) => (
+              <Link
+                key={mv.id}
+                href={`/tienda/${categoriaSlug}/${mv.slug}`}
+                className="group bg-white rounded-2xl overflow-hidden border border-stone-200 hover:shadow-md transition-shadow"
+              >
+                <div className="relative aspect-square bg-stone-50">
+                  {mv.imagen_principal ? (
+                    <Image src={mv.imagen_principal} alt={mv.nombre} fill className="object-cover group-hover:scale-105 transition-transform duration-300" />
+                  ) : (
+                    <div className="w-full h-full flex items-center justify-center"><Leaf className="w-8 h-8 text-stone-200" /></div>
+                  )}
+                </div>
+                <div className="p-3">
+                  <p className="text-sm font-medium text-stone-800 line-clamp-2 mb-1">{mv.nombre}</p>
+                  <div className="flex items-center justify-between gap-2">
+                    <span className="text-green-700 font-semibold text-sm">${mv.precio_final}</span>
+                    {mv.calificacion_promedio != null && mv.total_resenas > 0 && (
+                      <EstrellasBadge calificacion={mv.calificacion_promedio} total={mv.total_resenas} />
+                    )}
+                  </div>
                 </div>
               </Link>
             ))}

@@ -5,6 +5,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { useCarritoStore } from '@/store/carrito'
 import { useAuthStore } from '@/store/auth'
+import { ShoppingBag, ShoppingCart, Leaf, CreditCard, Banknote, Truck } from 'lucide-react'
 
 export default function CarritoPage() {
   const { carrito, fetchCarrito, actualizar, eliminar } = useCarritoStore()
@@ -17,7 +18,7 @@ export default function CarritoPage() {
   if (!autenticado) {
     return (
       <div className="max-w-2xl mx-auto px-4 py-20 text-center">
-        <p className="text-5xl mb-6">🛍️</p>
+        <ShoppingBag className="w-12 h-12 mx-auto mb-6 text-stone-300" />
         <h1 className="text-2xl font-semibold text-stone-800 mb-3">Tu carrito te espera</h1>
         <p className="text-stone-500 mb-8">Iniciá sesión para ver y guardar tus productos.</p>
         <Link
@@ -33,7 +34,7 @@ export default function CarritoPage() {
   if (!carrito || carrito.items.length === 0) {
     return (
       <div className="max-w-2xl mx-auto px-4 py-20 text-center">
-        <p className="text-5xl mb-6">🛒</p>
+        <ShoppingCart className="w-12 h-12 mx-auto mb-6 text-stone-300" />
         <h1 className="text-2xl font-semibold text-stone-800 mb-3">Tu carrito está vacío</h1>
         <p className="text-stone-500 mb-8">Explorá nuestra tienda y encontrá productos naturales para vos.</p>
         <Link
@@ -66,7 +67,7 @@ export default function CarritoPage() {
                     className="object-cover"
                   />
                 ) : (
-                  <div className="w-full h-full flex items-center justify-center text-stone-300 text-2xl">🌿</div>
+                  <div className="w-full h-full flex items-center justify-center"><Leaf className="w-7 h-7 text-stone-200" /></div>
                 )}
               </div>
 
@@ -137,9 +138,9 @@ export default function CarritoPage() {
 
             {/* Beneficios */}
             <div className="bg-green-50 rounded-xl p-3 text-xs text-green-800 space-y-1 mb-5">
-              <p>💳 3 cuotas sin interés</p>
-              <p>💵 20% OFF efectivo / transferencia</p>
-              <p>🚚 Envío gratis en compras +$10.000 (Resistencia)</p>
+              <p className="flex items-center gap-1.5"><CreditCard className="w-3.5 h-3.5 shrink-0" /> 3 cuotas sin interés</p>
+              <p className="flex items-center gap-1.5"><Banknote className="w-3.5 h-3.5 shrink-0" /> 20% OFF efectivo / transferencia</p>
+              <p className="flex items-center gap-1.5"><Truck className="w-3.5 h-3.5 shrink-0" /> Envío gratis en compras +$10.000 (Resistencia)</p>
             </div>
 
             <Link

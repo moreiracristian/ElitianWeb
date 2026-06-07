@@ -5,6 +5,7 @@ const apiHost = process.env.NEXT_PUBLIC_API_HOST ?? 'localhost'
 
 const nextConfig: NextConfig = {
   output: 'standalone',
+  allowedDevOrigins: ['172.17.96.1'],
   images: {
     remotePatterns: [
       {

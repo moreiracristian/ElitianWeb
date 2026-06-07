@@ -7,6 +7,7 @@ import { useAuthStore } from '@/store/auth'
 import { getAdminBlogPosts, eliminarBlogPost } from '@/lib/api'
 import type { BlogPost } from '@/lib/types'
 import PostDrawer from './_components/PostDrawer'
+import { FileText, Leaf } from 'lucide-react'
 
 export default function AdminBlogPage() {
   const { access } = useAuthStore()
@@ -106,7 +107,7 @@ export default function AdminBlogPage() {
           </div>
         ) : posts.length === 0 ? (
           <div className="text-center py-20 text-stone-400">
-            <p className="text-5xl mb-4">📝</p>
+            <FileText className="w-10 h-10 mx-auto mb-4 text-stone-300" />
             <p className="text-sm font-medium mb-1">No hay artículos todavía</p>
             <p className="text-xs mb-5">Empezá publicando tu primer post</p>
             <button
@@ -128,8 +129,8 @@ export default function AdminBlogPage() {
                   {post.imagen_post ? (
                     <Image src={post.imagen_post} alt={post.titulo} fill className="object-cover" />
                   ) : (
-                    <div className="w-full h-full flex items-center justify-center text-stone-300 text-3xl">
-                      📝
+                    <div className="w-full h-full flex items-center justify-center">
+                      <Leaf className="w-7 h-7 text-stone-200" />
                     </div>
                   )}
                 </div>

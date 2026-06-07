@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import Image from 'next/image'
+import { CreditCard, Truck, Banknote, Smartphone, MapPin, Mail } from 'lucide-react'
 
 export default function Footer() {
   return (
@@ -7,9 +8,9 @@ export default function Footer() {
       {/* Banda de beneficios */}
       <div className="bg-green-800 text-white text-sm">
         <div className="max-w-7xl mx-auto px-4 py-3 flex flex-wrap justify-center gap-x-8 gap-y-1 text-center">
-          <span>💳 3 cuotas sin interés</span>
-          <span>🚚 Envíos gratis +$10.000 (Resistencia)</span>
-          <span>💵 20% OFF efectivo / transferencia</span>
+          <span className="inline-flex items-center gap-1.5"><CreditCard className="w-4 h-4" /> 3 cuotas sin interés</span>
+          <span className="inline-flex items-center gap-1.5"><Truck className="w-4 h-4" /> Envíos gratis +$10.000 (Resistencia)</span>
+          <span className="inline-flex items-center gap-1.5"><Banknote className="w-4 h-4" /> 20% OFF efectivo / transferencia</span>
         </div>
       </div>
 
@@ -90,17 +91,17 @@ export default function Footer() {
           <h3 className="text-white font-semibold text-sm mb-4">Contacto</h3>
           <ul className="space-y-3 text-sm text-stone-400">
             <li className="flex items-start gap-2">
-              <span className="mt-0.5">📍</span>
+              <MapPin className="w-4 h-4 mt-0.5 shrink-0 text-stone-500" />
               <span>Resistencia, Chaco, Argentina</span>
             </li>
             <li className="flex items-center gap-2">
-              <span>📱</span>
+              <Smartphone className="w-4 h-4 shrink-0 text-stone-500" />
               <a href="https://wa.me/+5493624135017" className="hover:text-green-400 transition-colors">
                 WhatsApp
               </a>
             </li>
             <li className="flex items-center gap-2">
-              <span>✉️</span>
+              <Mail className="w-4 h-4 shrink-0 text-stone-500" />
               <a href="mailto:hola@elitian.com.ar" className="hover:text-green-400 transition-colors">
                 hola@elitian.com.ar
               </a>

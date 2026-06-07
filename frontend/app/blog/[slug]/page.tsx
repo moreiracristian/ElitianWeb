@@ -3,6 +3,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { getBlogPost, getBlogPosts } from '@/lib/api'
+import { Leaf } from 'lucide-react'
 
 export const dynamic = 'force-dynamic'
 
@@ -148,7 +149,7 @@ export default async function BlogPostPage({ params }: Props) {
                         className="object-cover group-hover:scale-105 transition-transform duration-300"
                       />
                     ) : (
-                      <div className="w-full h-full flex items-center justify-center text-3xl bg-green-50">🌿</div>
+                      <div className="w-full h-full flex items-center justify-center bg-green-50"><Leaf className="w-12 h-12 text-green-200" /></div>
                     )}
                   </div>
                   <div className="p-4">

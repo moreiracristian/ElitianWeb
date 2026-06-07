@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import Image from 'next/image'
+import { Leaf } from 'lucide-react'
 import type { ProductoImagen } from '@/lib/types'
 
 interface Props {
@@ -14,8 +15,8 @@ export default function GaleriaImagenes({ imagenes, nombre }: Props) {
 
   if (imagenes.length === 0) {
     return (
-      <div className="aspect-square bg-stone-100 rounded-2xl flex items-center justify-center text-stone-300 text-6xl">
-        🌿
+      <div className="aspect-square bg-stone-100 rounded-2xl flex items-center justify-center">
+        <Leaf className="w-16 h-16 text-stone-200" />
       </div>
     )
   }
