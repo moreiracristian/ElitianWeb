@@ -9,6 +9,7 @@ import {
   editarBlogPost,
 } from '@/lib/api'
 import type { BlogCategoria } from '@/lib/types'
+import TiptapEditor from './TiptapEditor'
 
 interface PostForm {
   titulo: string
@@ -35,7 +36,6 @@ interface Props {
 }
 
 export default function PostDrawer({ open, postId, token, onClose, onSaved }: Props) {
-  const [tab, setTab] = useState<'datos' | 'preview'>('datos')
   const [form, setForm] = useState<PostForm>(FORM_INICIAL)
   const [categorias, setCategorias] = useState<BlogCategoria[]>([])
   const [imagenFile, setImagenFile] = useState<File | null>(null)
@@ -57,7 +57,6 @@ export default function PostDrawer({ open, postId, token, onClose, onSaved }: Pr
       setImagenPreview(null)
       setImagenActual(null)
       setError(null)
-      setTab('datos')
       return
     }
     if (!postId) return
@@ -145,31 +144,14 @@ export default function PostDrawer({ open, postId, token, onClose, onSaved }: Pr
           </button>
         </div>
 
-        {/* Tabs */}
-        <div className="flex border-b border-stone-100 px-6 shrink-0">
-          {(['datos', 'preview'] as const).map((t) => (
-            <button
-              key={t}
-              onClick={() => setTab(t)}
-              className={`py-3 px-4 text-sm font-medium border-b-2 transition-colors ${
-                tab === t
-                  ? 'border-green-500 text-green-700'
-                  : 'border-transparent text-stone-500 hover:text-stone-700'
-              }`}
-            >
-              {t === 'datos' ? 'Contenido' : 'Vista previa'}
-            </button>
-          ))}
-        </div>
-
-        {/* Content */}
+        {/* Contenido */}
         <div className="flex-1 overflow-y-auto">
           {cargando ? (
             <div className="flex items-center justify-center h-full text-stone-400 gap-3">
               <span className="w-6 h-6 border-2 border-stone-300 border-t-stone-600 rounded-full animate-spin" />
               Cargando...
             </div>
-          ) : tab === 'datos' ? (
+          ) : (
             <div className="p-6 space-y-5">
               {error && (
                 <div className="bg-red-50 text-red-600 text-sm px-4 py-3 rounded-xl">{error}</div>
@@ -191,7 +173,9 @@ export default function PostDrawer({ open, postId, token, onClose, onSaved }: Pr
                     />
                   ) : (
                     <div className="absolute inset-0 flex flex-col items-center justify-center text-stone-400 text-sm gap-2">
-                      <span className="text-3xl">🖼️</span>
+                      <svg className="w-8 h-8 text-stone-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                      </svg>
                       <span>Subir imagen de portada</span>
                     </div>
                   )}
@@ -261,74 +245,14 @@ export default function PostDrawer({ open, postId, token, onClose, onSaved }: Pr
                 </div>
               </div>
 
-              {/* Contenido */}
+              {/* Contenido — editor WYSIWYG */}
               <div>
-                <div className="flex items-center justify-between mb-1.5">
-                  <label className={`${labelCls} mb-0`}>Contenido *</label>
-                  <span className="text-xs text-stone-400">HTML básico soportado</span>
-                </div>
-                <textarea
+                <label className={labelCls}>Contenido *</label>
+                <TiptapEditor
                   value={form.contenido}
-                  onChange={(e) => set('contenido', e.target.value)}
-                  rows={18}
-                  className={`${inputCls} resize-y font-mono text-xs leading-relaxed`}
-                  placeholder={`<p>Escribí el contenido del artículo aquí...</p>\n\n<h2>Subtítulo de sección</h2>\n<p>Más contenido...</p>\n\n<ul>\n  <li>Item de lista</li>\n</ul>`}
+                  onChange={(html) => set('contenido', html)}
                 />
-                <p className="text-xs text-stone-400 mt-1.5">
-                  Usá la pestaña &quot;Vista previa&quot; para ver el resultado antes de guardar.
-                </p>
               </div>
-            </div>
-          ) : (
-            <div className="p-6">
-              {/* Preview header */}
-              {(imagenPreview || imagenActual) && (
-                <div className="relative w-full h-52 rounded-2xl overflow-hidden mb-6 bg-stone-100">
-                  <Image
-                    src={imagenPreview ?? imagenActual!}
-                    alt="Portada"
-                    fill
-                    className="object-cover"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-5">
-                    <div>
-                      {form.etiqueta && (
-                        <span className="text-xs font-semibold text-green-300 uppercase tracking-wider">
-                          {form.etiqueta}
-                        </span>
-                      )}
-                      <h1 className="text-white text-2xl font-bold mt-1">{form.titulo || 'Sin título'}</h1>
-                      {form.subtitulo && (
-                        <p className="text-white/80 text-sm mt-1">{form.subtitulo}</p>
-                      )}
-                    </div>
-                  </div>
-                </div>
-              )}
-              {!imagenPreview && !imagenActual && (
-                <div className="mb-6">
-                  {form.etiqueta && (
-                    <span className="text-xs font-semibold text-green-600 uppercase tracking-wider">
-                      {form.etiqueta}
-                    </span>
-                  )}
-                  <h1 className="text-stone-800 text-2xl font-bold mt-1">{form.titulo || 'Sin título'}</h1>
-                  {form.subtitulo && (
-                    <p className="text-stone-500 text-sm mt-1">{form.subtitulo}</p>
-                  )}
-                </div>
-              )}
-              {/* Contenido renderizado */}
-              {form.contenido ? (
-                <div
-                  className="prose prose-stone prose-sm max-w-none"
-                  dangerouslySetInnerHTML={{ __html: form.contenido }}
-                />
-              ) : (
-                <p className="text-stone-400 text-sm text-center py-12">
-                  El contenido aparecerá aquí cuando escribas algo.
-                </p>
-              )}
             </div>
           )}
         </div>

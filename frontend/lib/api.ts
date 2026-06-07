@@ -249,6 +249,10 @@ export async function getBlogCategorias(): Promise<BlogCategoria[]> {
   return data.results
 }
 
+export async function getBlogCategoria(slug: string): Promise<BlogCategoria> {
+  return apiFetch<BlogCategoria>(`/blog/categorias/${slug}/`)
+}
+
 export async function getBlogPosts(filtros: { categoria?: string; search?: string; page?: number } = {}): Promise<PaginatedResponse<BlogPost>> {
   const params = new URLSearchParams()
   if (filtros.categoria) params.set('categoria', filtros.categoria)
@@ -389,6 +393,18 @@ export async function editarBlogPost(token: string, id: number, data: FormData):
 
 export async function eliminarBlogPost(token: string, id: number): Promise<null> {
   return apiFetch<null>(`/admin/blog/posts/${id}/eliminar/`, { method: 'DELETE' }, token)
+}
+
+export async function crearBlogCategoria(token: string, data: FormData): Promise<BlogCategoria> {
+  return fetchBlogMultipart<BlogCategoria>('/admin/blog/categorias/crear/', 'POST', token, data)
+}
+
+export async function editarBlogCategoria(token: string, id: number, data: FormData): Promise<BlogCategoria> {
+  return fetchBlogMultipart<BlogCategoria>(`/admin/blog/categorias/${id}/editar/`, 'PATCH', token, data)
+}
+
+export async function eliminarBlogCategoria(token: string, id: number): Promise<null> {
+  return apiFetch<null>(`/admin/blog/categorias/${id}/eliminar/`, { method: 'DELETE' }, token)
 }
 
 // ── Costos ────────────────────────────────────────────────────────────────────

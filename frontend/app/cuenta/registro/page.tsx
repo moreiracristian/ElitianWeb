@@ -13,6 +13,7 @@ interface Errores {
   password?: string
   first_name?: string
   last_name?: string
+  terminos?: string
   general?: string
 }
 
@@ -25,6 +26,7 @@ export default function RegistroPage() {
     password: '',
     password2: '',
   })
+  const [aceptaTerminos, setAceptaTerminos] = useState(false)
   const [errores, setErrores] = useState<Errores>({})
   const [cargando, setCargando] = useState(false)
   const { registro, estaAutenticado } = useAuthStore()
@@ -44,6 +46,7 @@ export default function RegistroPage() {
     if (!form.password) e.password = 'La contraseña es requerida.'
     else if (form.password.length < 8) e.password = 'Mínimo 8 caracteres.'
     else if (form.password !== form.password2) e.password = 'Las contraseñas no coinciden.'
+    if (!aceptaTerminos) e.terminos = 'Debés aceptar los términos y condiciones para continuar.'
     setErrores(e)
     return Object.keys(e).length === 0
   }
@@ -149,10 +152,41 @@ export default function RegistroPage() {
               />
             </div>
 
-            <p className="text-xs text-stone-400 leading-relaxed">
-              Al registrarte aceptás nuestros{' '}
-              <Link href="/terminos" className="text-green-700 hover:underline">términos y condiciones</Link>.
-            </p>
+            <div>
+              <label className="flex items-start gap-3 cursor-pointer group">
+                <input
+                  type="checkbox"
+                  checked={aceptaTerminos}
+                  onChange={(e) => {
+                    setAceptaTerminos(e.target.checked)
+                    if (e.target.checked) setErrores((prev) => ({ ...prev, terminos: undefined }))
+                  }}
+                  className="mt-0.5 w-4 h-4 shrink-0 accent-green-700 cursor-pointer"
+                />
+                <span className="text-sm text-stone-600 leading-relaxed">
+                  Leí y acepto los{' '}
+                  <Link
+                    href="/terminos"
+                    target="_blank"
+                    className="text-green-700 font-medium hover:underline"
+                  >
+                    Términos y Condiciones
+                  </Link>
+                  {' '}y la{' '}
+                  <Link
+                    href="/terminos#privacidad"
+                    target="_blank"
+                    className="text-green-700 font-medium hover:underline"
+                  >
+                    Política de Privacidad
+                  </Link>
+                  {' '}de Elitian.
+                </span>
+              </label>
+              {errores.terminos && (
+                <p className="mt-1.5 text-xs text-red-500">{errores.terminos}</p>
+              )}
+            </div>
 
             <button
               type="submit"

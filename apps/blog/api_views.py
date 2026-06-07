@@ -81,7 +81,7 @@ class PostWriteSerializer(serializers.ModelSerializer):
 
 
 class BlogCategoriaViewSet(viewsets.ReadOnlyModelViewSet):
-    queryset = Categoria.objects.filter(activo=True)
+    queryset = Categoria.objects.filter(activo=True).order_by('nombre')
     serializer_class = BlogCategoriaSerializer
     permission_classes = [AllowAny]
     lookup_field = 'slug'
@@ -168,5 +168,82 @@ def admin_eliminar_post(request, pk):
 @api_view(['GET'])
 @permission_classes([IsAdminUser])
 def admin_blog_categorias(request):
-    qs = Categoria.objects.all()
+    qs = Categoria.objects.all().order_by('nombre')
     return Response(BlogCategoriaSerializer(qs, many=True, context={'request': request}).data)
+
+
+@api_view(['POST'])
+@permission_classes([IsAdminUser])
+def admin_crear_categoria(request):
+    nombre = request.data.get('nombre', '').strip()
+    if not nombre:
+        return Response({'nombre': 'El nombre es requerido.'}, status=status.HTTP_400_BAD_REQUEST)
+
+    base = slugify(nombre)
+    slug = base
+    counter = 1
+    while Categoria.objects.filter(slug=slug).exists():
+        slug = f'{base}-{counter}'
+        counter += 1
+
+    categoria = Categoria.objects.create(
+        nombre=nombre,
+        descripcion=request.data.get('descripcion', '') or None,
+        slug=slug,
+        activo=True,
+    )
+    if 'imagen_cat' in request.FILES:
+        categoria.imagen_cat = request.FILES['imagen_cat']
+        categoria.save()
+
+    return Response(
+        BlogCategoriaSerializer(categoria, context={'request': request}).data,
+        status=status.HTTP_201_CREATED,
+    )
+
+
+@api_view(['GET', 'PATCH'])
+@permission_classes([IsAdminUser])
+def admin_editar_categoria(request, pk):
+    try:
+        categoria = Categoria.objects.get(pk=pk)
+    except Categoria.DoesNotExist:
+        return Response({'detail': 'Categoría no encontrada.'}, status=status.HTTP_404_NOT_FOUND)
+
+    if request.method == 'GET':
+        return Response(BlogCategoriaSerializer(categoria, context={'request': request}).data)
+
+    nombre = request.data.get('nombre', categoria.nombre).strip()
+    if not nombre:
+        return Response({'nombre': 'El nombre es requerido.'}, status=status.HTTP_400_BAD_REQUEST)
+
+    categoria.nombre = nombre
+    descripcion = request.data.get('descripcion', '')
+    categoria.descripcion = descripcion or None
+    if 'imagen_cat' in request.FILES:
+        if categoria.imagen_cat:
+            categoria.imagen_cat.delete(save=False)
+        categoria.imagen_cat = request.FILES['imagen_cat']
+    categoria.save()
+
+    return Response(BlogCategoriaSerializer(categoria, context={'request': request}).data)
+
+
+@api_view(['DELETE'])
+@permission_classes([IsAdminUser])
+def admin_eliminar_categoria(request, pk):
+    try:
+        categoria = Categoria.objects.get(pk=pk)
+    except Categoria.DoesNotExist:
+        return Response({'detail': 'Categoría no encontrada.'}, status=status.HTTP_404_NOT_FOUND)
+
+    if categoria.posts.exists():
+        return Response(
+            {'detail': f'No se puede eliminar: tiene {categoria.posts.count()} post(s) asociado(s).'},
+            status=status.HTTP_400_BAD_REQUEST,
+        )
+
+    if categoria.imagen_cat:
+        categoria.imagen_cat.delete(save=False)
+    categoria.delete()
+    return Response(status=status.HTTP_204_NO_CONTENT)

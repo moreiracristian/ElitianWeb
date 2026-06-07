@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { getBlogPosts, getBlogCategorias } from '@/lib/api'
-import { Leaf } from 'lucide-react'
+import { Leaf, Clock, Calendar } from 'lucide-react'
 
 export const dynamic = 'force-dynamic'
 
@@ -18,6 +18,11 @@ function formatFecha(iso: string) {
   })
 }
 
+function estimarLectura(texto: string) {
+  const palabras = texto.replace(/<[^>]*>/g, '').split(/\s+/).filter(Boolean).length
+  return Math.max(1, Math.round(palabras / 200))
+}
+
 export default async function BlogPage() {
   const [postsData, categorias] = await Promise.all([
     getBlogPosts().catch(() => ({ results: [], count: 0, next: null, previous: null })),
@@ -28,72 +33,85 @@ export default async function BlogPage() {
   const [featured, ...resto] = posts
 
   return (
-    <>
-      {/* Hero */}
-      <section className="bg-green-800 text-white py-20 px-4 text-center">
-        <p className="text-green-300 text-sm font-medium uppercase tracking-widest mb-3">Nuestro blog</p>
-        <h1 className="text-4xl md:text-5xl font-bold mb-4 leading-tight">
-          Vida natural & consciente
-        </h1>
-        <p className="text-green-100 text-lg max-w-xl mx-auto leading-relaxed">
-          Artículos sobre cosmética natural, ingredientes, sustentabilidad y todo lo que te ayuda
-          a cuidarte mejor.
-        </p>
-      </section>
+    <div className="min-h-screen bg-stone-50">
 
-      <div className="max-w-6xl mx-auto px-4 py-14">
+      {/* ── Header ─────────────────────────────────────────────────────────── */}
+      <div className="bg-white border-b border-stone-200">
+        <div className="max-w-6xl mx-auto px-4 py-10">
+          <p className="text-green-600 text-sm font-semibold uppercase tracking-widest mb-2">
+            Elitian Blog
+          </p>
+          <h1 className="text-4xl font-bold text-stone-800 mb-3">
+            Vida natural & consciente
+          </h1>
+          <p className="text-stone-500 max-w-xl leading-relaxed">
+            Cosmética natural, ingredientes, sustentabilidad y todo lo que te ayuda a cuidarte mejor.
+          </p>
+
+          {/* Filtros de categoría */}
+          {categorias.length > 0 && (
+            <div className="flex flex-wrap gap-2 mt-6">
+              <Link
+                href="/blog"
+                className="px-4 py-1.5 rounded-full text-sm font-medium bg-green-700 text-white"
+              >
+                Todos
+              </Link>
+              {categorias.map((cat) => (
+                <Link
+                  key={cat.id}
+                  href={`/blog/categoria/${cat.slug}`}
+                  className="px-4 py-1.5 rounded-full text-sm font-medium bg-stone-100 text-stone-600 hover:bg-green-50 hover:text-green-700 transition-colors"
+                >
+                  {cat.nombre}
+                </Link>
+              ))}
+            </div>
+          )}
+        </div>
+      </div>
+
+      <div className="max-w-6xl mx-auto px-4 py-12">
 
         {posts.length === 0 ? (
-          <div className="text-center py-24">
-            <p className="text-5xl mb-4">✍️</p>
+          <div className="text-center py-28">
+            <Leaf className="w-12 h-12 mx-auto mb-4 text-stone-300" />
             <h2 className="text-xl font-semibold text-stone-800 mb-2">Próximamente</h2>
             <p className="text-stone-500">Estamos preparando contenido. ¡Volvé pronto!</p>
           </div>
         ) : (
           <>
-            {/* Filtro por categoría */}
-            {categorias.length > 0 && (
-              <div className="flex flex-wrap gap-2 mb-10">
-                <Link
-                  href="/blog"
-                  className="px-4 py-1.5 rounded-full text-sm font-medium bg-green-700 text-white"
-                >
-                  Todos
-                </Link>
-                {categorias.map((cat) => (
-                  <Link
-                    key={cat.id}
-                    href={`/blog?categoria=${cat.slug}`}
-                    className="px-4 py-1.5 rounded-full text-sm font-medium bg-stone-100 text-stone-600 hover:bg-green-50 hover:text-green-700 transition-colors"
-                  >
-                    {cat.nombre}
-                  </Link>
-                ))}
-              </div>
-            )}
 
-            {/* Post destacado */}
+            {/* ── Post destacado ──────────────────────────────────────────── */}
             {featured && (
               <Link
                 href={`/blog/${featured.slug}`}
-                className="group grid md:grid-cols-2 gap-0 bg-white border border-stone-200 rounded-3xl overflow-hidden hover:shadow-lg transition-shadow mb-12"
+                className="group grid md:grid-cols-5 bg-white rounded-3xl overflow-hidden border border-stone-200 hover:shadow-lg transition-shadow mb-12"
               >
-                <div className="relative aspect-video md:aspect-auto bg-stone-100">
+                {/* Imagen */}
+                <div className="md:col-span-3 relative aspect-video md:aspect-auto min-h-64 bg-stone-100">
                   {featured.imagen_post ? (
                     <Image
                       src={featured.imagen_post}
                       alt={featured.titulo}
                       fill
                       className="object-cover group-hover:scale-105 transition-transform duration-500"
+                      priority
                     />
                   ) : (
-                    <div className="w-full h-full min-h-64 flex items-center justify-center bg-green-50">
-                      <Leaf className="w-14 h-14 text-green-200" />
+                    <div className="w-full h-full flex items-center justify-center bg-green-50">
+                      <Leaf className="w-16 h-16 text-green-200" />
                     </div>
                   )}
+                  {/* Badge destacado */}
+                  <span className="absolute top-4 left-4 bg-green-700 text-white text-xs font-bold px-3 py-1 rounded-full">
+                    Destacado
+                  </span>
                 </div>
-                <div className="p-8 md:p-10 flex flex-col justify-center">
-                  <div className="flex items-center gap-3 mb-4">
+
+                {/* Contenido */}
+                <div className="md:col-span-2 p-8 md:p-10 flex flex-col justify-center">
+                  <div className="flex items-center gap-2 mb-4">
                     <span className="bg-green-100 text-green-700 text-xs font-semibold px-3 py-1 rounded-full">
                       {featured.categoria.nombre}
                     </span>
@@ -104,17 +122,21 @@ export default async function BlogPage() {
                   <h2 className="text-2xl md:text-3xl font-bold text-stone-800 mb-3 group-hover:text-green-700 transition-colors leading-snug">
                     {featured.titulo}
                   </h2>
-                  <p className="text-stone-500 mb-6 leading-relaxed">{featured.subtitulo}</p>
-                  <div className="flex items-center gap-3 text-sm text-stone-400">
-                    <span className="font-medium text-stone-600">{featured.autor_nombre}</span>
-                    <span>·</span>
-                    <span>{formatFecha(featured.creado)}</span>
+                  <p className="text-stone-500 leading-relaxed mb-6 line-clamp-3">
+                    {featured.subtitulo}
+                  </p>
+                  <div className="flex items-center gap-4 text-xs text-stone-400">
+                    <span className="font-semibold text-stone-600">{featured.autor_nombre}</span>
+                    <span className="flex items-center gap-1">
+                      <Calendar className="w-3.5 h-3.5" />
+                      {formatFecha(featured.creado)}
+                    </span>
                   </div>
                 </div>
               </Link>
             )}
 
-            {/* Grid de posts */}
+            {/* ── Grid de posts ───────────────────────────────────────────── */}
             {resto.length > 0 && (
               <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-7">
                 {resto.map((post) => (
@@ -123,7 +145,8 @@ export default async function BlogPage() {
                     href={`/blog/${post.slug}`}
                     className="group bg-white border border-stone-200 rounded-2xl overflow-hidden hover:shadow-md transition-shadow flex flex-col"
                   >
-                    <div className="relative aspect-video bg-stone-100">
+                    {/* Imagen */}
+                    <div className="relative aspect-video bg-stone-100 overflow-hidden">
                       {post.imagen_post ? (
                         <Image
                           src={post.imagen_post}
@@ -137,39 +160,56 @@ export default async function BlogPage() {
                         </div>
                       )}
                     </div>
+
+                    {/* Contenido */}
                     <div className="p-6 flex flex-col flex-1">
                       <div className="flex items-center gap-2 mb-3">
                         <span className="bg-green-100 text-green-700 text-xs font-semibold px-2.5 py-0.5 rounded-full">
                           {post.categoria.nombre}
                         </span>
+                        {post.etiqueta && (
+                          <span className="text-stone-400 text-xs truncate">{post.etiqueta}</span>
+                        )}
                       </div>
-                      <h3 className="font-bold text-stone-800 mb-2 group-hover:text-green-700 transition-colors leading-snug line-clamp-2">
+
+                      <h3 className="font-bold text-stone-800 mb-2 group-hover:text-green-700 transition-colors leading-snug line-clamp-2 flex-1">
                         {post.titulo}
                       </h3>
-                      <p className="text-stone-500 text-sm leading-relaxed line-clamp-2 flex-1 mb-4">
+
+                      <p className="text-stone-500 text-sm leading-relaxed line-clamp-2 mb-4">
                         {post.subtitulo}
                       </p>
-                      <div className="flex items-center gap-2 text-xs text-stone-400 border-t border-stone-100 pt-4">
+
+                      <div className="flex items-center justify-between text-xs text-stone-400 border-t border-stone-100 pt-4">
                         <span className="font-medium text-stone-500">{post.autor_nombre}</span>
-                        <span>·</span>
-                        <span>{formatFecha(post.creado)}</span>
+                        <div className="flex items-center gap-3">
+                          <span className="flex items-center gap-1">
+                            <Clock className="w-3 h-3" />
+                            {estimarLectura(post.subtitulo)} min
+                          </span>
+                          <span className="flex items-center gap-1">
+                            <Calendar className="w-3 h-3" />
+                            {formatFecha(post.creado)}
+                          </span>
+                        </div>
                       </div>
                     </div>
                   </Link>
                 ))}
               </div>
             )}
+
           </>
         )}
 
-        {/* Newsletter */}
-        <section className="mt-20 bg-green-50 border border-green-100 rounded-3xl px-8 py-12 text-center">
-          <p className="text-3xl mb-4">💌</p>
-          <h2 className="text-2xl font-semibold text-stone-800 mb-3">
+        {/* ── Newsletter ─────────────────────────────────────────────────── */}
+        <section className="mt-20 bg-white border border-stone-200 rounded-3xl px-8 py-12 text-center">
+          <p className="text-green-600 text-xs font-semibold uppercase tracking-widest mb-3">Comunidad Elitian</p>
+          <h2 className="text-2xl font-bold text-stone-800 mb-3">
             ¿Querés recibir nuestro contenido?
           </h2>
           <p className="text-stone-500 max-w-md mx-auto mb-6 leading-relaxed">
-            Escribinos por WhatsApp y te avisamos cuando publiquemos nuevos artículos.
+            Escribinos por WhatsApp y te avisamos cuando publiquemos nuevos artículos sobre cosmética natural y vida consciente.
           </p>
           <a
             href="https://wa.me/+5493624135017"
@@ -185,6 +225,6 @@ export default async function BlogPage() {
         </section>
 
       </div>
-    </>
+    </div>
   )
 }
